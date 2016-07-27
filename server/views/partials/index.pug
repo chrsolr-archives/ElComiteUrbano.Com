@@ -4,7 +4,10 @@ block content
     .header.header-filter.header-banner
         .container
             .row
-                .col-md-6
+                .col-md-12
+                    .brand
+                        h1.text-center EL COMITE URBANO
+                        h3.text-center #1 Online Radio Station
                     
 
     .main.main-raised
@@ -25,6 +28,8 @@ block content
                                         img(src=video.imageUrl, alt=video.title, class="img-responsive", width="100%")
                                         h4
                                             a(class="mfp-video-popup mfp-iframe", href=video.videoUrl) #{video.title}
+                                    .panel-footer
+                                        a(class="mfp-video-popup mfp-iframe text-success", href=video.videoUrl) View
                     .col-md-6
                         each video, index in youtube.videos
                             if index % 2 !== 0
@@ -33,6 +38,8 @@ block content
                                         img(src=video.imageUrl, alt=video.title, class="img-responsive", width="100%")
                                         h4
                                             a(class="mfp-video-popup mfp-iframe", href=video.videoUrl) #{video.title}
+                                    .panel-footer
+                                        a(class="mfp-video-popup mfp-iframe text-success", href=video.videoUrl) View
             hr
 
             section.music.top-margin
@@ -44,6 +51,8 @@ block content
                                     img(src=song.imageUrl, alt=song.title, class="img-responsive", width="100%")
                                     h4
                                         a(class="mfp-video-popup mfp-iframe", href=song.trackUrl) #{song.title}
+                                .panel-footer
+                                    a(class="mfp-video-popup mfp-iframe text-success", href=song.trackUrl) Listen
                             
     script.
         requirejs(['/js/scripts/index.js']);

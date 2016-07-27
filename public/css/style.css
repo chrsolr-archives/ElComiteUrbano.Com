@@ -24,13 +24,14 @@ a:focus {
 }
 .navbar,
 .navbar.navbar-default {
-  background-color: #028482;
+  background-color: rgba(255, 255, 255, 0.97);
+  color: #028482;
 }
 .navbar .dropdown-menu li > a:hover,
 .navbar .dropdown-menu li > a:focus,
 .navbar.navbar-default .dropdown-menu li > a:hover,
 .navbar.navbar-default .dropdown-menu li > a:focus {
-  background-color: #028482;
+  background-color: rgba(255, 255, 255, 0.97);
 }
 body {
   background-color: #f1f1f1;
