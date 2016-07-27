@@ -1,0 +1,20 @@
+extends ../layout.pug
+
+block content
+
+    .container
+        
+        div(class="section-title margin-top-20 fade-into-view")
+            span Videos
+            
+        .row.margin-top-20
+            each video in youtube.videos
+                .col-sm-6.fade-into-view
+                    figure(class="image-wrapper height-300")
+                        a(class="mfp-video-popup mfp-iframe", href="#{video.videoUrl}")
+                            img(src="#{video.imageUrl}", alt="#{video.title}", class="img-responsive desaturate")
+                        .content
+                            .content-text
+                                span(class="title truncate") 
+                                    a(class="mfp-video-popup mfp-iframe ", href="#{video.videoUrl}") #{video.title}
+                                span(class="subtitle truncate") #{video.description}

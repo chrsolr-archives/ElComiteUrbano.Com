@@ -1,0 +1,13 @@
+.c9
+.idea
+typings
+node_modules
+npm-debug.log
+public/libs/*
+!public/libs/require/require.min.js
+bower_components
+public/css/*.css
+!public/css/style.css
+!public/css/style.min.css
+!public/libs/pe-icon-7-stroke
+!public/libs/material-kit

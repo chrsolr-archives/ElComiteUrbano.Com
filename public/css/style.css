@@ -1,0 +1,46 @@
+.top-margin {
+  margin-top: 30px;
+}
+.main-raised {
+  border-radius: 2px;
+}
+a {
+  color: #212121;
+}
+a:hover,
+a:focus {
+  color: #028482;
+  text-decoration: none;
+}
+@media only screen and (min-width: 544px) and (max-width: 767px) {
+  body {
+    padding-bottom: 5rem !important;
+  }
+}
+@media only screen and (max-width: 543px) {
+  body {
+    padding-bottom: 5rem !important;
+  }
+}
+.navbar,
+.navbar.navbar-default {
+  background-color: #028482;
+}
+.navbar .dropdown-menu li > a:hover,
+.navbar .dropdown-menu li > a:focus,
+.navbar.navbar-default .dropdown-menu li > a:hover,
+.navbar.navbar-default .dropdown-menu li > a:focus {
+  background-color: #028482;
+}
+body {
+  background-color: #f1f1f1;
+}
+.footer {
+  margin-top: 60px;
+  background-color: white;
+}
+.header-banner {
+  background: url(/assets/images/banners/ecu-square-banner.jpg) no-repeat center center fixed;
+  background-size: cover;
+  min-height: 100vh;
+}

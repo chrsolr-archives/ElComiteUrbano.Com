@@ -1,0 +1,49 @@
+extends ../layout.pug
+
+block content
+    .header.header-filter.header-banner
+        .container
+            .row
+                .col-md-6
+                    
+
+    .main.main-raised
+        .container
+            section.video-promo.top-margin
+                .panel.panel-default
+                    .panel-body
+                        .embed-responsive.embed-responsive-16by9
+                            iframe(class="embed-responsive-item", src=featuredVideo.videoUrl, frameborder="0", style="border: 0px none transparent;")
+
+            section.videos.top-margin
+                .row
+                    .col-md-6
+                        each video, index in youtube.videos
+                            if index % 2 === 0
+                                .panel.panel-default
+                                    .panel-body
+                                        img(src=video.imageUrl, alt=video.title, class="img-responsive", width="100%")
+                                        h4
+                                            a(class="mfp-video-popup mfp-iframe", href=video.videoUrl) #{video.title}
+                    .col-md-6
+                        each video, index in youtube.videos
+                            if index % 2 !== 0
+                                .panel.panel-default
+                                    .panel-body
+                                        img(src=video.imageUrl, alt=video.title, class="img-responsive", width="100%")
+                                        h4
+                                            a(class="mfp-video-popup mfp-iframe", href=video.videoUrl) #{video.title}
+            hr
+
+            section.music.top-margin
+                .row
+                    each song in soundcloud
+                        .col-md-4.col-sm-6
+                            .panel.panel-default
+                                .panel-body
+                                    img(src=song.imageUrl, alt=song.title, class="img-responsive", width="100%")
+                                    h4
+                                        a(class="mfp-video-popup mfp-iframe", href=song.trackUrl) #{song.title}
+                            
+    script.
+        requirejs(['/js/scripts/index.js']);

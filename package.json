@@ -1,0 +1,35 @@
+{
+  "name": "elcomiteurbano",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "bower": "^1.7.9",
+    "express": "^4.13.4",
+    "pug": "^2.0.0-alpha6",
+    "mongoose": "^4.4.20",
+    "morgan": "^1.7.0",
+    "request": "^2.72.0"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "gulp": "^3.9.1",
+    "gulp-cssnano": "^2.1.2",
+    "gulp-less": "^3.1.0",
+    "gulp-load-plugins": "^1.2.4",
+    "gulp-minify": "0.0.12",
+    "gulp-rename": "^1.2.2",
+    "gulp-tsconfig": "^0.1.0",
+    "gulp-typescript": "^2.13.6",
+    "mocha": "^2.5.3",
+    "typescript": "^1.8.10"
+  },
+  "scripts": {
+    "test": "mocha",
+    "start": "node server.js",
+    "postinstall": "bower cache clean && bower install"
+  },
+  "author": "Christian Soler",
+  "license": "MIT"
+}

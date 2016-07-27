@@ -1,0 +1,20 @@
+{
+    "compilerOptions": {
+        "module": "amd",
+        "target": "es5",
+        "removeComments": true,
+        "noImplicitAny": true,
+        "sourceMap": true,
+        "noImplicitReturns": true,
+        "suppressImplicitAnyIndexErrors": true,
+        "noFallthroughCasesInSwitch": true,
+        "allowUnreachableCode": false,
+        "outDir": "./public/js/"
+    },
+    "files": ["public/typescript/modules/animation.ts",
+        "public/typescript/modules/bootstrapper.ts",
+        "public/typescript/modules/navigation-bar.ts",
+        "public/typescript/modules/smooth-scroll-to.ts",
+        "public/typescript/scripts/index.ts"
+    ]
+}
