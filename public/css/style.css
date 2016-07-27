@@ -12,6 +12,9 @@ a:focus {
   color: #028482;
   text-decoration: none;
 }
+small {
+  color: #848484;
+}
 @media only screen and (min-width: 544px) and (max-width: 767px) {
   body {
     padding-bottom: 5rem !important;

@@ -27,6 +27,7 @@ define(["require", "exports", 'jquery', "dotdotdot", "magnific", "material"], fu
                     }
                 }, 17));
             }
+            this.initTruncate();
             this.initMagnificPopup();
             function debounce(func, wait, immediate) {
                 var timeout;
@@ -43,6 +44,20 @@ define(["require", "exports", 'jquery', "dotdotdot", "magnific", "material"], fu
                 };
             }
             ;
+        };
+        Bootstrapper.prototype.initTruncate = function () {
+            $('.truncate').dotdotdot({
+                ellipsis: '…',
+                watch: true,
+                wrap: 'word',
+                height: parseInt($('.truncate').css('line-height'), 10) * 1,
+                lastCharacter: {
+                    remove: [' ', ',', ';', '.', '!', '?'],
+                    noEllipsis: []
+                }, callback: function (isTruncated, orgContent) {
+                    $(orgContent.context).css({ 'opacity': '1' });
+                }
+            });
         };
         Bootstrapper.prototype.initMagnificPopup = function () {
             $('.mfp-video-popup').magnificPopup({

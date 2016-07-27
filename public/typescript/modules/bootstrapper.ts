@@ -44,7 +44,7 @@ export class Bootstrapper {
         }
 
         // this.initNavigationBar();
-        // this.initTruncate();
+        this.initTruncate();
         // this.initSmoothMouseScroll();
         this.initMagnificPopup();
         // this.initFadeIntoView('fade-into-view');
@@ -82,20 +82,20 @@ export class Bootstrapper {
     //     });
     // }
 
-    // initTruncate() {
-    //     $('.truncate').dotdotdot({
-    //         ellipsis: '…',
-    //         watch: true,
-    //         wrap: 'word',
-    //         height: parseInt($('.truncate').css('line-height'), 10) * 1,
-    //         lastCharacter: {
-    //             remove: [' ', ',', ';', '.', '!', '?'],
-    //             noEllipsis: []
-    //         }, callback: (isTruncated, orgContent) => {
-    //             $(orgContent.context).css({ 'opacity': '1' });
-    //         }
-    //     });
-    // }
+    initTruncate() {
+        $('.truncate').dotdotdot({
+            ellipsis: '…',
+            watch: true,
+            wrap: 'word',
+            height: parseInt($('.truncate').css('line-height'), 10) * 1,
+            lastCharacter: {
+                remove: [' ', ',', ';', '.', '!', '?'],
+                noEllipsis: []
+            }, callback: (isTruncated, orgContent) => {
+                $(orgContent.context).css({ 'opacity': '1' });
+            }
+        });
+    }
 
     initMagnificPopup() {
         $('.mfp-video-popup').magnificPopup({

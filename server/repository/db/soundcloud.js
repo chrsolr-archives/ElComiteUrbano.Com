@@ -31,8 +31,8 @@ const soundcloud = (() => {
                             url: item.permalink_url,
                             imageUrl: cover,
                             dateCreated: item.created_at,
-                            stream_url: item.stream_url + '?client_id=' + config.apisKeys.soundcloud_client_id,
-                            download_url: item.download_url + '?client_id=' + config.apisKeys.soundcloud_client_id,
+                            stream_url: item.stream_url + '?client_id=' + config.apisKeys.SC_CLIENT_ID,
+                            download_url: (item.downloadable) ? item.download_url + '?client_id=' + config.apisKeys.SC_CLIENT_ID : undefined,
                             download_count: item.download_count || 0,
                             playback_count: item.playback_count || 0,
                             trackUrl: `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${item.id}&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true`
