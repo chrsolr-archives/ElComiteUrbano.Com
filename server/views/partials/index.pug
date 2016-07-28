@@ -11,12 +11,14 @@ block content
 
     .main.main-raised
         .container
+            h2.page-header.text-success Video De La Semana
             section.video-promo.top-margin
                 .panel.panel-default
                     .panel-body
                         .embed-responsive.embed-responsive-16by9
                             iframe(class="embed-responsive-item", src=featuredVideo.videoUrl, frameborder="0", style="border: 0px none transparent;")
 
+            h2.page-header.text-success Videos
             section.videos.top-margin
                 .row
                     .col-md-6
@@ -41,8 +43,8 @@ block content
                                     .panel-footer
                                         a(class="mfp-video-popup mfp-iframe text-success", href=video.videoUrl) View
                                         p.text-success.pull-right #{video.publishedAt}
-            hr
-
+            
+            h2.page-header.text-success Musica
             section.music.top-margin
                 .row
                     each song in soundcloud
