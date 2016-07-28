@@ -1,6 +1,10 @@
 .top-margin {
   margin-top: 30px;
 }
+.top-bottom-padding {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
 .main-raised {
   border-radius: 2px;
 }
