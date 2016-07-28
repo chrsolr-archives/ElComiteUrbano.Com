@@ -11,56 +11,61 @@ block content
                         .text-center
                             a.btn.btn-raised.text-success(href="http://nitelineradio.com", target="_blank") En Vivo Por Nite Line Radio
 
-    .main.main-raised
-        .container
-            h2.page-header.text-success Video De La Semana
-            section.video-promo.top-margin
-                .panel.panel-default
-                    .panel-body
-                        .embed-responsive.embed-responsive-16by9
-                            iframe(class="embed-responsive-item", src=featuredVideo.videoUrl, frameborder="0", style="border: 0px none transparent;")
-
-            h2.page-header.text-success Videos
-            section.videos.top-margin
-                .row
-                    .col-md-6
-                        each video, index in youtube.videos
-                            if index % 2 === 0
-                                .panel.panel-default
-                                    .panel-body
-                                        img(src=video.imageUrl, alt=video.title, class="img-responsive", width="100%")
-                                        h4
-                                            a(class="mfp-video-popup mfp-iframe", href=video.videoUrl) #{video.title}
-                                    .panel-footer
-                                        a(class="mfp-video-popup mfp-iframe text-success", href=video.videoUrl) View
-                                        p.text-success.pull-right #{video.publishedAt}
-                    .col-md-6
-                        each video, index in youtube.videos
-                            if index % 2 !== 0
-                                .panel.panel-default
-                                    .panel-body
-                                        img(src=video.imageUrl, alt=video.title, class="img-responsive", width="100%")
-                                        h4
-                                            a(class="mfp-video-popup mfp-iframe", href=video.videoUrl) #{video.title}
-                                    .panel-footer
-                                        a(class="mfp-video-popup mfp-iframe text-success", href=video.videoUrl) View
-                                        p.text-success.pull-right #{video.publishedAt}
+    div
+        .main.main-raised.no-side-margin.bottom-margin
+            .container
+                h2.page-header.text-success Video De La Semana
+                section.video-promo
+                    .panel.panel-default
+                        .panel-body
+                            .embed-responsive.embed-responsive-16by9
+                                iframe(class="embed-responsive-item", src=featuredVideo.videoUrl, frameborder="0", style="border: 0px none transparent;")
+        
+        .main.main-raised.no-side-margin.bottom-margin
+            .container
+                h2.page-header.text-success Videos
+                section.videos
+                    .row
+                        .col-md-6
+                            each video, index in youtube.videos
+                                if index % 2 === 0
+                                    .panel.panel-default
+                                        .panel-body
+                                            img(src=video.imageUrl, alt=video.title, class="img-responsive", width="100%")
+                                            h4
+                                                a(class="mfp-video-popup mfp-iframe", href=video.videoUrl) #{video.title}
+                                        .panel-footer
+                                            a(class="mfp-video-popup mfp-iframe text-success", href=video.videoUrl) View
+                                            p.text-success.pull-right #{video.publishedAt}
+                        .col-md-6
+                            each video, index in youtube.videos
+                                if index % 2 !== 0
+                                    .panel.panel-default
+                                        .panel-body
+                                            img(src=video.imageUrl, alt=video.title, class="img-responsive", width="100%")
+                                            h4
+                                                a(class="mfp-video-popup mfp-iframe", href=video.videoUrl) #{video.title}
+                                        .panel-footer
+                                            a(class="mfp-video-popup mfp-iframe text-success", href=video.videoUrl) View
+                                            p.text-success.pull-right #{video.publishedAt}
             
-            h2.page-header.text-success Musica
-            section.music.top-margin
-                .row
-                    each song in soundcloud
-                        .col-md-4.col-sm-6
-                            .panel.panel-default
-                                .panel-body
-                                    img(src=song.imageUrl, alt=song.title, class="img-responsive", width="100%")
-                                    h4
-                                        a(class="mfp-video-popup mfp-iframe", href=song.trackUrl) #{song.title}
-                                    small.truncate #{song.artists}
-                                .panel-footer
-                                    a(class="mfp-video-popup mfp-iframe text-success", href=song.trackUrl) Listen
-                                    if song.download_url
-                                        a(class="text-success pull-right", href=song.download_url) Download
+        .main.main-raised.no-side-margin.bottom-margin
+            .container
+                h2.page-header.text-success Musica
+                section.music.top-margin
+                    .row
+                        each song in soundcloud
+                            .col-md-4.col-sm-6
+                                .panel.panel-default
+                                    .panel-body
+                                        img(src=song.imageUrl, alt=song.title, class="img-responsive", width="100%")
+                                        h4
+                                            a(class="mfp-video-popup mfp-iframe", href=song.trackUrl) #{song.title}
+                                        small.truncate #{song.artists}
+                                    .panel-footer
+                                        a(class="mfp-video-popup mfp-iframe text-success", href=song.trackUrl) Listen
+                                        if song.download_url
+                                            a(class="text-success pull-right", href=song.download_url) Download
                             
     script.
         requirejs(['/js/scripts/index.js']);
