@@ -18,8 +18,8 @@ const getIndex = (req, res, next) => {
             soundcloud: values[2]
         };
 
-        data.youtube.videos = split(data.youtube.videos, 3);
-        data.soundcloud = split(data.soundcloud, 3);
+        data.youtube.videos = splitForBoostrapColumns(data.youtube.videos, 3);
+        data.soundcloud = splitForBoostrapColumns(data.soundcloud, 3);
 
         res.render('partials/index', data);
     }, (err) => {
@@ -31,11 +31,12 @@ const getAbout = (req, res, next) => {
     res.render('partials/about');
 }
 
-function split(arr, n) {
+//https://jsfiddle.net/qt651L6f/
+function splitForBoostrapColumns(arr, n) {
     var obj = {};
 
     for (var i = 0; i < n; i++) {
-        obj['set' + i] = [];
+        obj['column' + (i+1)] = [];
     }
 
     for (var i = 0; i < arr.length; i++) {
@@ -43,7 +44,7 @@ function split(arr, n) {
 
         for (var j = 0; j < n; j++) {
             if (arr[c])
-                obj['set' + j].push(arr[c]);
+                obj['column' + (j+1)].push(arr[c]);
             c++;
         }
 
