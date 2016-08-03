@@ -18,8 +18,8 @@ const getIndex = (req, res, next) => {
             soundcloud: values[2]
         };
 
-        data.youtube.videos = splitForBoostrapColumns(data.youtube.videos, 3);
-        data.soundcloud = splitForBoostrapColumns(data.soundcloud, 3);
+        data.youtube.videos = data.youtube.videos.split(3);
+        data.soundcloud = data.soundcloud.split(3);
 
         res.render('partials/index', data);
     }, (err) => {
@@ -31,27 +31,26 @@ const getAbout = (req, res, next) => {
     res.render('partials/about');
 }
 
-//https://jsfiddle.net/qt651L6f/
-function splitForBoostrapColumns(arr, n) {
-    var obj = {};
+//https://jsfiddle.net/qt651L6f/1/
+Array.prototype.split = function(n) {
+  var obj = [];
+  var counter = 0;
 
-    for (var i = 0; i < n; i++) {
-        obj['column' + (i+1)] = [];
-    }
+  this.map(function(value, index) {
 
-    for (var i = 0; i < arr.length; i++) {
-        var c = i;
+    obj[counter] = (Array.isArray(obj[counter])) ? obj[counter] : [];
 
-        for (var j = 0; j < n; j++) {
-            if (arr[c])
-                obj['column' + (j+1)].push(arr[c]);
-            c++;
-        }
+    obj[counter].push(value);
 
-        i = (i + n - 1);
-    }
+    counter++;
 
-    return obj;
+    if (counter === 3)
+      counter = 0;
+
+    return;
+  });
+
+  return obj;
 };
 
 exports.getIndex = getIndex;
