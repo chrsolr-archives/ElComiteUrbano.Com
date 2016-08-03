@@ -26,20 +26,9 @@ block content
                 h2.page-header.text-success Videos
                 section.videos
                     .row
-                        .col-md-6
-                            each video, index in youtube.videos
-                                if index % 2 === 0
-                                    .panel.panel-default
-                                        .panel-body
-                                            img(src=video.imageUrl, alt=video.title, class="img-responsive", width="100%")
-                                            h4
-                                                a(class="mfp-video-popup mfp-iframe", href=video.videoUrl) #{video.title}
-                                        .panel-footer
-                                            a(class="mfp-video-popup mfp-iframe text-success", href=video.videoUrl) View
-                                            p.text-success.pull-right #{video.publishedAt}
-                        .col-md-6
-                            each video, index in youtube.videos
-                                if index % 2 !== 0
+                        each videos in youtube.videos
+                            .col-md-4
+                                each video in videos
                                     .panel.panel-default
                                         .panel-body
                                             img(src=video.imageUrl, alt=video.title, class="img-responsive", width="100%")
@@ -54,18 +43,19 @@ block content
                 h2.page-header.text-success Musica
                 section.music.top-margin
                     .row
-                        each song in soundcloud
-                            .col-md-4.col-sm-6
-                                .panel.panel-default
-                                    .panel-body
-                                        img(src=song.imageUrl, alt=song.title, class="img-responsive", width="100%")
-                                        h4
-                                            a(class="mfp-video-popup mfp-iframe", href=song.trackUrl) #{song.title}
-                                        small.truncate #{song.artists}
-                                    .panel-footer
-                                        a(class="mfp-video-popup mfp-iframe text-success", href=song.trackUrl) Listen
-                                        if song.download_url
-                                            a(class="text-success pull-right", href=song.download_url) Download
+                        each songs in soundcloud
+                            .col-md-4
+                                each song in songs
+                                    .panel.panel-default
+                                        .panel-body
+                                            img(src=song.imageUrl, alt=song.title, class="img-responsive", width="100%")
+                                            h4
+                                                a(class="mfp-video-popup mfp-iframe", href=song.trackUrl) #{song.title}
+                                            small.truncate #{song.artists}
+                                        .panel-footer
+                                            a(class="mfp-video-popup mfp-iframe text-success", href=song.trackUrl) Listen
+                                            if song.download_url
+                                                a(class="text-success pull-right", href=song.download_url) Download
                             
     script.
         requirejs(['/js/scripts/index.js']);
