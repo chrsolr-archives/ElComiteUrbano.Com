@@ -1,17 +1,17 @@
 'use strict';
 
-exports.config = (() => {
+module.exports = (() => {
 
     const client = './public/';
 
     const db = {
-        URI: process.env.DB_CONNECTION
+        URI: process.env.DB_CONNECTION || 'mongodb://dev:testdummy@ds051665.mongolab.com:51665/ecu-db-dev'
     };
 
     const environment = {
         PORT: process.env.PORT || 3000,
-        ENV: process.env.NODE_ENV,
-        BRAND_TITLE: process.env.BRAND_TITLE
+        ENV: process.env.NODE_ENV || 'DEV',
+        BRAND_TITLE: process.env.BRAND_TITLE || 'ECU-Dev'
     };
 
     const api_keys = {
