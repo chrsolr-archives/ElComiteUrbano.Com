@@ -1,0 +1,25 @@
+{
+    "compilerOptions": {
+        "module": "amd",
+        "target": "es5",
+        "allowJs": false,
+        "removeComments": true,
+        "noImplicitAny": false,
+        "sourceMap": false,
+        "noImplicitReturns": false,
+        "suppressImplicitAnyIndexErrors": true,
+        "suppressExcessPropertyErrors": true,
+        "noFallthroughCasesInSwitch": true,
+        "allowUnreachableCode": false,
+        "allowSyntheticDefaultImports": true,
+        "rootDir": "./public/typescript/",
+        "declaration": true,
+        "alwaysStrict": true,
+        "noEmitOnError": false,
+        "noEmit": false,
+        "noResolve": true
+    },
+    "files": ["public/typescript/modules/bootstrapper.ts",
+        "public/typescript/modules/navbar.ts"
+    ]
+}

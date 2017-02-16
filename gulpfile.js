@@ -28,4 +28,27 @@ gulp.task('minify-css', ['autoprefixer'], () => {
         .pipe(gulp.dest(config.paths.CSS));
 });
 
-gulp.task('default', ['minify-css']);
+gulp.task('tsconfig', () => {
+    var tsConfig = glp.tsconfig(config.gulp.ts_config_json);
+
+    return gulp.src([config.paths.TYPESCRIPT + "**/*.ts"])
+        .pipe(tsConfig())
+        .pipe(gulp.dest('./'));
+});
+
+gulp.task('ts-compile', ['tsconfig'], () => {
+    var ts = glp.typescript;
+    var tsProject = ts.createProject('./tsconfig.json');
+
+    return tsProject.src()
+        .pipe(tsProject(ts.reporter.nullReporter())).js
+        //.pipe(glp.minify(config.gulp.minify_opts))
+        .pipe(gulp.dest(`${config.paths.JS}`));
+});
+
+gulp.task('copy-require-main-js', () => {
+    return gulp.src(`${config.paths.TYPESCRIPT}config/main.js`)
+        .pipe(gulp.dest(config.paths.JS));
+});
+
+gulp.task('default', ['minify-css', 'ts-compile', 'copy-require-main-js']);

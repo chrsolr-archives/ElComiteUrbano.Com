@@ -1,0 +1,4 @@
+@function spacing($level, $unit: px) {
+    $sum: ($level * 5);
+    @return $sum + $unit;
+}

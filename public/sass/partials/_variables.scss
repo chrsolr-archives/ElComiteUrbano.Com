@@ -1,1 +1,11 @@
 $navbar-height: 100px;
+
+$highdensity: "only screen and (-webkit-min-device-pixel-ratio: 1.5)",
+              "only screen and (min--moz-device-pixel-ratio: 1.5)",
+              "only screen and (-o-min-device-pixel-ratio: 3/2)",
+              "only screen and (min-device-pixel-ratio: 1.5)";
+$media-x-small:     "only screen and (max-width: 543px)";
+$media-small:       "only screen and (min-width: 544px) and (max-width: 767px)";
+$media-medium:      "only screen and (min-width: 768px) and (max-width: 991px)";
+$media-large:       "only screen and (min-width: 992px) and (max-width: 1199px)";
+$media-x-large:     "only screen and (min-width: 1200px)";

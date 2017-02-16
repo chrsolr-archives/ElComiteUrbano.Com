@@ -33,7 +33,7 @@ module.exports = (() => {
 
     const gulp = {
         ts_config_json: {
-            order: [
+            tsOrder: [
                 `**/typescript/**/*.ts`
             ],
             tsConfig: {
@@ -49,11 +49,13 @@ module.exports = (() => {
                     suppressExcessPropertyErrors: true,
                     noFallthroughCasesInSwitch: true,
                     allowUnreachableCode: false,
+                    allowSyntheticDefaultImports: true,
                     rootDir: `${paths.TYPESCRIPT}`,
                     declaration: true,
                     alwaysStrict: true,
                     noEmitOnError: false,
-                    noEmit: false
+                    noEmit: false,
+                    noResolve: true,
                 }
             }
         },
