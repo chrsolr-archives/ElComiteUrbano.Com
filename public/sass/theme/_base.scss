@@ -1,0 +1,19 @@
+@import "./partials/_utils";
+
+html {
+    font-size: $font-size-base;
+
+    body {
+        background-color: $color-bg-primary; 
+        font-weight: $font-weight-regular;
+        font-size: $font-size-base;
+        
+        color: $color-font-light;
+        font-family: $roboto;
+        padding-top: $navbar-height;
+        backface-visibility: hidden;
+        -webkit-overflow-scrolling: touch;
+        -webkit-font-smoothing: antialiased;
+        font-smoothing: antialiased;
+    }
+}

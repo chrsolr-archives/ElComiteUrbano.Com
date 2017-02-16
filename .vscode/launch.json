@@ -9,7 +9,7 @@
             "stopOnEntry": false,
             "args": [],
             "cwd": "${workspaceRoot}",
-            //"preLaunchTask": "default",
+            "preLaunchTask": "default",
             "runtimeExecutable": null,
             "runtimeArgs": [
                 "--nolazy"
