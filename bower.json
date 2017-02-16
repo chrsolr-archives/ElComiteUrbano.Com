@@ -17,10 +17,8 @@
   ],
   "dependencies": {
     "bootstrap": "~3.3.6",
-    "gsap": "^1.18.2",
     "magnific-popup": "^1.1.0",
     "jQuery.dotdotdot": "^1.8.1",
-    "requirejs": "^2.2.0",
-    "bootstrap-material-design": "^0.5.10"
+    "requirejs": "^2.2.0"
   }
 }

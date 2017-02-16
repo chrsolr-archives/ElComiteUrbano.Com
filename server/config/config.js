@@ -1,73 +1,86 @@
-const config = (() => {
-    'use strict';
+'use strict';
 
-    const client = './public';
+exports.config = (() => {
 
-    const server = {
-        PORT: process.env.PORT || 3000,
-        ENV: process.env.NODE_ENV || 'development',
-        DB_URI: process.env.DB_CONNECTION || 'mongodb://dev:testdummy@ds051665.mongolab.com:51665/ecu-db-dev'
+    const client = './public/';
+
+    const db = {
+        URI: process.env.DB_CONNECTION
     };
 
-    const apisKeys = {
-        SC_CLIENT_ID: process.env.SC_CLIENT_ID || '500f3c5cdcf76cb1bcc8c35e97864840',
-        YOUTUBE_ID: process.env.YOUTUBE_ID || 'AIzaSyDMVu01ka49DBvOGabKYo1vhrykghKJNoI',
-        recaptcha_verify_key: process.env.recaptcha_verify_key || 'recaptcha_verify_key'
+    const environment = {
+        PORT: process.env.PORT || 3000,
+        ENV: process.env.NODE_ENV,
+        BRAND_TITLE: process.env.BRAND_TITLE
+    };
+
+    const api_keys = {
+        SC_CLIENT_ID: process.env.SC_CLIENT_ID,
+        YOUTUBE_ID: process.env.YOUTUBE_ID,
+        RECAPTCHA_KEY: process.env.RECAPTCHA_KEY
     };
 
     const paths = {
-        css: `${client}/css/`,
-        js: `${client}/js/`,
-        babel: `${client}/babel/`,
-        typescript: `${client}/typescript/`
+        ROOT: '.',
+        CLIENT: client,
+        CSS: `${client}css/`,
+        JS: `${client}js/`,
+        VIEWS: `${client}partials/`,
+        TYPESCRIPT: `${client}typescript/`,
+        SASS: `${client}sass/`,
+        LIBS: `${client}libs/`
     };
 
     const gulp = {
-        tsConfigJson: {
-            tsOrder: [
-                `**/typescript/**/*.ts`,
-                // `**/typescript/**/*.ts`
+        ts_config_json: {
+            order: [
+                `**/typescript/**/*.ts`
             ],
             tsConfig: {
-                "compilerOptions": {
+                'compilerOptions': {
                     module: 'amd',
                     target: 'es5',
+                    allowJs: false,
                     removeComments: true,
-                    noImplicitAny: true,
-                    sourceMap: true,
-                    noImplicitReturns: true,
+                    noImplicitAny: false,
+                    sourceMap: false,
+                    noImplicitReturns: false,
                     suppressImplicitAnyIndexErrors: true,
+                    suppressExcessPropertyErrors: true,
                     noFallthroughCasesInSwitch: true,
                     allowUnreachableCode: false,
-                    outDir: `${paths.js}`
+                    rootDir: `${paths.TYPESCRIPT}`,
+                    declaration: true,
+                    alwaysStrict: true,
+                    noEmitOnError: false,
+                    noEmit: false
                 }
             }
         },
-        cssnanoOpts: {
-            convertValues: false,
-            discardComments: { removeAll: true },
-            autoprefixer: false
-        },
-        jsOrder: [
-            `**/navigation-bar.*.js`
-        ],
-        browserify: {
-            entry: `${paths.babel}app.js`
-        },
-        minifyOpts: {
+        minify_opts: {
             ext: {
                 min: '.min.js'
             },
-            ignoreFiles: ['-min.js', '.min.js']
+            ignoreFiles: ['-min.js', '.min.js'],
+            mangle: false
+        },
+        nodemon_opts: {
+            script: 'server.js',
+            ext: 'js html less ts',
+            delayTime: 3
+        },
+        css_nano_opts: {
+            convertValues: false,
+            discardComments: { removeAll: true },
+            autoprefixer: false
         }
     };
 
     return {
-        server,
-        apisKeys,
+        environment,
+        api_keys,
         paths,
-        gulp
-    }
-})()
-
-module.exports = config;
+        gulp,
+        db
+    };
+})();
