@@ -1,6 +1,6 @@
 const config = require('../../config');
 const request = require('request');
-const dateFormat = require('dateformat');
+//const dateFormat = require('dateformat');
 
 const youtube = (() => {
 
@@ -42,7 +42,7 @@ const youtube = (() => {
                             title: item.snippet.title,
                             videoEmbedUrl: `https://www.youtube.com/embed/${item.snippet.resourceId.videoId}`,
                             videoUrl: `https://www.youtube.com/watch?v=${item.snippet.resourceId.videoId}`,
-                            publishedAt: dateFormat(item.snippet.publishedAt, "fullDate"),
+                            //publishedAt: dateFormat(item.snippet.publishedAt, "fullDate"),
                             description: item.snippet.description,
                             imageUrl: imageUrl
                         };
