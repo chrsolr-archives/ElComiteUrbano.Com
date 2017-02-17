@@ -214,6 +214,13 @@ now override the 3.3 new styles for modern browsers & apply opacity
       .footer-wrapper ul li a:hover {
         color: #F96816; }
 
+@media only screen and (max-width: 543px) {
+  .footer-wrapper .footer-brand-title {
+    font-size: 1.5rem !important; }
+  .footer-wrapper ul li {
+    padding: 0 5px;
+    font-size: 0.8rem; } }
+
 .banner-image {
   position: relative;
   overflow: hidden; }

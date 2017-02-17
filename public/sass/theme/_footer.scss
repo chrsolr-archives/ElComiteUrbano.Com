@@ -50,3 +50,18 @@
         }
     }
 }
+
+@media #{$media-x-small} {
+    .footer-wrapper {
+        .footer-brand-title {
+            font-size: 1.5rem !important;
+        }
+
+        ul {
+            li {
+                padding: 0 spacing(1);
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
