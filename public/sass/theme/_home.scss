@@ -20,9 +20,10 @@
     .banner-content {
         position: absolute;
         top: 30%;
-        left: 50%;
+        left: 0;
+        right: 0;
         color: $color-font-light;
-        transform: translate3d(-50%, -30%, 0);
+        transform: translate3d(0, -30%, 0);
 
         span {
             text-align: center;
@@ -40,6 +41,16 @@
             color: $color-font-light;
             font-family: $ubuntu;
             font-weight: $font-weight-thin;
+        }
+
+        @media #{$media-small}, #{$media-x-small} {
+            .banner-title {
+                font-size: 2rem !important;
+            }
+
+            .banner-subtitle {
+                font-size: 1rem !important;
+            }
         }
     }
 
@@ -70,12 +81,24 @@
 
                 a {
                     color: $color-font-light;
+                    font-size: 2rem;
                     line-height: $navbar-height;
 
                     &:hover {
                         color: $color-font-accent;
                         text-decoration: none;
                     }
+                }
+            }
+        }
+
+        @media #{$media-small}, #{$media-x-small} {
+            height: $navbar-height / 2;
+
+            li {
+                a {
+                    font-size: 1.25rem !important;
+                    line-height: calc(#{$navbar-height} / 2) !important;
                 }
             }
         }
@@ -115,59 +138,5 @@
       color: #F96816;
       font-size: 1.5vw;
     }
-  }
-}
-
-@media #{$media-small}, #{$media-x-small} {
-  .banner-social {
-    height: $navbar-height / 2;
-
-    li {
-        a {
-            font-size: 1.25rem;
-            line-height: calc(#{$navbar-height} / 2) !important;
-        }
-    }
-  }
-
-  .banner-title {
-      font-size: 1.25rem !important;
-  }
-
-  .banner-subtitle {
-      font-size: 0.6rem !important;
-  }
-}
-
-@media #{$media-small} {
-
-  .banner-title {
-      font-size: 2rem !important;
-  }
-
-  .banner-subtitle {
-      font-size: 1rem !important;
-  }
-}
-
-@media #{$media-x-large} {
-
-  .banner-title {
-      font-size: 4rem !important;
-  }
-
-  .banner-subtitle {
-      font-size: 2rem !important;
-  }
-}
-
-@media #{$media-large}, #{$media-medium} {
-
-  .banner-title {
-      font-size: 3rem !important;
-  }
-
-  .banner-subtitle {
-      font-size: 1.5rem !important;
   }
 }

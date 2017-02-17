@@ -26,7 +26,7 @@ html {
   padding-right: 0; }
 
 .section-title {
-  font-size: 3vw;
+  font-size: 4rem;
   font-family: "Ubuntu", sans-serif;
   font-weight: 200;
   margin-bottom: 15px;
@@ -34,6 +34,9 @@ html {
   text-align: right;
   border-bottom: 1px dotted #F96816;
   padding-bottom: 10px; }
+  @media only screen and (min-width: 544px) and (max-width: 767px), only screen and (max-width: 543px) {
+    .section-title {
+      font-size: 2rem; } }
 
 .section-bg-dark {
   background-color: #181818;
@@ -245,10 +248,11 @@ now override the 3.3 new styles for modern browsers & apply opacity
   .banner-image .banner-content {
     position: absolute;
     top: 30%;
-    left: 50%;
+    left: 0;
+    right: 0;
     color: #fafafa;
-    -webkit-transform: translate3d(-50%, -30%, 0);
-    transform: translate3d(-50%, -30%, 0); }
+    -webkit-transform: translate3d(0, -30%, 0);
+    transform: translate3d(0, -30%, 0); }
     .banner-image .banner-content span {
       text-align: center;
       display: block; }
@@ -261,6 +265,11 @@ now override the 3.3 new styles for modern browsers & apply opacity
       color: #fafafa;
       font-family: "Ubuntu", sans-serif;
       font-weight: 200; }
+    @media only screen and (min-width: 544px) and (max-width: 767px), only screen and (max-width: 543px) {
+      .banner-image .banner-content .banner-title {
+        font-size: 2rem !important; }
+      .banner-image .banner-content .banner-subtitle {
+        font-size: 1rem !important; } }
   .banner-image .banner-social {
     position: absolute;
     bottom: 0;
@@ -283,10 +292,17 @@ now override the 3.3 new styles for modern browsers & apply opacity
           border-left: 1px dashed #F96816; }
         .banner-image .banner-social ul.social-media-share-home li a {
           color: #fafafa;
+          font-size: 2rem;
           line-height: 100px; }
           .banner-image .banner-social ul.social-media-share-home li a:hover {
             color: #F96816;
             text-decoration: none; }
+    @media only screen and (min-width: 544px) and (max-width: 767px), only screen and (max-width: 543px) {
+      .banner-image .banner-social {
+        height: 50px; }
+        .banner-image .banner-social li a {
+          font-size: 1.25rem !important;
+          line-height: calc(100px / 2) !important; } }
 
 .promo-wrapper {
   position: relative;
@@ -314,32 +330,3 @@ now override the 3.3 new styles for modern browsers & apply opacity
       display: block;
       color: #F96816;
       font-size: 1.5vw; }
-
-@media only screen and (min-width: 544px) and (max-width: 767px), only screen and (max-width: 543px) {
-  .banner-social {
-    height: 50px; }
-    .banner-social li a {
-      font-size: 1.25rem;
-      line-height: calc(100px / 2) !important; }
-  .banner-title {
-    font-size: 1.25rem !important; }
-  .banner-subtitle {
-    font-size: 0.6rem !important; } }
-
-@media only screen and (min-width: 544px) and (max-width: 767px) {
-  .banner-title {
-    font-size: 2rem !important; }
-  .banner-subtitle {
-    font-size: 1rem !important; } }
-
-@media only screen and (min-width: 1200px) {
-  .banner-title {
-    font-size: 4rem !important; }
-  .banner-subtitle {
-    font-size: 2rem !important; } }
-
-@media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px) {
-  .banner-title {
-    font-size: 3rem !important; }
-  .banner-subtitle {
-    font-size: 1.5rem !important; } }
