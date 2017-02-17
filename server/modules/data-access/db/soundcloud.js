@@ -1,4 +1,4 @@
-const config = require('../../../config/config');
+const config = require('../../config');
 const request = require('request');
 
 const soundcloud = (() => {

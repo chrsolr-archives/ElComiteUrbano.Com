@@ -12,6 +12,7 @@ app.set('views', path.join(__dirname, '../../views'));
 app.set('view engine', 'pug');
 app.use(express.static('public'));
 
+app.locals.moment = require('moment');
 app.locals.brand_title = config.environment.BRAND_TITLE;
 
 require('../../routes/home')(app);
