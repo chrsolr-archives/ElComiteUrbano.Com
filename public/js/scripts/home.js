@@ -1,4 +1,4 @@
-define(["require", "exports", "jquery"], function (require, exports, $) {
+define(["require", "exports", "jquery", "bootstrap"], function (require, exports, $) {
     "use strict";
     var HomeScript = (function () {
         function HomeScript() {
@@ -8,7 +8,7 @@ define(["require", "exports", "jquery"], function (require, exports, $) {
             });
         }
         HomeScript.prototype.setSlideShow = function () {
-            $('.carousel').carousel({ interval: 2000, pause: null });
+            $('.carousel').carousel({ interval: 3000, pause: null });
         };
         return HomeScript;
     }());

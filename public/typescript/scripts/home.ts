@@ -1,4 +1,5 @@
 /// <reference path="../../../typings/index.d.ts" />
+/// <amd-dependency path="bootstrap" />
 
 import * as $ from 'jquery';
 
@@ -10,7 +11,7 @@ class HomeScript {
     }
 
     setSlideShow(): void {
-        $('.carousel').carousel({ interval: 2000, pause: null });
+        $('.carousel').carousel({ interval: 3000, pause: null });
     }
 }
 
