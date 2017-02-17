@@ -178,6 +178,12 @@ now override the 3.3 new styles for modern browsers & apply opacity
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0); } }
 
+@media only screen and (max-width: 543px) {
+  .navbar-wrapper .navbar-brand-wrapper .navbar-brand-title {
+    font-size: 1.5rem !important; }
+  .navbar-wrapper .navbar-menu-icon-wrapper .navbar-menu-icon {
+    font-size: 1.5rem; } }
+
 .footer-wrapper .footer-brand a {
   color: #fafafa;
   text-decoration: none;

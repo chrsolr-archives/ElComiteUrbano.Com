@@ -1,5 +1,4 @@
 @import "./partials/_utils";
-
 .navbar-wrapper {
     position: fixed;
     top: 0;
@@ -13,25 +12,20 @@
     z-index: 100;
     box-sizing: border-box;
     transition: all .250s ease-in-out;
-
     .navbar-brand-wrapper {
         padding: 0 spacing(4);
         display: inline-block;
-
         a {
             color: $color-font-light;
             text-decoration: none;
-
             &:hover {
                 color: $color-font-light;
             }
-
             .navbar-brand-title {
                 position: relative;
                 font-size: 2rem;
                 font-weight: $font-weight-regular;
                 line-height: $navbar-height;
-
                 span {
                     color: $color-font-accent;
                     font-weight: $font-weight-bold;
@@ -40,17 +34,14 @@
             }
         }
     }
-
     .navbar-menu-icon-wrapper {
         display: inline-block;
         float: right;
-        
         .navbar-menu-icon {
             line-height: $navbar-height;
             padding: 0 spacing(1);
             font-size: 2rem;
             transition: all .2s;
-    
             &:hover {
                 color: $color-font-accent;
                 cursor: pointer;
@@ -77,29 +68,26 @@
     transform: translate3d(100%, 0, 0);
     transition: all .250s ease-in-out;
     padding-top: $navbar-height;
-
     a {
         display: block;
         padding: spacing(4);
         font-size: 1.2rem;
         border-bottom: 2px solid $color-bg-primary;
         color: $color-font-light;
-
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             color: $color-font-accent;
         }
-
         span {
             font-family: $roboto;
             padding-bottom: 1px;
             font-weight: $font-weight-thin;
             margin-left: spacing(2);
-
-            &:hover, &:focus {
+            &:hover,
+            &:focus {
                 color: $color-font-accent;
             }
         }
-
         &:last-child {
             font-size: 0.8rem;
             font-weight: $font-weight-thin;
@@ -111,7 +99,7 @@
     transform: translate3d(-50%, 0, 0);
 }
 
-@media #{$media-x-large}  {
+@media #{$media-x-large} {
     .navbar-sidebar-toggle {
         transform: translate3d(-25%, 0, 0);
     }
@@ -126,5 +114,20 @@
 @media #{$media-small}, #{$media-x-small} {
     .navbar-sidebar-toggle {
         transform: translate3d(-100%, 0, 0);
+    }
+}
+
+@media #{$media-x-small} {
+    .navbar-wrapper {
+        .navbar-brand-wrapper {
+            .navbar-brand-title {
+                font-size: 1.5rem !important;
+            }
+        }
+        .navbar-menu-icon-wrapper {
+            .navbar-menu-icon {
+                font-size: 1.5rem;
+            }
+        }
     }
 }
