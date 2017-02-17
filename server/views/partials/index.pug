@@ -12,33 +12,35 @@ block content
                 span.banner-subtitle.animated.fadeInUp El Mejor Radio Show En NYC
 
             .banner-social
-                ul.social-media-share-home
-                    li
-                        a(target="_blank", class="fa fa-3x fa-facebook-official facebook-color", href="https://www.facebook.com/elcomiteurbanoradio")
-                    li
-                        a(target="_blank", class="fa fa-3x fa-instagram instagram-color", href="https://www.instagram.com/elcomiteurbanoradio")
-                    li
-                        a(target="_blank", class="fa fa-3x fa-youtube youtube-color", href="https://www.youtube.com/elcomiteurbanoradio")
-                    li
-                        a(target="_blank", class="fa fa-3x fa-soundcloud soundcloud-color", href="https://soundcloud.com/elcomiteurbano")
-                    li
-                        a(target="_blank", class="fa fa-3x fa-twitter twitter-color", href="https://www.twitter.com/elcomiteurbano")
+                .container.no-padding
+                    ul.social-media-share-home
+                        li
+                            a(target="_blank", class="fa fa-3x fa-facebook-official facebook-color", href="https://www.facebook.com/elcomiteurbanoradio")
+                        li
+                            a(target="_blank", class="fa fa-3x fa-instagram instagram-color", href="https://www.instagram.com/elcomiteurbanoradio")
+                        li
+                            a(target="_blank", class="fa fa-3x fa-youtube youtube-color", href="https://www.youtube.com/elcomiteurbanoradio")
+                        li
+                            a(target="_blank", class="fa fa-3x fa-soundcloud soundcloud-color", href="https://soundcloud.com/elcomiteurbano")
+                        li
+                            a(target="_blank", class="fa fa-3x fa-twitter twitter-color", href="https://www.twitter.com/elcomiteurbano")
 
-        section.section-bg-dark
-            .container
-                span.section-title Promos
-                
-                div.carousel.slide.carousel-fade(id="carousel-promos", data-ride="carousel")
-                    .carousel-inner(role="listbox")
-                        each row, index in promos
-                            .item(class=index === 0 ? "active": "")
-                                .row
-                                    each promo in row.content
-                                        .col-xs-6
-                                            .promo-wrapper
-                                                img(src=promo.imageUrl, alt="Promo Cover")
+        if promos.length > 0
+            section.section-bg-dark
+                .container
+                    span.section-title Promos
+                    
+                    div.carousel.slide.carousel-fade(id="carousel-promos", data-ride="carousel")
+                        .carousel-inner(role="listbox")
+                            each row, index in promos
+                                .item(class=index === 0 ? "active": "")
+                                    .row
+                                        each promo, i in row.content
+                                            .col-xs-6(class=i === 0 ? "no-left-padding" : "no-right-padding")
+                                                .promo-wrapper
+                                                    img(src=promo.imageUrl, alt="Promo Cover")
 
-                                                .content
-                                                    span.artists #{promo.artists}
-                                                    span.title #{promo.title}
-                                                    a(href=promo.downloadUrl, class="download-link") Download
+                                                    .content
+                                                        span.artists #{promo.artists}
+                                                        span.title #{promo.title}
+                                                        a(href=promo.downloadUrl, class="download-link") Download

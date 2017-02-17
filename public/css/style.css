@@ -16,6 +16,15 @@ html {
 .row {
   margin: 0; }
 
+.no-padding {
+  padding: 0; }
+
+.no-left-padding {
+  padding-left: 0; }
+
+.no-right-padding {
+  padding-right: 0; }
+
 .section-title {
   font-size: 3vw;
   font-family: "Ubuntu", sans-serif;
@@ -260,22 +269,22 @@ now override the 3.3 new styles for modern browsers & apply opacity
     background-color: rgba(0, 0, 0, 0.8);
     color: #fafafa;
     max-height: 100px; }
-    .banner-image .banner-social .social-media-share-home {
+    .banner-image .banner-social ul.social-media-share-home {
       width: 100%;
       padding: 0;
       list-style-type: none;
       text-align: center;
       box-sizing: border-box; }
-      .banner-image .banner-social .social-media-share-home li {
+      .banner-image .banner-social ul.social-media-share-home li {
         display: inline-block;
         width: calc(100% / 6);
         border-right: 1px dashed #F96816; }
-        .banner-image .banner-social .social-media-share-home li:first-child {
+        .banner-image .banner-social ul.social-media-share-home li:first-child {
           border-left: 1px dashed #F96816; }
-        .banner-image .banner-social .social-media-share-home li a {
+        .banner-image .banner-social ul.social-media-share-home li a {
           color: #fafafa;
           line-height: 100px; }
-          .banner-image .banner-social .social-media-share-home li a:hover {
+          .banner-image .banner-social ul.social-media-share-home li a:hover {
             color: #F96816;
             text-decoration: none; }
 
