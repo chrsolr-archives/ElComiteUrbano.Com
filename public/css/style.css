@@ -245,10 +245,10 @@ now override the 3.3 new styles for modern browsers & apply opacity
       display: block; }
     .banner-image .banner-content .banner-title {
       font-family: "Roboto", sans-serif;
-      font-size: 6vw;
+      font-size: 3rem;
       font-weight: 200; }
     .banner-image .banner-content .banner-subtitle {
-      font-size: 3vw;
+      font-size: 1.5rem;
       color: #fafafa;
       font-family: "Ubuntu", sans-serif;
       font-weight: 200; }
@@ -307,8 +307,30 @@ now override the 3.3 new styles for modern browsers & apply opacity
       font-size: 1.5vw; }
 
 @media only screen and (min-width: 544px) and (max-width: 767px), only screen and (max-width: 543px) {
-  .banner-image .banner-social {
+  .banner-social {
     height: 50px; }
-    .banner-image .banner-social li a {
-      font-size: 1.2rem;
-      line-height: calc(100px / 2) !important; } }
+    .banner-social li a {
+      font-size: 1.25rem;
+      line-height: calc(100px / 2) !important; }
+  .banner-title {
+    font-size: 1.25rem !important; }
+  .banner-subtitle {
+    font-size: 0.6rem !important; } }
+
+@media only screen and (min-width: 544px) and (max-width: 767px) {
+  .banner-title {
+    font-size: 2rem !important; }
+  .banner-subtitle {
+    font-size: 1rem !important; } }
+
+@media only screen and (min-width: 1200px) {
+  .banner-title {
+    font-size: 4rem !important; }
+  .banner-subtitle {
+    font-size: 2rem !important; } }
+
+@media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (min-width: 768px) and (max-width: 991px) {
+  .banner-title {
+    font-size: 3rem !important; }
+  .banner-subtitle {
+    font-size: 1.5rem !important; } }

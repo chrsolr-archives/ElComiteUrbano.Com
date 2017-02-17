@@ -31,12 +31,12 @@
 
         .banner-title {
             font-family: $roboto;
-            font-size: 6vw;
+            font-size: 3rem;
             font-weight: $font-weight-thin;
         }
 
         .banner-subtitle {
-            font-size: 3vw;
+            font-size: 1.5rem;
             color: $color-font-light;
             font-family: $ubuntu;
             font-weight: $font-weight-thin;
@@ -119,15 +119,55 @@
 }
 
 @media #{$media-small}, #{$media-x-small} {
-  .banner-image .banner-social {
+  .banner-social {
     height: $navbar-height / 2;
 
     li {
-
-      a {
-        font-size: 1.2rem;
-        line-height: calc(#{$navbar-height} / 2) !important;
-      }
+        a {
+            font-size: 1.25rem;
+            line-height: calc(#{$navbar-height} / 2) !important;
+        }
     }
+  }
+
+  .banner-title {
+      font-size: 1.25rem !important;
+  }
+
+  .banner-subtitle {
+      font-size: 0.6rem !important;
+  }
+}
+
+@media #{$media-small} {
+
+  .banner-title {
+      font-size: 2rem !important;
+  }
+
+  .banner-subtitle {
+      font-size: 1rem !important;
+  }
+}
+
+@media #{$media-x-large} {
+
+  .banner-title {
+      font-size: 4rem !important;
+  }
+
+  .banner-subtitle {
+      font-size: 2rem !important;
+  }
+}
+
+@media #{$media-large}, #{$media-medium} {
+
+  .banner-title {
+      font-size: 3rem !important;
+  }
+
+  .banner-subtitle {
+      font-size: 1.5rem !important;
   }
 }
