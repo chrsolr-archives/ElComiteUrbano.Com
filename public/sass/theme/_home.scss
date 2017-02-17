@@ -125,18 +125,57 @@
 
     .artists {
       display: block;
-      color: #ccc;
-      font-size: 1.8vw;
+      color: $color-font-dark;
+      font-size: 1.5rem;
     }
     .title {
       display: block;
-      color: white;
-      font-size: 2.3vw;
+      color: $color-font-light;
+      font-size: 2rem;
     }
     .download-link {
       display: block;
-      color: #F96816;
-      font-size: 1.5vw;
+      color: $color-font-accent;
+      font-size: 1.2rem;
+    }
+
+    @media #{$media-medium} {
+        .artists {
+            font-size: 1.2rem;
+        }
+        .title {
+            font-size: 1.5rem;
+        }
+        .download-link {
+            font-size: 1rem;
+        }
+    }
+
+    @media #{$media-small} {
+        padding: spacing(2);
+
+        .artists {
+            font-size: 1rem;
+        }
+        .title {
+            font-size: 1.2rem;
+        }
+        .download-link {
+            font-size: 0.8rem;
+        }
+    }
+    @media #{$media-x-small} {
+        padding: spacing(2);
+
+        .artists {
+            font-size: 0.5rem;
+        }
+        .title {
+            font-size: 0.8rem;
+        }
+        .download-link {
+            font-size: 0.5rem;
+        }
     }
   }
 }

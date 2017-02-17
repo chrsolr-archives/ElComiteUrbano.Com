@@ -320,13 +320,38 @@ now override the 3.3 new styles for modern browsers & apply opacity
     text-align: right; }
     .promo-wrapper .content .artists {
       display: block;
-      color: #ccc;
-      font-size: 1.8vw; }
+      color: #a1a1a1;
+      font-size: 1.5rem; }
     .promo-wrapper .content .title {
       display: block;
-      color: white;
-      font-size: 2.3vw; }
+      color: #fafafa;
+      font-size: 2rem; }
     .promo-wrapper .content .download-link {
       display: block;
       color: #F96816;
-      font-size: 1.5vw; }
+      font-size: 1.2rem; }
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      .promo-wrapper .content .artists {
+        font-size: 1.2rem; }
+      .promo-wrapper .content .title {
+        font-size: 1.5rem; }
+      .promo-wrapper .content .download-link {
+        font-size: 1rem; } }
+    @media only screen and (min-width: 544px) and (max-width: 767px) {
+      .promo-wrapper .content {
+        padding: 10px; }
+        .promo-wrapper .content .artists {
+          font-size: 1rem; }
+        .promo-wrapper .content .title {
+          font-size: 1.2rem; }
+        .promo-wrapper .content .download-link {
+          font-size: 0.8rem; } }
+    @media only screen and (max-width: 543px) {
+      .promo-wrapper .content {
+        padding: 10px; }
+        .promo-wrapper .content .artists {
+          font-size: 0.5rem; }
+        .promo-wrapper .content .title {
+          font-size: 0.8rem; }
+        .promo-wrapper .content .download-link {
+          font-size: 0.5rem; } }
