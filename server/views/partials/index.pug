@@ -44,3 +44,8 @@ block content
                                                         span.artists #{promo.artists}
                                                         span.title #{promo.title}
                                                         a(href=promo.downloadUrl, class="download-link") Download
+                                                        span.loading-bar
+    script.
+        requirejs(['js/scripts/home'], function(HomeScript) {
+            new HomeScript();
+        });

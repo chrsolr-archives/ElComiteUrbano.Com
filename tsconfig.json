@@ -20,6 +20,7 @@
         "noResolve": true
     },
     "files": ["public/typescript/modules/bootstrapper.ts",
-        "public/typescript/modules/navbar.ts"
+        "public/typescript/modules/navbar.ts",
+        "public/typescript/scripts/home.ts"
     ]
 }

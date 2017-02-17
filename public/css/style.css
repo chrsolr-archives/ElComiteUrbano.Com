@@ -330,6 +330,14 @@ now override the 3.3 new styles for modern browsers & apply opacity
       display: block;
       color: #F96816;
       font-size: 1.2rem; }
+    .promo-wrapper .content .loading-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #F96816;
+      width: 25%; }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
       .promo-wrapper .content .artists {
         font-size: 1.2rem; }

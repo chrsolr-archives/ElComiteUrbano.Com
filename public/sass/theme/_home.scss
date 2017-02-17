@@ -138,6 +138,15 @@
       color: $color-font-accent;
       font-size: 1.2rem;
     }
+    .loading-bar {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: $color-bg-accent;
+        width: 25%;
+    }
 
     @media #{$media-medium} {
         .artists {
