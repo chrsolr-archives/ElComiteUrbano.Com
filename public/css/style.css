@@ -13,6 +13,72 @@ html {
     -webkit-font-smoothing: antialiased;
     font-smoothing: antialiased; }
 
+.row {
+  margin: 0; }
+
+.section-title {
+  font-size: 3vw;
+  font-family: "Ubuntu", sans-serif;
+  font-weight: 200;
+  margin-bottom: 15px;
+  display: block;
+  text-align: right;
+  border-bottom: 1px dotted #F96816;
+  padding-bottom: 10px; }
+
+.section-bg-dark {
+  background-color: #181818;
+  padding: 20px 0; }
+
+.section-bg-light {
+  background-color: #222222;
+  padding: 20px 0; }
+
+/*
+inspired from http://codepen.io/Rowno/pen/Afykb
+*/
+.carousel-fade .carousel-inner .item {
+  opacity: 0;
+  transition-property: opacity; }
+
+.carousel-fade .carousel-inner .active {
+  opacity: 1; }
+
+.carousel-fade .carousel-inner .active.left,
+.carousel-fade .carousel-inner .active.right {
+  left: 0;
+  opacity: 0;
+  z-index: 1; }
+
+.carousel-fade .carousel-inner .next.left,
+.carousel-fade .carousel-inner .prev.right {
+  opacity: 1; }
+
+.carousel-fade .carousel-control {
+  z-index: 2; }
+
+/*
+WHAT IS NEW IN 3.3: "Added transforms to improve carousel performance in modern browsers."
+now override the 3.3 new styles for modern browsers & apply opacity
+*/
+@media all and (transform-3d), (-webkit-transform-3d) {
+  .carousel-fade .carousel-inner > .item.next,
+  .carousel-fade .carousel-inner > .item.active.right {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); }
+  .carousel-fade .carousel-inner > .item.prev,
+  .carousel-fade .carousel-inner > .item.active.left {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); }
+  .carousel-fade .carousel-inner > .item.next.left,
+  .carousel-fade .carousel-inner > .item.prev.right,
+  .carousel-fade .carousel-inner > .item.active {
+    opacity: 1;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0); } }
+
 .navbar-wrapper {
   position: fixed;
   top: 0;
@@ -77,7 +143,7 @@ html {
   .navbar-sidebar-wrapper a {
     display: block;
     padding: 20px;
-    font-size: 2rem;
+    font-size: 1.2rem;
     border-bottom: 2px solid #181818;
     color: #fafafa; }
     .navbar-sidebar-wrapper a:hover, .navbar-sidebar-wrapper a:focus {
@@ -85,11 +151,12 @@ html {
     .navbar-sidebar-wrapper a span {
       font-family: "Roboto", sans-serif;
       padding-bottom: 1px;
-      font-weight: 200; }
+      font-weight: 200;
+      margin-left: 10px; }
       .navbar-sidebar-wrapper a span:hover, .navbar-sidebar-wrapper a span:focus {
         color: #F96816; }
     .navbar-sidebar-wrapper a:last-child {
-      font-size: 1rem;
+      font-size: 0.8rem;
       font-weight: 200; }
 
 .navbar-sidebar-toggle {
@@ -110,3 +177,125 @@ html {
   .navbar-sidebar-toggle {
     -webkit-transform: translate3d(-100%, 0, 0);
     transform: translate3d(-100%, 0, 0); } }
+
+.footer-wrapper .footer-brand a {
+  color: #fafafa;
+  text-decoration: none;
+  display: block; }
+  .footer-wrapper .footer-brand a:hover {
+    color: #fafafa; }
+  .footer-wrapper .footer-brand a .footer-brand-title {
+    position: relative;
+    font-size: 2rem;
+    font-weight: 300;
+    line-height: 100px; }
+    .footer-wrapper .footer-brand a .footer-brand-title span {
+      color: #F96816;
+      font-weight: 600;
+      font-family: "Ubuntu", sans-serif; }
+
+.footer-wrapper ul {
+  margin: 0 0 10px 0;
+  padding: 0;
+  text-align: center; }
+  .footer-wrapper ul li {
+    display: inline-block;
+    padding: 0 10px;
+    font-family: "Ubuntu", sans-serif;
+    font-size: 1rem; }
+    .footer-wrapper ul li a {
+      color: #fafafa; }
+      .footer-wrapper ul li a:hover {
+        color: #F96816; }
+
+.banner-image {
+  position: relative;
+  overflow: hidden; }
+  .banner-image img {
+    width: 100%; }
+  .banner-image .banner-overlay {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3); }
+  .banner-image .banner-content {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    color: #fafafa;
+    -webkit-transform: translate3d(-50%, -30%, 0);
+    transform: translate3d(-50%, -30%, 0); }
+    .banner-image .banner-content span {
+      text-align: center;
+      display: block; }
+    .banner-image .banner-content .banner-title {
+      font-family: "Roboto", sans-serif;
+      font-size: 6vw;
+      font-weight: 200; }
+    .banner-image .banner-content .banner-subtitle {
+      font-size: 3vw;
+      color: #fafafa;
+      font-family: "Ubuntu", sans-serif;
+      font-weight: 200; }
+  .banner-image .banner-social {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #fafafa;
+    max-height: 100px; }
+    .banner-image .banner-social .social-media-share-home {
+      width: 100%;
+      padding: 0;
+      list-style-type: none;
+      text-align: center;
+      box-sizing: border-box; }
+      .banner-image .banner-social .social-media-share-home li {
+        display: inline-block;
+        width: calc(100% / 6);
+        border-right: 1px dashed #F96816; }
+        .banner-image .banner-social .social-media-share-home li:first-child {
+          border-left: 1px dashed #F96816; }
+        .banner-image .banner-social .social-media-share-home li a {
+          color: #fafafa;
+          line-height: 100px; }
+          .banner-image .banner-social .social-media-share-home li a:hover {
+            color: #F96816;
+            text-decoration: none; }
+
+.promo-wrapper {
+  position: relative;
+  z-index: 1; }
+  .promo-wrapper img {
+    width: 100%; }
+  .promo-wrapper .content {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 20px;
+    text-align: right; }
+    .promo-wrapper .content .artists {
+      display: block;
+      color: #ccc;
+      font-size: 1.8vw; }
+    .promo-wrapper .content .title {
+      display: block;
+      color: white;
+      font-size: 2.3vw; }
+    .promo-wrapper .content .download-link {
+      display: block;
+      color: #F96816;
+      font-size: 1.5vw; }
+
+@media only screen and (min-width: 544px) and (max-width: 767px), only screen and (max-width: 543px) {
+  .banner-image .banner-social {
+    height: 50px; }
+    .banner-image .banner-social li a {
+      font-size: 1.2rem;
+      line-height: calc(100px / 2) !important; } }

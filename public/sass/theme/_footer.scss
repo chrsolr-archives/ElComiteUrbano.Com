@@ -1,0 +1,52 @@
+@import "./partials/_utils";
+
+.footer-wrapper {
+
+    .footer-brand {
+
+        a {
+            color: $color-font-light;
+            text-decoration: none;
+            display: block;
+
+            &:hover {
+                color: $color-font-light;
+            }
+
+            .footer-brand-title {
+                position: relative;
+                font-size: 2rem;
+                font-weight: $font-weight-regular;
+                line-height: $navbar-height;
+
+                span {
+                    color: $color-font-accent;
+                    font-weight: $font-weight-bold;
+                    font-family: $ubuntu;
+                }
+            }
+        }
+    }
+
+
+    ul {
+        margin: 0 0 spacing(2) 0;
+        padding: 0;
+        text-align: center;
+
+        li {
+            display: inline-block;
+            padding: 0 spacing(2);
+            font-family: $ubuntu;
+            font-size: 1rem;
+
+            a {
+                color: $color-font-light;
+
+                &:hover {
+                    color: $color-font-accent;
+                }
+            }
+        }
+    }
+}

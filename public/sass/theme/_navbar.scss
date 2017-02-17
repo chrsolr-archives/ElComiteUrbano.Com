@@ -81,7 +81,7 @@
     a {
         display: block;
         padding: spacing(4);
-        font-size: 2rem;
+        font-size: 1.2rem;
         border-bottom: 2px solid $color-bg-primary;
         color: $color-font-light;
 
@@ -93,6 +93,7 @@
             font-family: $roboto;
             padding-bottom: 1px;
             font-weight: $font-weight-thin;
+            margin-left: spacing(2);
 
             &:hover, &:focus {
                 color: $color-font-accent;
@@ -100,7 +101,7 @@
         }
 
         &:last-child {
-            font-size: 1rem;
+            font-size: 0.8rem;
             font-weight: $font-weight-thin;
         }
     }

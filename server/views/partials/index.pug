@@ -2,5 +2,67 @@ extends ../layout.pug
 
 block content
 
-    h1.page-header.text.center Hello
-        
+    .home-wrapper
+        .banner-image
+            img(class="img-responsive", src="assets/images/banners/ecu-square-banner.jpg", alt="El Comite Urbano Banner")
+
+            .banner-overlay
+            .banner-content
+                span.banner-title.animated.fadeInDown El Comite Urbano
+                span.banner-subtitle.animated.fadeInUp El Mejor Radio Show En NYC
+
+            .banner-social
+                ul.social-media-share-home
+                    li
+                        a(target="_blank", class="fa fa-3x fa-facebook-official facebook-color", href="https://www.facebook.com/elcomiteurbanoradio")
+                    li
+                        a(target="_blank", class="fa fa-3x fa-instagram instagram-color", href="https://www.instagram.com/elcomiteurbanoradio")
+                    li
+                        a(target="_blank", class="fa fa-3x fa-youtube youtube-color", href="https://www.youtube.com/elcomiteurbanoradio")
+                    li
+                        a(target="_blank", class="fa fa-3x fa-soundcloud soundcloud-color", href="https://soundcloud.com/elcomiteurbano")
+                    li
+                        a(target="_blank", class="fa fa-3x fa-twitter twitter-color", href="https://www.twitter.com/elcomiteurbano")
+
+        section.section-bg-dark
+            .container
+                span.section-title Promos
+
+                div.carousel.slide.carousel-fade(id="carousel-promos", data-ride="carousel")
+                    .carousel-inner(role="listbox")
+                        .item.active
+                            .row
+                                .col-xs-6
+                                    .promo-wrapper
+                                        img(src="http://lorempixel.com/500/500/sports/", alt="Chania")
+
+                                        .content
+                                            span.artists Twenty40
+                                            span.title No me importa
+                                            a(href="#", class="download-link") Download
+                                .col-xs-6
+                                    .promo-wrapper
+                                        img(src="http://lorempixel.com/500/500/city/", alt="Chania")
+
+                                        .content
+                                            span.artists JoJohn
+                                            span.title Me y Amame
+                                            a(href="#", class="download-link") Download
+                        .item
+                            .row
+                                .col-xs-6
+                                    .promo-wrapper
+                                        img(src="http://lorempixel.com/500/500/city/", alt="Chania")
+
+                                        .content
+                                            span.artists
+                                            span.title
+                                            a(href="#", class="download-link") Download
+                                .col-xs-6
+                                    .promo-wrapper
+                                        img(src="http://lorempixel.com/500/500/sports/", alt="Chania")
+
+                                        .content
+                                            span.artists
+                                            span.title
+                                            a(href="#", class="download-link") Download

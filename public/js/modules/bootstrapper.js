@@ -3,8 +3,8 @@ define(["require", "exports", "js/modules/navbar"], function (require, exports, 
     var Bootstrapper = (function () {
         function Bootstrapper() {
         }
-        Bootstrapper.prototype.initialize = function () {
-            new Navbar().toggle();
+        Bootstrapper.initialize = function () {
+            new Navbar();
         };
         return Bootstrapper;
     }());
