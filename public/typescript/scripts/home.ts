@@ -9,12 +9,14 @@ class HomeScript {
     constructor() {
         const _this = this;
 
-        $(() => {
+        $(document).ready(() => {
             const SLIDE_SHOW_TIME: int = 5000;
 
             $('.carousel').carousel({ interval: SLIDE_SHOW_TIME, pause: null });
 
             $('.loading-bar').each(function (i, element) {
+                _this.startProgressBar($(element), SLIDE_SHOW_TIME, 10);
+                
                 $('.carousel').on('slide.bs.carousel', function () {
                     _this.startProgressBar($(element), SLIDE_SHOW_TIME, 10);
                 });
