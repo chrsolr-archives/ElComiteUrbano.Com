@@ -108,6 +108,7 @@
 .promo-wrapper {
   position: relative;
   z-index: 1;
+  overflow: hidden;
 
   img {
     width: 100%;
@@ -145,7 +146,7 @@
         right: 0;
         height: 2px;
         background-color: $color-bg-accent;
-        width: 25%;
+        width: 0;
     }
 
     @media #{$media-medium} {

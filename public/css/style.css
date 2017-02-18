@@ -306,7 +306,8 @@ now override the 3.3 new styles for modern browsers & apply opacity
 
 .promo-wrapper {
   position: relative;
-  z-index: 1; }
+  z-index: 1;
+  overflow: hidden; }
   .promo-wrapper img {
     width: 100%; }
   .promo-wrapper .content {
@@ -337,7 +338,7 @@ now override the 3.3 new styles for modern browsers & apply opacity
       right: 0;
       height: 2px;
       background-color: #F96816;
-      width: 25%; }
+      width: 0; }
     @media only screen and (min-width: 768px) and (max-width: 991px) {
       .promo-wrapper .content .artists {
         font-size: 1.2rem; }
