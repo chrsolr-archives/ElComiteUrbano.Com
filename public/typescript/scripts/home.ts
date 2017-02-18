@@ -10,7 +10,7 @@ class HomeScript {
         const _this = this;
 
         $(document).ready(() => {
-            const SLIDE_SHOW_TIME: int = 5000;
+            const SLIDE_SHOW_TIME: int = 4000;
 
             $('.carousel').carousel({ interval: SLIDE_SHOW_TIME, pause: null });
 

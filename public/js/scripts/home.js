@@ -4,7 +4,7 @@ define(["require", "exports", "jquery", "bootstrap"], function (require, exports
         function HomeScript() {
             var _this = this;
             $(document).ready(function () {
-                var SLIDE_SHOW_TIME = 5000;
+                var SLIDE_SHOW_TIME = 4000;
                 $('.carousel').carousel({ interval: SLIDE_SHOW_TIME, pause: null });
             });
         }
