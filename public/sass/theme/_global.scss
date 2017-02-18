@@ -4,6 +4,16 @@
   margin: 0;
 }
 
+a {
+  &:hover, &:active, &:focus {
+    text-decoration: none;
+  }
+}
+
+* {
+  outline: none;
+}
+
 .no-padding {
   padding: 0;
 }

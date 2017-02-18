@@ -16,6 +16,12 @@ html {
 .row {
   margin: 0; }
 
+a:hover, a:active, a:focus {
+  text-decoration: none; }
+
+* {
+  outline: none; }
+
 .no-padding {
   padding: 0; }
 
