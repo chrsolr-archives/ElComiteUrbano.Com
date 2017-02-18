@@ -1,4 +1,6 @@
-const config = require('../../config');
+'use strict';
+
+const config = require('../../config').config;
 const request = require('request');
 
 const soundcloud = (() => {
@@ -8,7 +10,7 @@ const soundcloud = (() => {
         return new Promise((resolve, reject) => {
             var limit = limit || 12;
             // var url = `http://api.soundcloud.com/resolve.json?url=http://soundcloud.com/elcomiteurbanoradio&client_id=${config.apisKeys.SC_CLIENT_ID}`;
-            var url = `http://api.soundcloud.com/users/226660344/tracks.json?client_id=${config.apisKeys.SC_CLIENT_ID}&limit=${limit}`;
+            const url = `http://api.soundcloud.com/users/226660344/tracks.json?client_id=${config.api_keys.SC_CLIENT_ID}&limit=${limit}`;
 
             request(url, function(error, response, body) {
                 if (!error && response.statusCode == 200) {
@@ -31,8 +33,8 @@ const soundcloud = (() => {
                             url: item.permalink_url,
                             imageUrl: cover,
                             dateCreated: item.created_at,
-                            stream_url: item.stream_url + '?client_id=' + config.apisKeys.SC_CLIENT_ID,
-                            download_url: (item.downloadable) ? item.download_url + '?client_id=' + config.apisKeys.SC_CLIENT_ID : undefined,
+                            stream_url: item.stream_url + '?client_id=' + config.api_keys.SC_CLIENT_ID,
+                            download_url: (item.downloadable) ? item.download_url + '?client_id=' + config.api_keys.SC_CLIENT_ID : undefined,
                             download_count: item.download_count || 0,
                             playback_count: item.playback_count || 0,
                             trackUrl: `https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/${item.id}&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true`
@@ -43,12 +45,15 @@ const soundcloud = (() => {
 
                     return resolve(songs);
                 } else {
-                    if (error) return reject(error);
-                    if (response.statusCode >= 400) return reject(`SC request error: (${response.statusCode}) - ${response.statusMessage}`);
+                    if (error) {
+                        return reject(new Error(error));
+                    }
+
+                    if (response.statusCode >= 400) {
+                        return reject(new Error(`SC request error: (${response.statusCode}) - ${response.statusMessage}`));
+                    }
                 }
-
             });
-
         });
     }
 

@@ -45,6 +45,22 @@ block content
                                                         span.title #{promo.title}
                                                         a(href=promo.downloadUrl, class="download-link") Download
                                                         span.loading-bar
+
+        section.section-bg-light
+            .container
+                span.section-title Soundcloud
+                .row
+                    each song in songs
+                        .col-md-4.col-sm-6.col-xs-12.margin-bottom-4
+                            .soundcloud-wrapper
+                                img(src=song.imageUrl, alt=song.title, class="img-responsive", width="100%")
+                                
+                                .content
+                                    span.artists #{song.artists}
+                                    span.title 
+                                        a(class="mfp-video-popup mfp-iframe", href=song.trackUrl) #{song.title}
+                                    a(class="mfp-video-popup mfp-iframe text-success", href=song.trackUrl) Listen
+
     script.
         requirejs(['js/scripts/home'], function(HomeScript) {
             new HomeScript();

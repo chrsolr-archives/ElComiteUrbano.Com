@@ -6,11 +6,13 @@ module.exports = (app) => {
     app.get('/', (req, res) => {
 
         const promos = db.promos.getAll();
+        const songs = db.soundcloud.getSoundcloudTracks();
 
-        Promise.all([promos])
+        Promise.all([promos, songs])
             .then(values => {
                 const data = {
-                    promos: values[0]
+                    promos: values[0],
+                    songs: values[1]
                 };
 
                 let promos = [];

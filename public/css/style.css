@@ -25,6 +25,9 @@ html {
 .no-right-padding {
   padding-right: 0; }
 
+.margin-bottom-4 {
+  margin-bottom: 20px; }
+
 .section-title {
   font-size: 4rem;
   font-family: "Ubuntu", sans-serif;
@@ -303,6 +306,44 @@ now override the 3.3 new styles for modern browsers & apply opacity
         .banner-image .banner-social li a {
           font-size: 1.25rem !important;
           line-height: calc(100px / 2) !important; } }
+
+.soundcloud-wrapper {
+  position: relative;
+  z-index: 1;
+  overflow: hidden; }
+  .soundcloud-wrapper img {
+    width: 100%; }
+  .soundcloud-wrapper .content {
+    background-color: rgba(0, 0, 0, 0.8);
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    padding: 10px;
+    text-align: right; }
+    .soundcloud-wrapper .content .artists {
+      display: block;
+      color: #a1a1a1;
+      font-size: 1rem; }
+    .soundcloud-wrapper .content .title {
+      display: block; }
+      .soundcloud-wrapper .content .title a {
+        color: #fafafa;
+        font-size: 1.2rem; }
+        .soundcloud-wrapper .content .title a:hover {
+          text-decoration: none; }
+    .soundcloud-wrapper .content a {
+      display: block;
+      color: #F96816;
+      font-size: 1rem; }
+    @media only screen and (min-width: 544px) and (max-width: 767px) {
+      .soundcloud-wrapper .content .artists {
+        font-size: 1.2rem; }
+      .soundcloud-wrapper .content .title a {
+        font-size: 1.5rem; }
+      .soundcloud-wrapper .content a {
+        font-size: 1.2rem; } }
 
 .promo-wrapper {
   position: relative;
