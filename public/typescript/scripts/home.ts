@@ -5,10 +5,11 @@ import * as $ from 'jquery';
 
 class HomeScript {
 
-
     constructor() {
-        const _this = this;
+        this.setCarousel();
+    }
 
+    setCarousel(): void {
         $(document).ready(() => {
             const SLIDE_SHOW_TIME: int = 4000;
 

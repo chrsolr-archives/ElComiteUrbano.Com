@@ -2,12 +2,14 @@ define(["require", "exports", "jquery", "bootstrap"], function (require, exports
     "use strict";
     var HomeScript = (function () {
         function HomeScript() {
-            var _this = this;
+            this.setCarousel();
+        }
+        HomeScript.prototype.setCarousel = function () {
             $(document).ready(function () {
                 var SLIDE_SHOW_TIME = 4000;
                 $('.carousel').carousel({ interval: SLIDE_SHOW_TIME, pause: null });
             });
-        }
+        };
         return HomeScript;
     }());
     return HomeScript;
