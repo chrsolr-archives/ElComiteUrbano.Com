@@ -19,10 +19,14 @@ html {
 a:hover, a:active, a:focus {
   text-decoration: none; }
 
-#tos a {
-  color: #F96816; }
-  #tos a:hover, #tos a:active, #tos a:focus {
-    text-decoration: none; }
+.height-300 {
+  height: 300px; }
+
+#info a {
+  color: #fafafa; }
+  #info a:hover, #info a:active, #info a:focus {
+    text-decoration: none;
+    color: #F96816; }
 
 * {
   outline: none; }
@@ -210,35 +214,36 @@ now override the 3.3 new styles for modern browsers & apply opacity
   .navbar-wrapper .navbar-menu-icon-wrapper .navbar-menu-icon {
     font-size: 1.5rem; } }
 
-.footer-wrapper .footer-brand a {
-  color: #fafafa;
-  text-decoration: none;
-  display: block; }
-  .footer-wrapper .footer-brand a:hover {
-    color: #fafafa; }
-  .footer-wrapper .footer-brand a .footer-brand-title {
-    position: relative;
-    font-size: 2rem;
-    font-weight: 300;
-    line-height: 100px; }
-    .footer-wrapper .footer-brand a .footer-brand-title span {
-      color: #F96816;
-      font-weight: 600;
-      font-family: "Ubuntu", sans-serif; }
-
-.footer-wrapper ul {
-  margin: 0 0 10px 0;
-  padding: 0;
-  text-align: center; }
-  .footer-wrapper ul li {
-    display: inline-block;
-    padding: 0 10px;
-    font-family: "Ubuntu", sans-serif;
-    font-size: 1rem; }
-    .footer-wrapper ul li a {
+.footer-wrapper {
+  border-top: 1px dashed #F96816; }
+  .footer-wrapper .footer-brand a {
+    color: #fafafa;
+    text-decoration: none;
+    display: block; }
+    .footer-wrapper .footer-brand a:hover {
       color: #fafafa; }
-      .footer-wrapper ul li a:hover {
-        color: #F96816; }
+    .footer-wrapper .footer-brand a .footer-brand-title {
+      position: relative;
+      font-size: 2rem;
+      font-weight: 300;
+      line-height: 100px; }
+      .footer-wrapper .footer-brand a .footer-brand-title span {
+        color: #F96816;
+        font-weight: 600;
+        font-family: "Ubuntu", sans-serif; }
+  .footer-wrapper ul {
+    margin: 0 0 10px 0;
+    padding: 0;
+    text-align: center; }
+    .footer-wrapper ul li {
+      display: inline-block;
+      padding: 0 10px;
+      font-family: "Ubuntu", sans-serif;
+      font-size: 1rem; }
+      .footer-wrapper ul li a {
+        color: #fafafa; }
+        .footer-wrapper ul li a:hover {
+          color: #F96816; }
 
 @media only screen and (max-width: 543px) {
   .footer-wrapper .footer-brand-title {

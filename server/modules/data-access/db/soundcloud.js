@@ -5,7 +5,7 @@ const request = require('request');
 
 const soundcloud = (() => {
 
-    function getSoundcloudTracks(limit) {
+    function getSongs(limit) {
 
         return new Promise((resolve, reject) => {
             limit = limit || 12;
@@ -53,7 +53,7 @@ const soundcloud = (() => {
     }
 
     return {
-        getSoundcloudTracks
+        getSongs
     };
 })();
 

@@ -6,8 +6,8 @@ module.exports = (app) => {
     app.get('/', (req, res) => {
 
         const promos = db.promos.getAll();
-        const songs = db.soundcloud.getSoundcloudTracks();
-        const videos = db.youtube.getVideos();
+        const songs = db.soundcloud.getSongs();
+        const videos = db.youtube.getVideos(12);
 
         Promise.all([promos, songs, videos])
             .then(values => {
@@ -37,6 +37,7 @@ module.exports = (app) => {
             }).catch(err => res.render('partials/error', err));
     });
 
+    app.get('/about', (req, res) => res.render('partials/about'));
     app.get('/termsofuse', (req, res) => res.render('partials/tos'));
     app.get('/policies', (req, res) => res.render('partials/policies'));
 };
