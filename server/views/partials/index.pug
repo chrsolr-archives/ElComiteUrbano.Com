@@ -25,6 +25,14 @@ block content
                         li
                             a(target="_blank", class="fa fa-3x fa-twitter twitter-color", href="https://www.twitter.com/elcomiteurbano")
 
+        section.section-bg-light
+            .container
+                span.section-title Soundcloud
+                .row
+                    each video, i in youtube.videos
+                        .col-sm-6.margin-bottom-4(class=i%2 === 0 ? "no-left-padding" : "no-right-padding")
+                            img.img-responsive(src=video.imageUrl, alt=video.title, width="100%")
+
         if promos.length > 0
             section.section-bg-dark
                 .container

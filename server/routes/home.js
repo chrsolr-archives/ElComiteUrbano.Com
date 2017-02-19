@@ -7,19 +7,21 @@ module.exports = (app) => {
 
         const promos = db.promos.getAll();
         const songs = db.soundcloud.getSoundcloudTracks();
+        const videos = db.youtube.getVideos();
 
-        Promise.all([promos, songs])
+        Promise.all([promos, songs, videos])
             .then(values => {
                 const data = {
                     promos: values[0],
-                    songs: values[1]
+                    songs: values[1],
+                    youtube: values[2]
                 };
 
                 let promos = [];
 
                 for (let i in data.promos) {
                     if (i % 2 === 0) {
-                        var row = {
+                        const row = {
                             content: []
                         };
                         row.content.push(data.promos[i]);
@@ -32,7 +34,7 @@ module.exports = (app) => {
 
                 return res.render('partials/index', data);
 
-            }).catch(err => res.render('partials/index', err));
+            }).catch(err => res.render('partials/error', err));
     });
 
     app.get('/termsofuse', (req, res) => res.render('partials/tos'));

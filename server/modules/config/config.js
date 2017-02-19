@@ -16,8 +16,8 @@ module.exports = (() => {
 
     const api_keys = {
         SC_CLIENT_ID: process.env.SC_CLIENT_ID || '500f3c5cdcf76cb1bcc8c35e97864840',
-        YOUTUBE_ID: process.env.YOUTUBE_ID,
-        RECAPTCHA_KEY: process.env.RECAPTCHA_KEY
+        YOUTUBE_ID: process.env.YOUTUBE_ID || 'AIzaSyDMVu01ka49DBvOGabKYo1vhrykghKJNoI',
+        RECAPTCHA_KEY: process.env.RECAPTCHA_KEY || 'recaptcha_verify_key'
     };
 
     const paths = {

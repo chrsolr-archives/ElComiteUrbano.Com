@@ -8,7 +8,7 @@ const soundcloud = (() => {
     function getSoundcloudTracks(limit) {
 
         return new Promise((resolve, reject) => {
-            var limit = limit || 12;
+            limit = limit || 12;
             const URL = `http://api.soundcloud.com/users/226660344/tracks.json?client_id=${config.api_keys.SC_CLIENT_ID}&limit=${limit}`;
 
             request(URL, (err, res) => {
