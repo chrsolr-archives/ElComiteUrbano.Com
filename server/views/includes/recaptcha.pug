@@ -2,14 +2,16 @@ div.modal#contact-modal
     .modal-dialog(role="document")
         .modal-content
             .modal-header
+                button(type="button", class="close", data-dismiss="modal", aria-label="Close")
+                    span(aria-hidden="true") &times;
                 h3.modal-title Contact Us
             .modal-body
                 form(name="form", method="POST")
-                    input.form-control.form-control-ecu-accent(name="name", type="text", placeholder="Enter your name", required)
-                    input.form-control.form-control-ecu-accent(name="email", type="email", placeholder="Enter your email", required)
-                    input.form-control.form-control-ecu-accent(name="subject", type="text", placeholder="Enter your subject", required)
+                    input.form-control.form-control-ecu-accent(name="name", type="text", placeholder="Enter name", required)
+                    input.form-control.form-control-ecu-accent(name="email", type="email", placeholder="Enter email", required)
+                    input.form-control.form-control-ecu-accent(name="subject", type="text", placeholder="Enter subject", required)
                     textarea.form-control.form-control-ecu-accent(name="body", placeholder="Enter message", required)
                     .modal-footer
-                        button.btn.btn-ecu-accent(type="submit") Send
-                        button.btn.btn-ecu-accent(type="button") Cancel
+                        button.btn.btn-ecu-accent(type="click") Send
+                        button.btn.btn-ecu-accent(type="button", data-dismiss="modal") Cancel
                     .g-recaptcha(data-sitekey="6LccKhUTAAAAAFW7jJVq2_3bch36LmKpThWQ-HDT'")
