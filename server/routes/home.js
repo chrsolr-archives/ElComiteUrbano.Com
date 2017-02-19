@@ -1,6 +1,8 @@
 'use strict';
 
 const db = require('../modules/data-access/db');
+const request = require('request');
+const config = require('../modules/config').config;
 
 module.exports = (app) => {
     app.get('/', (req, res) => {
@@ -35,6 +37,30 @@ module.exports = (app) => {
                 return res.render('partials/index', data);
 
             }).catch(err => res.render('partials/error', err));
+    });
+
+    app.post('/contactus', (req, res) => {
+        if(!req.body['g-recaptcha-response']) {
+            return res.render('partials/error', {message: 'recaptcha failed'});
+        }
+
+        const VERIFY_URL = `https://www.google.com/recaptcha/api/siteverify?secret=${config.api_keys.RECAPTCHA_SECRET}&response=${req.body['g-recaptcha-response']}&remoteip=${req.connection.remoteAddress}`;
+
+        request(VERIFY_URL, (err, response, body) => {
+            if (err) {
+                throw new Error(err);
+            }
+
+            body = JSON.parse(body);
+
+            if (!body.success) {
+                return res.render('partials/error', {message: 'Failed captcha verification.'});
+            }
+
+            // Send Email Via Sendgrid;
+            return res.redirect('/');
+        });
+
     });
 
     app.get('/about', (req, res) => res.render('partials/about'));
