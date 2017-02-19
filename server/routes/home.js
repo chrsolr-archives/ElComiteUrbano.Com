@@ -36,4 +36,5 @@ module.exports = (app) => {
     });
 
     app.get('/termsofuse', (req, res) => res.render('partials/tos'));
+    app.get('/policies', (req, res) => res.render('partials/policies'));
 };
