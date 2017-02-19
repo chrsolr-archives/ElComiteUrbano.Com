@@ -29,10 +29,9 @@ p {
   overflow: hidden; }
 
 a.accent-link {
-  color: #fafafa; }
+  color: #F96816; }
   a.accent-link:hover, a.accent-link:active, a.accent-link:focus {
-    text-decoration: none;
-    color: #F96816; }
+    text-decoration: underline; }
 
 * {
   outline: none; }
@@ -227,7 +226,7 @@ now override the 3.3 new styles for modern browsers & apply opacity
     color: #fafafa;
     text-decoration: none;
     display: block; }
-    .footer-wrapper .footer-brand a:hover {
+    .footer-wrapper .footer-brand a:hover, .footer-wrapper .footer-brand a:focus, .footer-wrapper .footer-brand a:active {
       color: #fafafa; }
     .footer-wrapper .footer-brand a .footer-brand-title {
       position: relative;

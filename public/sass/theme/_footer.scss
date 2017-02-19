@@ -10,7 +10,7 @@
             text-decoration: none;
             display: block;
 
-            &:hover {
+            &:hover, &:focus, &:active {
                 color: $color-font-light;
             }
 

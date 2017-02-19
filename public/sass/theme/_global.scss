@@ -24,12 +24,11 @@ p {
 }
 
 a.accent-link {
-    color: $color-font-light;
+  color: $color-font-accent;
     &:hover,
     &:active,
     &:focus {
-      text-decoration: none;
-      color: $color-font-accent;
+      text-decoration: underline;
     }
 }
 
