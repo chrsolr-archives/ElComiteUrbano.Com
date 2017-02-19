@@ -19,6 +19,11 @@ html {
 a:hover, a:active, a:focus {
   text-decoration: none; }
 
+#tos a {
+  color: #F96816; }
+  #tos a:hover, #tos a:active, #tos a:focus {
+    text-decoration: none; }
+
 * {
   outline: none; }
 

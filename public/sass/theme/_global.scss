@@ -1,12 +1,24 @@
 @import "./partials/_utils";
-
 .row {
   margin: 0;
 }
 
 a {
-  &:hover, &:active, &:focus {
+  &:hover,
+  &:active,
+  &:focus {
     text-decoration: none;
+  }
+}
+
+#tos {
+  a {
+    color: $color-font-accent;
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+    }
   }
 }
 
@@ -39,9 +51,9 @@ a {
   text-align: right;
   border-bottom: 1px dotted $color-font-accent;
   padding-bottom: spacing(2);
-
-  @media #{$media-small}, #{$media-x-small} {
-    font-size: 2rem; 
+  @media #{$media-small},
+  #{$media-x-small} {
+    font-size: 2rem;
   }
 }
 
@@ -55,9 +67,11 @@ a {
   padding: spacing(4) 0;
 }
 
+
 /*
 inspired from http://codepen.io/Rowno/pen/Afykb
 */
+
 .carousel-fade .carousel-inner .item {
   opacity: 0;
   transition-property: opacity;
@@ -83,26 +97,29 @@ inspired from http://codepen.io/Rowno/pen/Afykb
   z-index: 2;
 }
 
+
 /*
 WHAT IS NEW IN 3.3: "Added transforms to improve carousel performance in modern browsers."
 now override the 3.3 new styles for modern browsers & apply opacity
 */
-@media all and (transform-3d), (-webkit-transform-3d) {
-  .carousel-fade .carousel-inner > .item.next,
-  .carousel-fade .carousel-inner > .item.active.right {
+
+@media all and (transform-3d),
+(-webkit-transform-3d) {
+  .carousel-fade .carousel-inner>.item.next,
+  .carousel-fade .carousel-inner>.item.active.right {
     opacity: 0;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
-  .carousel-fade .carousel-inner > .item.prev,
-  .carousel-fade .carousel-inner > .item.active.left {
+  .carousel-fade .carousel-inner>.item.prev,
+  .carousel-fade .carousel-inner>.item.active.left {
     opacity: 0;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
   }
-  .carousel-fade .carousel-inner > .item.next.left,
-  .carousel-fade .carousel-inner > .item.prev.right,
-  .carousel-fade .carousel-inner > .item.active {
+  .carousel-fade .carousel-inner>.item.next.left,
+  .carousel-fade .carousel-inner>.item.prev.right,
+  .carousel-fade .carousel-inner>.item.active {
     opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);

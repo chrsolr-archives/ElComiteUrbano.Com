@@ -19,7 +19,9 @@ module.exports = (app) => {
 
                 for (let i in data.promos) {
                     if (i % 2 === 0) {
-                        var row = { content: [] };
+                        var row = {
+                            content: []
+                        };
                         row.content.push(data.promos[i]);
                         row.content.push(data.promos[parseInt(i, 10) + 1]);
                         promos.push(row);
@@ -32,4 +34,6 @@ module.exports = (app) => {
 
             }).catch(err => res.render('partials/index', err));
     });
+
+    app.get('/termsofuse', (req, res) => res.render('partials/tos'));
 };
