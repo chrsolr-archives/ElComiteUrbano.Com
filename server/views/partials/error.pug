@@ -1,6 +1,9 @@
 extends ../layout.pug
 
 block content
-    
-    h1(class="text-center") Sorry, an error occurred while processing the page.
-    h6(class="text-center") #{message}
+
+    section.section.bg-dark
+        .container
+            span.section.title Error
+            h2(class="text-center") Sorry, an error occurred while processing the page.
+            p(class="text-center") #{message}

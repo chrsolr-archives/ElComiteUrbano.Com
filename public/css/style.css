@@ -19,12 +19,18 @@ html {
 a:hover, a:active, a:focus {
   text-decoration: none; }
 
+p {
+  margin-bottom: 1rem; }
+
 .height-300 {
   height: 300px; }
 
-#info a {
+.no-scroll {
+  overflow: hidden; }
+
+a.accent-link {
   color: #fafafa; }
-  #info a:hover, #info a:active, #info a:focus {
+  a.accent-link:hover, a.accent-link:active, a.accent-link:focus {
     text-decoration: none;
     color: #F96816; }
 
@@ -43,26 +49,27 @@ a:hover, a:active, a:focus {
 .margin-bottom-4 {
   margin-bottom: 20px; }
 
-.section-title {
+.section {
+  padding: 20px 0; }
+
+.bg-dark {
+  background-color: #181818; }
+
+.bg-light {
+  background-color: #222222; }
+
+.section.title {
   font-size: 4rem;
   font-family: "Ubuntu", sans-serif;
   font-weight: 200;
-  margin-bottom: 15px;
+  margin-bottom: 2rem;
   display: block;
   text-align: right;
-  border-bottom: 1px dotted #F96816;
-  padding-bottom: 10px; }
+  border-bottom: 1px dotted #F96816; }
   @media only screen and (min-width: 544px) and (max-width: 767px), only screen and (max-width: 543px) {
-    .section-title {
-      font-size: 2rem; } }
-
-.section-bg-dark {
-  background-color: #181818;
-  padding: 20px 0; }
-
-.section-bg-light {
-  background-color: #222222;
-  padding: 20px 0; }
+    .section.title {
+      font-size: 2rem;
+      margin-bottom: 1rem; } }
 
 /*
 inspired from http://codepen.io/Rowno/pen/Afykb

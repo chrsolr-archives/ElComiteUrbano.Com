@@ -11,12 +11,19 @@ a {
   }
 }
 
+p {
+  margin-bottom: 1rem;
+}
+
 .height-300 {
   height: 300px;
 }
 
-#info {
-  a {
+.no-scroll {
+  overflow: hidden;
+}
+
+a.accent-link {
     color: $color-font-light;
     &:hover,
     &:active,
@@ -24,7 +31,6 @@ a {
       text-decoration: none;
       color: $color-font-accent;
     }
-  }
 }
 
 * {
@@ -47,86 +53,27 @@ a {
   margin-bottom: spacing(4);
 }
 
-.section-title {
+.section {
+  padding: spacing(4) 0;
+}
+.bg-dark {
+  background-color: $color-bg-primary;
+  
+}
+.bg-light {
+  background-color: $color-bg-secondary;
+}
+.section.title {
   font-size: 4rem;
   font-family: $ubuntu;
   font-weight: $font-weight-thin;
-  margin-bottom: spacing(3);
+  margin-bottom: 2rem;
   display: block;
   text-align: right;
   border-bottom: 1px dotted $color-font-accent;
-  padding-bottom: spacing(2);
   @media #{$media-small},
   #{$media-x-small} {
     font-size: 2rem;
-  }
-}
-
-.section-bg-dark {
-  background-color: $color-bg-primary;
-  padding: spacing(4) 0;
-}
-
-.section-bg-light {
-  background-color: $color-bg-secondary;
-  padding: spacing(4) 0;
-}
-
-
-/*
-inspired from http://codepen.io/Rowno/pen/Afykb
-*/
-
-.carousel-fade .carousel-inner .item {
-  opacity: 0;
-  transition-property: opacity;
-}
-
-.carousel-fade .carousel-inner .active {
-  opacity: 1;
-}
-
-.carousel-fade .carousel-inner .active.left,
-.carousel-fade .carousel-inner .active.right {
-  left: 0;
-  opacity: 0;
-  z-index: 1;
-}
-
-.carousel-fade .carousel-inner .next.left,
-.carousel-fade .carousel-inner .prev.right {
-  opacity: 1;
-}
-
-.carousel-fade .carousel-control {
-  z-index: 2;
-}
-
-
-/*
-WHAT IS NEW IN 3.3: "Added transforms to improve carousel performance in modern browsers."
-now override the 3.3 new styles for modern browsers & apply opacity
-*/
-
-@media all and (transform-3d),
-(-webkit-transform-3d) {
-  .carousel-fade .carousel-inner>.item.next,
-  .carousel-fade .carousel-inner>.item.active.right {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-  .carousel-fade .carousel-inner>.item.prev,
-  .carousel-fade .carousel-inner>.item.active.left {
-    opacity: 0;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
-  }
-  .carousel-fade .carousel-inner>.item.next.left,
-  .carousel-fade .carousel-inner>.item.prev.right,
-  .carousel-fade .carousel-inner>.item.active {
-    opacity: 1;
-    -webkit-transform: translate3d(0, 0, 0);
-    transform: translate3d(0, 0, 0);
+    margin-bottom: 1rem;
   }
 }

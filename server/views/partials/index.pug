@@ -25,9 +25,9 @@ block content
                         li
                             a(target="_blank", class="fa fa-3x fa-twitter twitter-color", href="https://www.twitter.com/elcomiteurbano")
 
-        section.section-bg-light
+        section.section.bg-light
             .container
-                span.section-title YouTube
+                span.section.title YouTube
                 .row
                     each video, i in youtube.videos
                         .col-sm-6.margin-bottom-4
@@ -41,9 +41,9 @@ block content
                                     a(class="mfp-video-popup mfp-iframe text-success", href=video.videoUrl) View
 
         if promos.length > 0
-            section.section-bg-dark
+            section.section.bg-dark
                 .container
-                    span.section-title Promos
+                    span.section.title Promos
                     
                     div.carousel.slide.carousel-fade(id="carousel-promos", data-ride="carousel")
                         .carousel-inner(role="listbox")
@@ -60,9 +60,9 @@ block content
                                                         span.title #{promo.title}
                                                         a(href=promo.downloadUrl, class="download-link") Download
 
-        section.section-bg-light
+        section.section.bg-light
             .container
-                span.section-title Soundcloud
+                span.section.title Soundcloud
                 .row
                     each song in songs
                         .col-md-4.col-sm-6.col-xs-12.margin-bottom-4
