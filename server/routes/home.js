@@ -1,8 +1,8 @@
 'use strict';
 
 const db = require('../modules/data-access/db');
-const request = require('request');
 const config = require('../modules/config').config;
+const request = require('request');
 
 module.exports = (app) => {
     app.get('/', (req, res) => {
@@ -40,8 +40,10 @@ module.exports = (app) => {
     });
 
     app.post('/contactus', (req, res) => {
-        if(!req.body['g-recaptcha-response']) {
-            return res.render('partials/error', {message: 'recaptcha failed'});
+        if (!req.body['g-recaptcha-response']) {
+            return res.render('partials/error', {
+                message: 'recaptcha failed'
+            });
         }
 
         const VERIFY_URL = `https://www.google.com/recaptcha/api/siteverify?secret=${config.api_keys.RECAPTCHA_SECRET}&response=${req.body['g-recaptcha-response']}&remoteip=${req.connection.remoteAddress}`;
@@ -54,13 +56,27 @@ module.exports = (app) => {
             body = JSON.parse(body);
 
             if (!body.success) {
-                return res.render('partials/error', {message: 'Failed captcha verification.'});
+                return res.render('partials/error', {
+                    message: 'Failed captcha verification.'
+                });
             }
 
-            // Send Email Via Sendgrid;
-            return res.redirect('/');
-        });
+            var sendgrid = require('sendgrid')('this.relos', 'this.r3l0s');
+            sendgrid.send({
+                to: ['iamrelos@gmail.com'],
+                from: 'twenty40@gmail.com',
+                subject: 'Testing' + ' - Via Contact Us',
+                text: `From: contact.name \nEmail: contact.email\n\ncontact.body`
+            }, (err, json) => {
+                if (err) {
+                    return res.redirect('/error', {
+                        message: 'Something went wrong while sending email.'
+                    });
+                }
 
+                return res.redirect('/');
+            });
+        });
     });
 
     app.get('/about', (req, res) => res.render('partials/about'));
