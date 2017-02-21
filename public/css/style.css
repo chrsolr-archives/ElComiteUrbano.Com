@@ -33,7 +33,7 @@ a.accent-link {
   a.accent-link:hover, a.accent-link:active, a.accent-link:focus {
     text-decoration: underline; }
 
-* {
+*, *:focus, *:active, *:visited {
   outline: none !important; }
 
 .no-padding {

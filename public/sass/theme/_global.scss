@@ -32,7 +32,7 @@ a.accent-link {
     }
 }
 
-* {
+*, *:focus, *:active, *:visited {
   outline: none !important;
 }
 
