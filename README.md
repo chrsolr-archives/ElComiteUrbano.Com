@@ -1,7 +1,7 @@
 El Comite Urbano - Website
 ==========================
 
-Website build on NodeJS/ExpressJS/AngularJS/Typescript/LessCss/Parse.
+Website build on NodeJS/ExpressJS/Typescript/Sass/Mongoose.
 
 Description
 -----------
