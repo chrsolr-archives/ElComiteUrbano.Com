@@ -5,9 +5,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
 const path = require('path');
+const helmet = require('helmet');
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(helmet.noCache());
+app.use(helmet.frameguard());
+app.use(helmet.xssFilter());
 app.set('views', path.join(__dirname, '../../views'));
 app.set('view engine', 'pug');
 app.use(express.static('public'));
