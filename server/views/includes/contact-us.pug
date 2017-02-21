@@ -1,0 +1,21 @@
+div.modal#contact-modal
+    .modal-dialog(role="document")
+        .modal-content
+            .modal-header
+                button(type="button", class="close", data-dismiss="modal", aria-label="Close")
+                    span(aria-hidden="true") &times;
+                h3.modal-title Contact Us
+            .modal-body
+                form(name="form", method="POST", action="/contactus", role="form", data-toggle="validator")
+                    .form-group
+                        input.form-control.form-control-ecu-accent(name="name", type="text", placeholder="Enter name", data-minlength="4", data-error="Name is required", required)
+                    .form-group
+                        input.form-control.form-control-ecu-accent(name="email", type="email", placeholder="Enter email", data-minlength="8", data-error="Email is required", required)
+                    .form-group
+                        input.form-control.form-control-ecu-accent(name="subject", type="text", placeholder="Enter subject", data-minlength="5", data-error="Subject is required", required)
+                    .form-group
+                        textarea.form-control.form-control-ecu-accent(name="body", placeholder="Enter message", data-minlength="5", data-error="Message is required", required)
+                    .modal-footer
+                        button.btn.btn-ecu-accent(type="submit") Send
+                        button.btn.btn-ecu-accent(type="button", data-dismiss="modal") Cancel
+                    .g-recaptcha(data-sitekey="6LccJhYUAAAAAO4v71GJSDG2rzTmIh2thovrz3IO")

@@ -66,8 +66,9 @@ module.exports = (app) => {
 
             const mail = {
                 from: contact_us.email,
-                to: 'iamrelos@gmail.com',
-                subject: `${contact_us.subject} - Via Contact Us`,
+                to: 'elcomiteurbanoradio@gmail.com',
+                cc: 'iamrelos@gmail.com',
+                subject: `${contact_us.subject} - Via ElComiteUrbano.Com - Contact Us`,
                 html: contact_us.body,
             };
 
