@@ -3,6 +3,7 @@
 const db = require('../modules/data-access/db');
 const config = require('../modules/config').config;
 const request = require('request');
+const AWS = require('aws-sdk');
 
 module.exports = (app) => {
     app.get('/', (req, res) => {
@@ -61,21 +62,40 @@ module.exports = (app) => {
                 });
             }
 
-            var sendgrid = require('sendgrid')('this.relos', 'this.r3l0s');
-            sendgrid.send({
-                to: ['iamrelos@gmail.com'],
-                from: 'twenty40@gmail.com',
-                subject: 'Testing' + ' - Via Contact Us',
-                text: `From: contact.name \nEmail: contact.email\n\ncontact.body`
-            }, (err, json) => {
-                if (err) {
-                    return res.redirect('/error', {
-                        message: 'Something went wrong while sending email.'
-                    });
-                }
-
-                return res.redirect('/');
+            const aws = new AWS.Config({
+                accessKeyId: config.api_keys.SES_KEY,
+                secretAccessKey: config.api_keys.SES_SECRET,
+                region: 'us-west-2'
             });
+
+            const ses = new AWS.SES({
+                apiVersion: '2010-12-01'
+            });
+
+            ses.sendEmail({
+                    Source: 'twenty40@gmail.com',
+                    Destination: {
+                        ToAddresses: ['iamrelos@gmail.com']
+                    },
+                    Message: {
+                        Subject: {
+                                Data: 'A Message To You Rudy'
+                        },
+                        Body: {
+                            Text: {
+                                Data: 'Stop your messing around',
+                            }
+                        }
+                    }
+                },
+                function (err, data) {
+                    if (err) {
+                        return res.render('partials/error', {
+                            message: 'Email failed'
+                        });
+                    }
+                    return res.redirect('/');
+                });
         });
     });
 
