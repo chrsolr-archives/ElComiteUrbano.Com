@@ -18,9 +18,7 @@ module.exports = (() => {
         SC_CLIENT_ID: process.env.SC_CLIENT_ID || '500f3c5cdcf76cb1bcc8c35e97864840',
         YOUTUBE_ID: process.env.YOUTUBE_ID || 'AIzaSyDMVu01ka49DBvOGabKYo1vhrykghKJNoI',
         RECAPTCHA_KEY: process.env.RECAPTCHA_KEY || '6LccKhUTAAAAAHjKGedS1ySDkUlTSrcRSYEUwxMP',
-        RECAPTCHA_SECRET: process.env.REPCATCHA_SECRET || '6LccJhYUAAAAAPfEoXL5PkK2gLdqXsdCwS5HamyG',
-        SES_KEY: process.env.SES_KEY || 'AKIAJEYEXNT3JEEYD5FQ',
-        SES_SECRET: process.env.SES_SECRET || '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',
+        RECAPTCHA_SECRET: process.env.REPCATCHA_SECRET || '6LccJhYUAAAAAPfEoXL5PkK2gLdqXsdCwS5HamyG'
     };
 
     const paths = {

@@ -3,7 +3,7 @@
 const db = require('../modules/data-access/db');
 const config = require('../modules/config').config;
 const request = require('request');
-const AWS = require('aws-sdk');
+const sendmail = require('sendmail')()
 
 module.exports = (app) => {
     app.get('/', (req, res) => {
@@ -41,7 +41,9 @@ module.exports = (app) => {
     });
 
     app.post('/contactus', (req, res) => {
-        if (!req.body['g-recaptcha-response']) {
+        const contact_us = req.body;
+
+        if (!contact_us['g-recaptcha-response']) {
             return res.render('partials/error', {
                 message: 'recaptcha failed'
             });
@@ -56,46 +58,28 @@ module.exports = (app) => {
 
             body = JSON.parse(body);
 
-            if (!body.success) {
+            if (!body || !body.success) {
                 return res.render('partials/error', {
                     message: 'Failed captcha verification.'
                 });
             }
 
-            const aws = new AWS.Config({
-                accessKeyId: config.api_keys.SES_KEY,
-                secretAccessKey: config.api_keys.SES_SECRET,
-                region: 'us-west-2'
-            });
+            const mail = {
+                from: contact_us.email,
+                to: 'iamrelos@gmail.com',
+                subject: `${contact_us.subject} - Via Contact Us`,
+                html: contact_us.body,
+            };
 
-            const ses = new AWS.SES({
-                apiVersion: '2010-12-01'
-            });
+            sendmail(mail, (err) => {
+                if (err) {
+                    return res.render('partials/error', {
+                        message: err
+                    });
+                }
 
-            ses.sendEmail({
-                    Source: 'twenty40@gmail.com',
-                    Destination: {
-                        ToAddresses: ['iamrelos@gmail.com']
-                    },
-                    Message: {
-                        Subject: {
-                                Data: 'A Message To You Rudy'
-                        },
-                        Body: {
-                            Text: {
-                                Data: 'Stop your messing around',
-                            }
-                        }
-                    }
-                },
-                function (err, data) {
-                    if (err) {
-                        return res.render('partials/error', {
-                            message: 'Email failed'
-                        });
-                    }
-                    return res.redirect('/');
-                });
+                return res.redirect('/');
+            });
         });
     });
 
