@@ -14,6 +14,7 @@ app.use(express.static('public'));
 
 app.locals.moment = require('moment');
 app.locals.brand_title = config.environment.BRAND_TITLE;
+app.locals.recaptcha_key = config.api_keys.RECAPTCHA_KEY;
 
 require('../../routes/home')(app);
 
