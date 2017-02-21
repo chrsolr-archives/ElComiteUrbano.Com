@@ -34,7 +34,7 @@ a.accent-link {
     text-decoration: underline; }
 
 * {
-  outline: none; }
+  outline: none !important; }
 
 .no-padding {
   padding: 0; }
