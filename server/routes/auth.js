@@ -8,7 +8,7 @@ module.exports = (app) => {
     }));
 
     app.get('/auth/google/callback', passport.authenticate('google', {
-        failureRedirect: '/error' // TODO: Add a route to handle errors
+        failureRedirect: '/error'
     }), (req, res) => {
         return res.redirect('/admin');
     });

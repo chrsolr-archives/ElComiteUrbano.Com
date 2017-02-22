@@ -87,4 +87,5 @@ module.exports = (app) => {
     app.get('/about', (req, res) => res.render('partials/about'));
     app.get('/termsofuse', (req, res) => res.render('partials/tos'));
     app.get('/policies', (req, res) => res.render('partials/policies'));
+    app.get('/error', (req, res) => res.render('partials/error'));
 };

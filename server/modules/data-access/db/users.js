@@ -7,10 +7,11 @@ class Users {
 
     login(profile) {
         return new Promise((resolve, reject) => {
-            const delimiter = `${profile.google}.id`;
+            const delimiter = `${profile.provider}.id`;
 
             const query = UserModel.findOne();
-            query.where('google.id').equals(profile.google.id);
+            query.where(delimiter);
+            query.equals(profile[profile.provider].id);
             query.lean();
             query.exec((err, user) => {
                 if (err) {
@@ -22,12 +23,12 @@ class Users {
                 }
 
                 var User = new UserModel(profile);
-                User.save((err, doc) => {
+                User.save((err, user) => {
                     if (err) {
                         return reject(err);
                     }
 
-                    return resolve(doc);
+                    return resolve(user);
                 });
             });
         });
@@ -35,7 +36,9 @@ class Users {
 
     getById(id) {
         return new Promise((resolve, reject) => {
-            const query = UserModel.findOne({ _id: id });
+            const query = UserModel.findOne({
+                _id: id
+            });
             query.lean();
             query.exec((err, user) => {
                 if (err) {

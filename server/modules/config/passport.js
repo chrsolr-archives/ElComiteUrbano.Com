@@ -18,11 +18,17 @@ module.exports = (app) => {
         const email = profile.emails.find(value => value.type === 'account').value;
 
         const user_schema = {
-            google: profile,
-            email: email
+            google: profile._json,
+            email: email,
+            provider: profile.provider
         };
 
-        handler(user_schema, req, done);
+        if (!profile) {
+            return done(new Error(`Error while logging in.`));
+        }
+
+        return db.users.login(user_schema)
+            .then(res => done(null, res), err => done(err, null));
     }));
 
     passport.serializeUser((user, done) => {
@@ -33,12 +39,3 @@ module.exports = (app) => {
         db.users.getById(user._id).then(res => done(null, res));
     });
 };
-
-function handler(profile, req, done) {
-    if (!profile) {
-        return done(new Error(`Error while logging in.`));
-    }
-
-    return db.users.login(profile)
-        .then(res => done(null, res), err => done(err, null));
-}
