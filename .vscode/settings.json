@@ -1,5 +1,6 @@
 // Place your settings in this file to overwrite default and user settings.
 {
     "jshint.config": "./jshintrc",
-    "typescript.check.workspaceVersion": false
+    "files.autoSave": "afterDelay",
+    "git.confirmSync": false
 }
