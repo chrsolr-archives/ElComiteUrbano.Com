@@ -11,14 +11,20 @@ module.exports = (() => {
     const environment = {
         PORT: process.env.PORT || 3000,
         ENV: process.env.NODE_ENV || 'DEV',
-        BRAND_TITLE: process.env.BRAND_TITLE || 'ECU-Dev'
+        BRAND_TITLE: process.env.BRAND_TITLE || 'ECU-Dev',
+        SESSION_SECRET: process.env.SESSION_SECRET || 'SECRET'
     };
 
     const api_keys = {
         SC_CLIENT_ID: process.env.SC_CLIENT_ID || '500f3c5cdcf76cb1bcc8c35e97864840',
         YOUTUBE_ID: process.env.YOUTUBE_ID || 'AIzaSyDMVu01ka49DBvOGabKYo1vhrykghKJNoI',
         RECAPTCHA_KEY: process.env.RECAPTCHA_KEY || '6LccJhYUAAAAAO4v71GJSDG2rzTmIh2thovrz3IO',
-        RECAPTCHA_SECRET: process.env.REPCATCHA_SECRET || '6LccJhYUAAAAAPfEoXL5PkK2gLdqXsdCwS5HamyG'
+        RECAPTCHA_SECRET: process.env.REPCATCHA_SECRET || '6LccJhYUAAAAAPfEoXL5PkK2gLdqXsdCwS5HamyG',
+        GOOGLE_OAUTH: {
+            CLIENT_ID: process.env.GOOGLE_CLIENT_ID || '1002857289292-405s1icgiqa3q8u5elrafqlvph5achu1.apps.googleusercontent.com',
+            CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET || '1BlANA8IeDGUNbf1yccrZsiD',
+            CALLBACK_URL: process.env.GOOGLE_CALLBACK_URL || '/auth/google/callback'
+        }
     };
 
     const paths = {

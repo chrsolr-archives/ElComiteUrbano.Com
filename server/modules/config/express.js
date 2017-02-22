@@ -3,12 +3,21 @@
 const config = require('./config');
 const express = require('express');
 const bodyParser = require('body-parser');
+const session = require('express-session');
+const passport = require('./passport');
 const app = express();
 const path = require('path');
 const helmet = require('helmet');
 
-app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
 app.use(bodyParser.json());
+app.use(session({
+    secret: config.environment.SESSION_SECRET,
+    saveUninitialized: false,
+    resave: false
+}));
 app.use(helmet.noCache());
 app.use(helmet.frameguard());
 app.use(helmet.xssFilter());
@@ -20,6 +29,9 @@ app.locals.moment = require('moment');
 app.locals.brand_title = config.environment.BRAND_TITLE;
 app.locals.recaptcha_key = config.api_keys.RECAPTCHA_KEY;
 
+passport(app);
+
 require('../../routes/home')(app);
+require('../../routes/auth')(app);
 
 module.exports = app;
