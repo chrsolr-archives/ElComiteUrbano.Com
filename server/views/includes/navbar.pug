@@ -10,23 +10,11 @@ nav
                         i.glyphicon.glyphicon-option-vertical
 
     aside.navbar-sidebar-wrapper
-        a(href="/")
-            i.pe-7s-home.pe-lg.pe-va
-                span HOME
-        //- a(href="/videos")
-        //-     i.pe-7s-video.pe-lg.pe-va
-        //-         span VIDEOS
-        a(href="/about")
-            i.pe-7s-info.pe-lg.pe-va
-                span ABOUT
-        a(href="#", data-toggle="modal", data-target="#contact-modal")
-            i.pe-7s-mail.pe-lg.pe-va
-                span CONTACT
+        a(href="/"): i.pe-7s-home.pe-lg.pe-va: span HOME
+        a(href="/about"): i.pe-7s-info.pe-lg.pe-va: span ABOUT
+        a(href="#", data-toggle="modal", data-target="#contact-modal"): i.pe-7s-mail.pe-lg.pe-va: span CONTACT
         if user && user.isAnAdmin
-            a(href="/dashboard")
-                i.pe-7s-settings.pe-lg.pe-va
-                    span ADMIN
-            a(href="/logout")
-                i.pe-7s-delete-user.pe-lg.pe-va
-                    span LOGOUT
+            a(href="/dashboard"): i.pe-7s-settings.pe-lg.pe-va: span ADMIN
+            a(href="/logout"): i.pe-7s-delete-user.pe-lg.pe-va: span LOGOUT
+            
         a(href="http://www.keypunchers.io", target="_blank") Created By: keypunchers.io

@@ -54,6 +54,7 @@ a.accent-link {
 
 .section {
   padding: spacing(4) 0;
+  overflow: hidden;
 }
 .bg-dark {
   background-color: $color-bg-primary;
