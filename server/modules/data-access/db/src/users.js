@@ -1,6 +1,6 @@
 'use strict';
 
-const UserModel = require('../models').User;
+const UserModel = require('../../models').User;
 
 class Users {
     constructor() {}

@@ -12,4 +12,9 @@ module.exports = (app) => {
     }), (req, res) => {
         return res.redirect('/admin');
     });
+
+    app.get('/logout', (req, res) => {
+        req.logout();
+        return res.redirect('/');
+    });
 };

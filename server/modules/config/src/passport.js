@@ -2,7 +2,7 @@
 
 const config = require('./config');
 const passport = require('passport');
-const db = require('../data-access/db');
+const db = require('../../data-access/db');
 const GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 module.exports = (app) => {

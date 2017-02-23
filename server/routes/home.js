@@ -3,7 +3,7 @@
 const db = require('../modules/data-access/db');
 const config = require('../modules/config').config;
 const request = require('request');
-const sendmail = require('sendmail')()
+const sendmail = require('sendmail')();
 
 module.exports = (app) => {
     app.get('/', (req, res) => {

@@ -1,6 +1,6 @@
 'use strict';
 
-const PromoModel = require('../models').Promo;
+const PromoModel = require('../../models').Promo;
 
 class PromoDB {
 

@@ -21,7 +21,7 @@ app.use(session({
 app.use(helmet.noCache());
 app.use(helmet.frameguard());
 app.use(helmet.xssFilter());
-app.set('views', path.join(__dirname, '../../views'));
+app.set('views', path.join(__dirname, '../../../views'));
 app.set('view engine', 'pug');
 app.use(express.static('public'));
 
@@ -31,7 +31,13 @@ app.locals.recaptcha_key = config.api_keys.RECAPTCHA_KEY;
 
 passport(app);
 
-require('../../routes/home')(app);
-require('../../routes/auth')(app);
+app.use((req, res, next) => {
+    res.locals.user = req.user;
+    return next();
+});
+
+require('../../../routes/home')(app);
+require('../../../routes/auth')(app);
+require('../../../routes/admin')(app);
 
 module.exports = app;

@@ -22,4 +22,11 @@ nav
         a(href="#", data-toggle="modal", data-target="#contact-modal")
             i.pe-7s-mail.pe-lg.pe-va
                 span CONTACT
+        if user && user.isAnAdmin
+            a(href="/admin")
+                i.pe-7s-settings.pe-lg.pe-va
+                    span ADMIN
+            a(href="/logout")
+                i.pe-7s-delete-user.pe-lg.pe-va
+                    span LOGOUT
         a(href="http://www.keypunchers.io", target="_blank") Created By: keypunchers

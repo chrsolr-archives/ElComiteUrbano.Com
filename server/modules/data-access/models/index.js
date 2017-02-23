@@ -1,4 +1,4 @@
 'use strict';
 
-exports.Promo = require('./Promo');
-exports.User = require('./User');
+exports.Promo = require('./src/Promo');
+exports.User = require('./src/User');

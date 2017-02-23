@@ -1,6 +1,6 @@
 'use strict';
 
-exports.youtube = require('./youtube');
-exports.soundcloud = require('./soundcloud');
-exports.promos = require('./promos');
-exports.users = require('./users');
+exports.youtube = require('./src/youtube');
+exports.soundcloud = require('./src/soundcloud');
+exports.promos = require('./src/promos');
+exports.users = require('./src/users');
