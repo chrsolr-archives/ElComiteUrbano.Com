@@ -88,5 +88,4 @@ module.exports = (app) => {
     app.get('/termsofuse', (req, res) => res.render('partials/tos'));
     app.get('/policies', (req, res) => res.render('partials/policies'));
     app.get('/error', (req, res) => res.render('partials/error'));
-    app.get('/*', (req, res) => res.render('partials/error', { message: '404: Page not found'}));
 };

@@ -38,6 +38,8 @@ app.use((req, res, next) => {
 
 require('../../../routes/home')(app);
 require('../../../routes/auth')(app);
-require('../../../routes/admin')(app);
+require('../../../routes/dashboard')(app);
+
+app.get('/*', (req, res) => res.render('partials/error', { message: '404: Page not found'}));
 
 module.exports = app;
