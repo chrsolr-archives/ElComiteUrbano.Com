@@ -10,6 +10,7 @@ block content
             .banner-content
                 span.banner-title.animated.fadeInDown El Comite Urbano
                 span.banner-subtitle.animated.fadeInUp El Mejor Radio Show En NYC
+                span.banner-subscribe.animated.fadeInUp: a(href="", target="_blank"): i.fa.fa-3x.fa-youtube-play
 
             .banner-social
                 .container.no-padding
@@ -32,6 +33,9 @@ block content
                     each video, i in youtube.videos
                         .col-sm-6.margin-bottom-4
                             .soundcloud-wrapper.height-300
+                                span.view-count
+                                    i.fa.fa-eye
+                                    |  #{video.view_count}
                                 img.img-responsive(src=video.imageUrl, alt=video.title)
 
                                 .content

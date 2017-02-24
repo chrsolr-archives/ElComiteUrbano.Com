@@ -1,22 +1,18 @@
 @import "./partials/_utils";
-
 .banner-image {
     position: relative;
     overflow: hidden;
-
     img {
         width: 100%;
     }
-
     .banner-overlay {
         position: absolute;
         top: 0;
         right: 0;
         left: 0;
         bottom: 0;
-        background-color: rgba(0,0,0,.3);
+        background-color: rgba(0, 0, 0, .3);
     }
-
     .banner-content {
         position: absolute;
         top: 30%;
@@ -24,66 +20,67 @@
         right: 0;
         color: $color-font-light;
         transform: translate3d(0, -30%, 0);
-
         span {
             text-align: center;
             display: block;
         }
-
         .banner-title {
             font-family: $roboto;
             font-size: 3rem;
             font-weight: $font-weight-thin;
         }
-
         .banner-subtitle {
+            font-size: 1.5rem;
+            font-family: $ubuntu;
+            font-weight: $font-weight-thin;
+        }
+        .banner-subscribe {
             font-size: 1.5rem;
             color: $color-font-light;
             font-family: $ubuntu;
             font-weight: $font-weight-thin;
+            a {
+                color: $color-font-light;
+                &:hover {
+                    color: $color-font-accent;
+                }
+            }
         }
-
-        @media #{$media-small}, #{$media-x-small} {
+        @media #{$media-small},
+        #{$media-x-small} {
             .banner-title {
                 font-size: 2rem !important;
             }
-
             .banner-subtitle {
                 font-size: 1rem !important;
             }
         }
     }
-
     .banner-social {
         position: absolute;
         bottom: 0;
         left: 0;
         right: 0;
-        background-color: rgba(0,0,0,.8);
+        background-color: rgba(0, 0, 0, .8);
         color: $color-font-light;
         max-height: $navbar-height;
-
         ul.social-media-share-home {
             width: 100%;
             padding: 0;
             list-style-type: none;
             text-align: center;
             box-sizing: border-box;
-
             li {
                 display: inline-block;
                 width: calc(100% / 6);
                 border-right: 1px dashed $color-font-accent;
-
                 &:first-child {
                     border-left: 1px dashed $color-font-accent;
                 }
-
                 a {
                     color: $color-font-light;
                     font-size: 2rem;
                     line-height: $navbar-height;
-
                     &:hover {
                         color: $color-font-accent;
                         text-decoration: none;
@@ -91,10 +88,9 @@
                 }
             }
         }
-
-        @media #{$media-small}, #{$media-x-small} {
+        @media #{$media-small},
+        #{$media-x-small} {
             height: $navbar-height / 2;
-
             li {
                 a {
                     font-size: 1.25rem !important;
@@ -106,141 +102,139 @@
 }
 
 .soundcloud-wrapper {
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-
-  img {
-    width: 100%;
-  }
-
-  .content {
-    background-color: rgba(0,0,0,.8);
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 2;
-    padding: spacing(2);
-    text-align: right;
-
-    .artists {
-      display: block;
-      color: $color-font-dark;
-      font-size: 1rem;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    img {
+        width: 100%;
     }
-    .title {
-      display: block;
-      a {
-        color: $color-font-light;
-        font-size: 1.2rem;
-        &:hover {
-            text-decoration: none;
-        }
-      }
+    .view-count {
+        position: absolute;
+        top: spacing(1);
+        right: spacing(2);
+        color: white;
+        opacity: 0.75;
     }
-    
-    a {
-      display: block;
-      color: $color-font-accent;
-      font-size: 1rem;
-    }
-    
-    @media #{$media-small} {
+    .content {
+        background-color: rgba(0, 0, 0, .8);
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        padding: spacing(2);
+        text-align: right;
         .artists {
-            font-size: 1.2rem;
+            display: block;
+            color: $color-font-dark;
+            font-size: 1rem;
         }
         .title {
-            a {font-size: 1.5rem};
+            display: block;
+            a {
+                color: $color-font-light;
+                font-size: 1.2rem;
+                &:hover {
+                    text-decoration: none;
+                }
+            }
         }
         a {
-            font-size: 1.2rem;
+            display: block;
+            color: $color-font-accent;
+            font-size: 1rem;
+        }
+        @media #{$media-small} {
+            .artists {
+                font-size: 1.2rem;
+            }
+            .title {
+                a {
+                    font-size: 1.5rem
+                }
+                ;
+            }
+            a {
+                font-size: 1.2rem;
+            }
         }
     }
-  }
 }
 
 .promo-wrapper {
-  position: relative;
-  z-index: 1;
-  overflow: hidden;
-
-  img {
-    width: 100%;
-  }
-
-  .content {
-    background-color: rgba(0,0,0,.8);
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 2;
-    padding: spacing(4);
-    text-align: right;
-
-    .artists {
-      display: block;
-      color: $color-font-dark;
-      font-size: 1.5rem;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    img {
+        width: 100%;
     }
-    .title {
-      display: block;
-      color: $color-font-light;
-      font-size: 2rem;
-    }
-    .download-link {
-      display: block;
-      color: $color-font-accent;
-      font-size: 1.2rem;
-    }
-    .loading-bar {
+    .content {
+        background-color: rgba(0, 0, 0, .8);
         position: absolute;
-        bottom: 0;
         left: 0;
         right: 0;
-        height: 2px;
-        background-color: $color-bg-accent;
-        width: 0;
-    }
-
-    @media #{$media-medium} {
+        bottom: 0;
+        z-index: 2;
+        padding: spacing(4);
+        text-align: right;
         .artists {
-            font-size: 1.2rem;
-        }
-        .title {
+            display: block;
+            color: $color-font-dark;
             font-size: 1.5rem;
         }
-        .download-link {
-            font-size: 1rem;
-        }
-    }
-
-    @media #{$media-small} {
-        padding: spacing(2);
-
-        .artists {
-            font-size: 1rem;
-        }
         .title {
+            display: block;
+            color: $color-font-light;
+            font-size: 2rem;
+        }
+        .download-link {
+            display: block;
+            color: $color-font-accent;
             font-size: 1.2rem;
         }
-        .download-link {
-            font-size: 0.8rem;
+        .loading-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: $color-bg-accent;
+            width: 0;
+        }
+        @media #{$media-medium} {
+            .artists {
+                font-size: 1.2rem;
+            }
+            .title {
+                font-size: 1.5rem;
+            }
+            .download-link {
+                font-size: 1rem;
+            }
+        }
+        @media #{$media-small} {
+            padding: spacing(2);
+            .artists {
+                font-size: 1rem;
+            }
+            .title {
+                font-size: 1.2rem;
+            }
+            .download-link {
+                font-size: 0.8rem;
+            }
+        }
+        @media #{$media-x-small} {
+            padding: spacing(2);
+            .artists {
+                font-size: 0.5rem;
+            }
+            .title {
+                font-size: 0.8rem;
+            }
+            .download-link {
+                font-size: 0.5rem;
+            }
         }
     }
-    @media #{$media-x-small} {
-        padding: spacing(2);
-
-        .artists {
-            font-size: 0.5rem;
-        }
-        .title {
-            font-size: 0.8rem;
-        }
-        .download-link {
-            font-size: 0.5rem;
-        }
-    }
-  }
 }

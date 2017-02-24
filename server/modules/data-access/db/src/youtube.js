@@ -39,7 +39,7 @@ const youtube = (() => {
                         imageUrl = item.snippet.thumbnails.maxres.url;
                     } else if (item.snippet.thumbnails.standard != null) {
                         imageUrl = item.snippet.thumbnails.standard.url;
-                    } else if (item.snippet.thumbnails.high != null){
+                    } else if (item.snippet.thumbnails.high != null) {
                         imageUrl = item.snippet.thumbnails.high.url;
                     } else if (item.snippet.thumbnails.medium != null) {
                         imageUrl = item.snippet.thumbnails.medium.url;
@@ -60,7 +60,47 @@ const youtube = (() => {
                     data.videos.push(video);
                 });
 
-                return resolve(data);
+                const video_ids = data.videos.map(value => value.id);
+
+                getViewAndCommentCounts(video_ids).then((statistics) => {
+                    data.videos.forEach(video => {
+                        Object.assign(video, statistics.filter(value => video.id === value.id)[0]);
+                    });
+
+                    return resolve(data);
+                }).catch(err => reject(err));
+            });
+        });
+    }
+
+    function getViewAndCommentCounts(videoIds) {
+        return new Promise((resolve, reject) => {
+            const key = config.api_keys.YOUTUBE_ID;
+            const URL = `https://www.googleapis.com/youtube/v3/videos?part=statistics&id=${videoIds}&key=${key}`;
+
+            request(URL, (err, res) => {
+                if (err) {
+                    return reject(new Error(err));
+                }
+
+                if (res.statusCode >= 400) {
+                    return reject(new Error(res.statusCode));
+                }
+
+                const json = JSON.parse(res.body);
+
+                json.items.forEach((value) => {
+                    value.view_count = parseInt(value.statistics.viewCount, 10).toLocaleString();
+                    value.comment_count = parseInt(value.statistics.commentCount, 10).toLocaleString();
+                    
+                    delete value.kind;
+                    delete value.etag;
+                    delete value.statistics;
+
+                    return value;
+                });
+
+                return resolve(json.items);
             });
         });
     }

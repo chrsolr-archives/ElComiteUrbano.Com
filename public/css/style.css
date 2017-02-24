@@ -300,9 +300,17 @@ a.accent-link {
       font-weight: 200; }
     .banner-image .banner-content .banner-subtitle {
       font-size: 1.5rem;
+      font-family: "Ubuntu", sans-serif;
+      font-weight: 200; }
+    .banner-image .banner-content .banner-subscribe {
+      font-size: 1.5rem;
       color: #fafafa;
       font-family: "Ubuntu", sans-serif;
       font-weight: 200; }
+      .banner-image .banner-content .banner-subscribe a {
+        color: #fafafa; }
+        .banner-image .banner-content .banner-subscribe a:hover {
+          color: #F96816; }
     @media only screen and (min-width: 544px) and (max-width: 767px), only screen and (max-width: 543px) {
       .banner-image .banner-content .banner-title {
         font-size: 2rem !important; }
@@ -348,6 +356,12 @@ a.accent-link {
   overflow: hidden; }
   .soundcloud-wrapper img {
     width: 100%; }
+  .soundcloud-wrapper .view-count {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: white;
+    opacity: 0.75; }
   .soundcloud-wrapper .content {
     background-color: rgba(0, 0, 0, 0.8);
     position: absolute;
