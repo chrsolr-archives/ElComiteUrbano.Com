@@ -1,4 +1,4 @@
-define(["require", "exports", "jquery", "bootstrap", "MagnificPopup"], function (require, exports, $) {
+define(["require", "exports", "jquery", "bootstrap", "carousel_swipe", "MagnificPopup"], function (require, exports, $) {
     "use strict";
     var HomeScript = (function () {
         function HomeScript() {

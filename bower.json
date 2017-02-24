@@ -20,6 +20,7 @@
     "magnific-popup": "^1.1.0",
     "jQuery.dotdotdot": "^1.8.1",
     "requirejs": "^2.2.0",
-    "bootstrap-validator": "^0.11.9"
+    "bootstrap-validator": "^0.11.9",
+    "bootstrap-carousel-swipe": "*"
   }
 }

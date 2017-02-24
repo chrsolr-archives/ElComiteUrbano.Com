@@ -7,13 +7,15 @@ requirejs.config({
         bootstrap: 'libs/bootstrap/dist/js/bootstrap.min',
         Bootstrapper: 'js/modules/bootstrapper',
         MagnificPopup: 'libs/magnific-popup/dist/jquery.magnific-popup',
-        bootstrap_validator: '/libs/bootstrap-validator/dist/validator.min'
+        bootstrap_validator: 'libs/bootstrap-validator/dist/validator.min',
+        carousel_swipe: 'libs/bootstrap-carousel-swipe/carousel-swipe'
     },
     shim: {
         Bootstrapper: { deps: ['jquery', 'bootstrap'] },
         bootstrap: { deps: ['jquery'] },
         MagnificPopup: { deps: ['jquery'] },
-        bootstrap_validator: { deps: ['bootstrap'] }
+        bootstrap_validator: { deps: ['bootstrap'] },
+        carousel_swipe: { deps: ['bootstrap'] }
     }
 });
 
