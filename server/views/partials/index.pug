@@ -44,21 +44,14 @@ block content
             section.section.bg-dark
                 .container
                     span.title.text-right Promos
-                    
-                    div.carousel.slide.carousel-fade(id="carousel-promos", data-ride="carousel")
-                        .carousel-inner(role="listbox")
-                            each row, index in promos
-                                .item(class=index === 0 ? "active": "")
-                                    .row
-                                        each promo, i in row.content
-                                            .col-xs-6(class=i === 0 ? "no-left-padding" : "no-right-padding")
-                                                .promo-wrapper
-                                                    img(src=promo.imageUrl, alt="Promo Cover")
-
-                                                    .content
-                                                        span.artists #{promo.artists}
-                                                        span.title #{promo.title}
-                                                        a(href=promo.downloadUrl, class="download-link") Download
+                    .slider-wrapper
+                        each promo in promos
+                            .promo-wrapper
+                                img(src=promo.imageUrl, alt="Promo Cover")
+                                .content
+                                    span.artists #{promo.artists}
+                                    span.title #{promo.title}
+                                    a(href=promo.downloadUrl, class="download-link") Download
 
         section.section.bg-light
             .container

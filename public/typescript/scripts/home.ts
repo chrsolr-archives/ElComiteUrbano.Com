@@ -1,6 +1,6 @@
 /// <reference path="../../../typings/index.d.ts" />
 /// <amd-dependency path="bootstrap" />
-/// <amd-dependency path="carousel_swipe" />
+/// <amd-dependency path="slick" />
 /// <amd-dependency path="MagnificPopup" />
 
 import * as $ from 'jquery';
@@ -25,9 +25,29 @@ class HomeScript {
 
     setCarousel(): void {
         $(document).ready(() => {
-            const SLIDE_SHOW_TIME: int = 4000;
+            const SLIDE_SHOW_TIME: int = 3000;
 
-            $('.carousel').carousel({ interval: SLIDE_SHOW_TIME, pause: null });
+            $('.slider-wrapper').slick({
+                dots: true,
+                infinite: true,
+                speed: 700,
+                autoplay: true,
+                autoplaySpeed: SLIDE_SHOW_TIME,
+                mobileFirst: false,
+                arrows: true,
+                fade: false,
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 2,
+                            slidesToScroll: 1
+                        }
+                    }
+                ]
+            });
         });
     }
 }
