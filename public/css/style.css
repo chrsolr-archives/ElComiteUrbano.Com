@@ -33,7 +33,10 @@ a.accent-link {
   a.accent-link:hover, a.accent-link:active, a.accent-link:focus {
     text-decoration: underline; }
 
-*, *:focus, *:active, *:visited {
+*,
+*:focus,
+*:active,
+*:visited {
   outline: none !important; }
 
 .no-padding {
@@ -51,25 +54,22 @@ a.accent-link {
 .section {
   padding: 20px 0;
   overflow: hidden; }
+  .section .title {
+    font-size: 4rem;
+    font-family: "Ubuntu", sans-serif;
+    font-weight: 200;
+    display: block;
+    border-bottom: 1px dotted #F96816;
+    margin-bottom: 1rem; }
+    @media only screen and (min-width: 544px) and (max-width: 767px), only screen and (max-width: 543px) {
+      .section .title {
+        font-size: 2rem; } }
 
 .bg-dark {
   background-color: #181818; }
 
 .bg-light {
   background-color: #222222; }
-
-.section.title {
-  font-size: 4rem;
-  font-family: "Ubuntu", sans-serif;
-  font-weight: 200;
-  margin-bottom: 2rem;
-  display: block;
-  text-align: right;
-  border-bottom: 1px dotted #F96816; }
-  @media only screen and (min-width: 544px) and (max-width: 767px), only screen and (max-width: 543px) {
-    .section.title {
-      font-size: 2rem;
-      margin-bottom: 1rem; } }
 
 .modal-dialog .modal-content {
   background-color: #222222;
@@ -81,7 +81,8 @@ a.accent-link {
       font-family: "Ubuntu", sans-serif; }
   .modal-dialog .modal-content .modal-body {
     background-color: #181818; }
-    .modal-dialog .modal-content .modal-body input, .modal-dialog .modal-content .modal-body textarea {
+    .modal-dialog .modal-content .modal-body input,
+    .modal-dialog .modal-content .modal-body textarea {
       margin-top: 10px; }
     .modal-dialog .modal-content .modal-body textarea {
       min-height: 200px;

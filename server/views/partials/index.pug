@@ -27,7 +27,7 @@ block content
 
         section.section.bg-light
             .container
-                span.section.title YouTube
+                span.title.text-right YouTube
                 .row
                     each video, i in youtube.videos
                         .col-sm-6.margin-bottom-4
@@ -43,7 +43,7 @@ block content
         if promos.length > 0
             section.section.bg-dark
                 .container
-                    span.section.title Promos
+                    span.title.text-right Promos
                     
                     div.carousel.slide.carousel-fade(id="carousel-promos", data-ride="carousel")
                         .carousel-inner(role="listbox")
@@ -62,7 +62,7 @@ block content
 
         section.section.bg-light
             .container
-                span.section.title Soundcloud
+                span.title.text-right Soundcloud
                 .row
                     each song in songs
                         .col-md-4.col-sm-6.col-xs-12.margin-bottom-4
