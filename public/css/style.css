@@ -303,10 +303,10 @@ a.accent-link {
       font-family: "Ubuntu", sans-serif;
       font-weight: 200; }
     .banner-image .banner-content .banner-subscribe {
-      font-size: 1.5rem;
       color: #fafafa;
       font-family: "Ubuntu", sans-serif;
-      font-weight: 200; }
+      font-weight: 200;
+      opacity: 0.60; }
       .banner-image .banner-content .banner-subscribe a {
         color: #fafafa; }
         .banner-image .banner-content .banner-subscribe a:hover {
