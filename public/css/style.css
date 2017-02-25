@@ -286,14 +286,20 @@ a.accent-link {
   .banner-image .banner-content {
     position: absolute;
     top: 30%;
-    left: 0;
+    left: 50%;
     right: 0;
     color: #fafafa;
-    -webkit-transform: translate3d(0, -30%, 0);
-    transform: translate3d(0, -30%, 0); }
+    -webkit-transform: translate3d(-50%, -30%, 0);
+    transform: translate3d(-50%, -30%, 0); }
     .banner-image .banner-content span {
       text-align: center;
       display: block; }
+    .banner-image .banner-content img {
+      width: 50%;
+      position: relative;
+      left: 50%;
+      -webkit-transform: translate3d(-50%, 0, 0);
+      transform: translate3d(-50%, 0, 0); }
     .banner-image .banner-content .banner-title {
       font-family: "Roboto", sans-serif;
       font-size: 3rem;

@@ -16,13 +16,19 @@
     .banner-content {
         position: absolute;
         top: 30%;
-        left: 0;
+        left: 50%;
         right: 0;
         color: $color-font-light;
-        transform: translate3d(0, -30%, 0);
+        transform: translate3d(-50%, -30%, 0);
         span {
             text-align: center;
             display: block;
+        }
+        img {
+            width: 50%;
+            position: relative;
+            left: 50%;
+            transform: translate3d(-50%, 0, 0);
         }
         .banner-title {
             font-family: $roboto;
