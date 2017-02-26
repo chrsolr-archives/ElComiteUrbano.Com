@@ -1,0 +1,28 @@
+mixin card_wrapper_video(video)
+    .card-wrapper.height-300
+        img.img-responsive.img-bg(src=video.imageUrl, alt=video.title)
+        .card-content-wrapper
+            span.card-content-view-count
+                i.fa.fa-eye
+                |  #{video.view_count}
+            span.card-content-title
+                a.mfp-video-popup.mfp-iframe(href=video.videoUrl) #{video.title}
+            a.mfp-video-popup.mfp-iframe(href=video.videoUrl) View
+
+mixin card_wrapper_song(song)
+    .card-wrapper
+        img.img-responsive.img-bg(src=song.imageUrl, alt=song.title)
+        .card-content-wrapper
+            span.card-content-subtitle #{song.artists}
+            span.card-content-title
+                a.mfp-video-popup.mfp-iframe(href=song.trackUrl) #{song.title}
+            a.mfp-video-popup.mfp-iframe(href=song.trackUrl) Listen
+
+mixin card_wrapper_promo(promo)
+    .card-wrapper
+        img.img-responsive.img-bg(src=promo.imageUrl, alt=promo.artists)
+        .card-content-wrapper
+            span.card-content-subtitle #{promo.artists}
+            span.card-content-title
+                a(href=promo.downloadUrl) #{promo.title}
+            a(href=promo.downloadUrl, target="_blank") Download
