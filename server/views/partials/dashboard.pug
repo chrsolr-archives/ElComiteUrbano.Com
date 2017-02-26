@@ -2,8 +2,13 @@ extends ../layout.pug
 
 block content
 
-    section.section.bg-dark
-        .container-fluid
-            .row
-                
-            h1.text-center Features coming soon...
+    section
+        .row
+            .col-sm-3.no-padding
+                .section.bg-light.vh-100
+                    .container
+                        h3 Manage
+                        ul
+                            li: a(href="create-promo") Create Promo
+            .col-sm-9.no-padding
+                h1.text-center Features coming soon...

@@ -40,6 +40,9 @@ a.accent-link {
 *:visited {
   outline: none !important; }
 
+.vh-100 {
+  min-height: 100vh; }
+
 .no-padding {
   padding: 0; }
 
@@ -186,8 +189,7 @@ a.accent-link {
       .card-content-wrapper a {
         font-size: 0.8rem; } }
 
-‰
-.card-wrapper.height-300 {
+‰ .card-wrapper.height-300 {
   height: 300px; }
 
 .card-wrapper.height-500 {
