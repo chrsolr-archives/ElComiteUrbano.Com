@@ -57,14 +57,16 @@ a.accent-link {
   padding: spacing(4) 0;
   overflow: hidden;
   .title {
-    font-size: 4rem;
+    font-size: 3.2rem;
     font-family: $ubuntu;
     font-weight: $font-weight-thin;
     display: block;
     border-bottom: 1px dotted $color-font-accent;
-    margin-bottom: 1rem;
-    @media #{$media-small},
-    #{$media-x-small} {
+    user-select: none;
+    margin: spacing(3);
+  }
+  @media #{$media-iphone-6s-plus}, #{$media-iphone-5}  {
+    .title {
       font-size: 2rem;
     }
   }

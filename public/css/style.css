@@ -55,15 +55,19 @@ a.accent-link {
   padding: 20px 0;
   overflow: hidden; }
   .section .title {
-    font-size: 4rem;
+    font-size: 3.2rem;
     font-family: "Ubuntu", sans-serif;
     font-weight: 200;
     display: block;
     border-bottom: 1px dotted #F96816;
-    margin-bottom: 1rem; }
-    @media only screen and (min-width: 544px) and (max-width: 767px), only screen and (max-width: 543px) {
-      .section .title {
-        font-size: 2rem; } }
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 15px; }
+  @media only screen and (min-width: 414px) and (max-width: 544px), only screen and (min-width: 0px) and (max-width: 413px) {
+    .section .title {
+      font-size: 2rem; } }
 
 .bg-dark {
   background-color: #181818; }
