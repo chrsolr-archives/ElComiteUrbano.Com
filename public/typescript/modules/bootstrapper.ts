@@ -1,5 +1,6 @@
 /// <reference path="../../../typings/index.d.ts" />
 /// <amd-dependency path="bootstrap_validator" />
+/// <amd-dependency path="dotdotdot" />
 
 import * as $ from 'jquery';
 import * as Navbar from 'js/modules/navbar';
@@ -7,21 +8,38 @@ import * as Navbar from 'js/modules/navbar';
 class Bootstrapper {
     constructor() { }
 
-    static initialize(): void {
-        new Navbar();
+    initialize(): void {
+        $(() => {
+            new Navbar();
+            this.setContactUsForm();
+            this.initTruncate();
+        });
     }
 
-    static setContactUsForm(): void {
-        $(document).ready(() => {
-            $('form').validator().on('submit', (e: JQueryEventObject) => {
-                const is_valid = !e.isDefaultPrevented();
+    setContactUsForm(): void {
+        $('form').validator().on('submit', (e: JQueryEventObject) => {
+            const is_valid = !e.isDefaultPrevented();
 
-                if (!is_valid) return;
+            if (!is_valid) return;
 
-                $(this).find(':submit').attr('disabled','disabled');
+            $(this).find(':submit').attr('disabled', 'disabled');
 
-                $(this).submit();
-            });
+            $(this).submit();
+        });
+    }
+
+    initTruncate() {
+        $('.truncate').dotdotdot({
+            ellipsis: '…',
+            watch: true,
+            wrap: 'word',
+            height: parseInt($('.truncate').css('line-height'), 10) * 2,
+            lastCharacter: {
+                remove: [' ', ',', ';', '.', '!', '?'],
+                noEllipsis: []
+            }, callback: (isTruncated, orgContent) => {
+                $(orgContent.context).css({ 'opacity': '1' });
+            }
         });
     }
 }

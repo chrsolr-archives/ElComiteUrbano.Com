@@ -8,20 +8,33 @@ requirejs.config({
         Bootstrapper: 'js/modules/bootstrapper',
         MagnificPopup: 'libs/magnific-popup/dist/jquery.magnific-popup',
         bootstrap_validator: 'libs/bootstrap-validator/dist/validator.min',
-        slick: 'libs/slick-carousel/slick/slick.min'
+        slick: 'libs/slick-carousel/slick/slick.min',
+        dotdotdot: 'libs/jQuery.dotdotdot/src/jquery.dotdotdot.min',
     },
     shim: {
-        Bootstrapper: { deps: ['jquery', 'bootstrap'] },
-        bootstrap: { deps: ['jquery'] },
-        MagnificPopup: { deps: ['jquery'] },
-        slick: { deps: ['jquery'] },
-        bootstrap_validator: { deps: ['bootstrap'] }
+        Bootstrapper: {
+            deps: ['jquery', 'bootstrap']
+        },
+        bootstrap: {
+            deps: ['jquery']
+        },
+        MagnificPopup: {
+            deps: ['jquery']
+        },
+        slick: {
+            deps: ['jquery']
+        },
+        bootstrap_validator: {
+            deps: ['bootstrap']
+        },
+        dotdotdot: {
+            deps: ['jquery']
+        }
     }
 });
 
 requirejs(['Bootstrapper'], function (Bootstrapper) {
     'use strict';
 
-    Bootstrapper.initialize();
-    Bootstrapper.setContactUsForm();
+    new Bootstrapper().initialize();
 });

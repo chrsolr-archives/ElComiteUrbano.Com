@@ -5,7 +5,7 @@ mixin card_wrapper_video(video)
             span.card-content-view-count
                 i.fa.fa-eye
                 |  #{video.view_count}
-            span.card-content-title
+            span.card-content-title.truncate
                 a.mfp-video-popup.mfp-iframe(href=video.videoUrl) #{video.title}
             a.mfp-video-popup.mfp-iframe(href=video.videoUrl) View
 
