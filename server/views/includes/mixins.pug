@@ -1,13 +1,13 @@
 mixin card_wrapper_video(video)
     .card-wrapper.height-300
         img.img-responsive.img-bg(src=video.imageUrl, alt=video.title)
-        .card-content-wrapper
-            span.card-content-view-count
-                i.fa.fa-eye
-                |  #{video.view_count}
-            span.card-content-title.truncate
-                a.mfp-video-popup.mfp-iframe(href=video.videoUrl) #{video.title}
-            a.mfp-video-popup.mfp-iframe(href=video.videoUrl) View
+    .card-content-wrapper
+        span.card-content-view-count
+            i.fa.fa-eye
+            |  #{video.view_count}
+        span.card-content-title.truncate
+            a.mfp-video-popup.mfp-iframe(href=video.videoUrl) #{video.title}
+        a.mfp-video-popup.mfp-iframe(href=video.videoUrl) View
 
 mixin card_wrapper_song(song)
     .card-wrapper

@@ -1,3 +1,4 @@
+@charset "UTF-8";
 html {
   font-size: 16px; }
   html body {
@@ -155,6 +156,37 @@ a.accent-link {
         .card-wrapper .card-content-wrapper a {
           font-size: 0.8rem; } }
 
+.card-content-wrapper {
+  background-color: black;
+  text-align: right;
+  padding: 10px; }
+  .card-content-wrapper .card-content-view-count,
+  .card-content-wrapper .card-content-subtitle {
+    color: #a1a1a1; }
+  .card-content-wrapper .card-content-title {
+    display: block;
+    border-bottom: 1px dotted #F96816;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+    color: #fafafa; }
+    .card-content-wrapper .card-content-title a {
+      color: #fafafa; }
+      .card-content-wrapper .card-content-title a:hover {
+        text-decoration: none; }
+  @media only screen and (min-width: 414px) and (max-width: 544px) {
+    .card-content-wrapper .card-content-title {
+      font-size: 1rem; } }
+  @media only screen and (min-width: 0px) and (max-width: 413px) {
+    .card-content-wrapper {
+      padding: 5px; }
+      .card-content-wrapper .card-content-title,
+      .card-content-wrapper .card-content-view-count,
+      .card-content-wrapper .card-content-subtitle,
+      .card-content-wrapper a {
+        font-size: 0.8rem; } }
+
+‰
 .card-wrapper.height-300 {
   height: 300px; }
 

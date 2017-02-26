@@ -189,6 +189,43 @@ a.accent-link {
     }
   }
 }
+.card-content-wrapper {
+    background-color: black;
+    text-align: right;
+    padding: spacing(2);
+    .card-content-view-count,
+    .card-content-subtitle {
+      color: $color-font-dark;
+    }
+    .card-content-title {
+      display: block;
+      border-bottom: 1px dotted $color-font-accent;
+      padding-bottom: spacing(1);
+      margin-bottom: spacing(1);
+      font-size: 1.2rem;
+      color: $color-font-light;
+      a {
+        color: $color-font-light;
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+    @media #{$media-iphone-6s-plus} {
+      .card-content-title {
+        font-size: 1rem;
+      }
+    }
+    @media #{$media-iphone-5} {
+      padding: spacing(1);
+      .card-content-title,
+      .card-content-view-count,
+      .card-content-subtitle,
+      a {
+        font-size: 0.8rem;
+      }
+    }
+  }‰
 
 .card-wrapper.height-300 {
   height: 300px;
