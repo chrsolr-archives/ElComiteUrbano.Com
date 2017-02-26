@@ -64,7 +64,7 @@ a.accent-link {
     display: block;
     border-bottom: 1px dotted $color-font-accent;
     user-select: none;
-    margin: spacing(3);
+    margin: spacing(4) spacing(3);
   }
   @media #{$media-iphone-6s-plus}, #{$media-iphone-5}  {
     .title {

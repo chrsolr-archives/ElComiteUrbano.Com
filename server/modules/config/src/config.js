@@ -24,6 +24,13 @@ module.exports = (() => {
             CLIENT_ID: process.env.GOOGLE_CLIENT_ID || '1002857289292-405s1icgiqa3q8u5elrafqlvph5achu1.apps.googleusercontent.com',
             CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET || '1BlANA8IeDGUNbf1yccrZsiD',
             CALLBACK_URL: process.env.GOOGLE_CALLBACK_URL || '/auth/google/callback'
+        },
+        FIREBASE: process.env.FIREBASE || {
+            apiKey: 'AIzaSyC4qvhj4NTgpgQd_e6WaMfRwotUplU5w3M',
+            authDomain: 'elcomiteurbano-storage-dev.firebaseapp.com',
+            databaseURL: 'https://elcomiteurbano-storage-dev.firebaseio.com',
+            storageBucket: 'elcomiteurbano-storage-dev.appspot.com',
+            messagingSenderId: '1055826620828'
         }
     };
 
@@ -80,7 +87,9 @@ module.exports = (() => {
         },
         css_nano_opts: {
             convertValues: false,
-            discardComments: { removeAll: true },
+            discardComments: {
+                removeAll: true
+            },
             autoprefixer: false
         }
     };

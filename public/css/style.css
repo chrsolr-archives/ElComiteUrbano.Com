@@ -65,7 +65,7 @@ a.accent-link {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    margin: 15px; }
+    margin: 20px 15px; }
   @media only screen and (min-width: 414px) and (max-width: 544px), only screen and (min-width: 0px) and (max-width: 413px) {
     .section .title {
       font-size: 2rem; } }
