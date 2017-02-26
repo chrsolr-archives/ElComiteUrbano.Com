@@ -8,6 +8,7 @@ const passport = require('./passport');
 const app = express();
 const path = require('path');
 const helmet = require('helmet');
+const formidable = require('express-formidable');
 
 app.use(bodyParser.urlencoded({
     extended: true
@@ -24,6 +25,7 @@ app.use(helmet.xssFilter());
 app.set('views', path.join(__dirname, '../../../views'));
 app.set('view engine', 'pug');
 app.use(express.static('public'));
+app.use(formidable());
 
 app.locals.moment = require('moment');
 app.locals.brand_title = config.environment.BRAND_TITLE;

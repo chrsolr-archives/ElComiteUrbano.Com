@@ -1,0 +1,25 @@
+div.modal#create-promo-modal
+    .modal-dialog(role="document")
+        .modal-content
+            .modal-header
+                button(type="button", class="close", data-dismiss="modal", aria-label="Close")
+                    span(aria-hidden="true") &times;
+                h3.modal-title Create Promo
+            .modal-body
+                form(id="create-promo-form", name="form", method="POST", action="/dashboard/create/promo", role="form", data-toggle="validator")
+                    .form-group
+                        label Title
+                        input.form-control.form-control-ecu-accent(name="title", type="text", placeholder="Enter title", data-minlength="1", data-error="Title is required", required)
+                    .form-group
+                        label Artists
+                        input.form-control.form-control-ecu-accent(name="artists", type="text", placeholder="Enter artists", data-minlength="1", data-error="Artists is required", required)
+                    .form-group
+                        label Image Url
+                        input.form-control.form-control-ecu-accent(name="image", type="text", placeholder="Enter image url", data-minlength="1", data-error="Image URL is required", required)
+                    .form-group
+                        label MP3
+                        input.form-control.form-control-ecu-accent(name="audio", type="file", placeholder="Browse computer")
+
+                    .modal-footer
+                        button.btn.btn-ecu-accent(type="submit") Save
+                        button.btn.btn-ecu-accent(type="button", data-dismiss="modal") Cancel

@@ -21,6 +21,7 @@
     },
     "files": ["public/typescript/modules/bootstrapper.ts",
         "public/typescript/modules/navbar.ts",
+        "public/typescript/scripts/dashboard.ts",
         "public/typescript/scripts/home.ts"
     ]
 }

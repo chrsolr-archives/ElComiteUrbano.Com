@@ -9,9 +9,15 @@ module.exports = (app) => {
         return res.render('partials/dashboard');
     });
 
-    app.post('/dashboard', common.middlewares.isAuthenticatedAndAdmin, (req, res) => {
+    app.post('/dashboard/create/promo', common.middlewares.isAuthenticatedAndAdmin, (req, res) => {
         firebase.initializeApp(config.api_keys.FIREBASE);
 
-        return res.render('partials/dashboard');
+        const storage = firebase.storage();
+        const storageRef = storage.ref();
+        const upload_task = storageRef.child(`media/${req.files[0].name}`).put(req.files[0], {
+            contentType: 'image/jpeg'
+        });
+
+        return res.redirect('partials/dashboard');
     });
 };
