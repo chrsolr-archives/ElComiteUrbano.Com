@@ -12,12 +12,19 @@ module.exports = (app) => {
     app.post('/dashboard/create/promo', common.middlewares.isAuthenticatedAndAdmin, (req, res) => {
         firebase.initializeApp(config.api_keys.FIREBASE);
 
+        const file = req.files[0];
         const storage = firebase.storage();
         const storageRef = storage.ref();
-        const upload_task = storageRef.child(`media/${req.files[0].name}`).put(req.files[0], {
-            contentType: 'image/jpeg'
+        const upload_task = storageRef.child(`media/${file.name}`).put(file, {
+            contentType: file.type
         });
 
-        return res.redirect('partials/dashboard');
+        upload_task.on(firebase.storage.TaskEvent.STATE_CHANGED, null, (err) => {
+            console.log(err);
+            return res.redirect('partials/error', { message: err});
+        }, () => {
+            console.log(upload_task);
+            return res.redirect('partials/dashboard');
+        });
     });
 };
