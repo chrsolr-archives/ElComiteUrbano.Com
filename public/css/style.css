@@ -409,36 +409,33 @@ a.accent-link {
         font-size: 2rem !important; }
       .banner-image .banner-content .banner-subtitle {
         font-size: 1rem !important; } }
-  .banner-image .banner-social {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fafafa;
-    max-height: 100px; }
-    .banner-image .banner-social ul.social-media-share-home {
-      width: 100%;
-      padding: 0;
-      list-style-type: none;
-      text-align: center;
-      box-sizing: border-box; }
-      .banner-image .banner-social ul.social-media-share-home li {
-        display: inline-block;
-        width: calc(100% / 6);
-        border-right: 1px dashed #F96816; }
-        .banner-image .banner-social ul.social-media-share-home li:first-child {
-          border-left: 1px dashed #F96816; }
-        .banner-image .banner-social ul.social-media-share-home li a {
-          color: #fafafa;
-          font-size: 2rem;
-          line-height: 100px; }
-          .banner-image .banner-social ul.social-media-share-home li a:hover {
-            color: #F96816;
-            text-decoration: none; }
-    @media only screen and (min-width: 544px) and (max-width: 767px), only screen and (max-width: 543px) {
-      .banner-image .banner-social {
-        height: 50px; }
-        .banner-image .banner-social li a {
-          font-size: 1.25rem !important;
-          line-height: calc(100px / 2) !important; } }
+
+.banner-social {
+  background-color: black;
+  color: #fafafa;
+  max-height: 100px; }
+  .banner-social ul.social-media-share-home {
+    width: 100%;
+    padding: 0;
+    list-style-type: none;
+    text-align: center;
+    box-sizing: border-box; }
+    .banner-social ul.social-media-share-home li {
+      display: inline-block;
+      width: calc(100% / 6);
+      border-right: 1px dashed #F96816; }
+      .banner-social ul.social-media-share-home li:first-child {
+        border-left: 1px dashed #F96816; }
+      .banner-social ul.social-media-share-home li a {
+        color: #fafafa;
+        font-size: 2rem;
+        line-height: 100px; }
+        .banner-social ul.social-media-share-home li a:hover {
+          color: #F96816;
+          text-decoration: none; }
+  @media only screen and (min-width: 544px) and (max-width: 767px), only screen and (max-width: 543px) {
+    .banner-social {
+      height: 50px; }
+      .banner-social li a {
+        font-size: 1.25rem !important;
+        line-height: calc(100px / 2) !important; } }
