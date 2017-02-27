@@ -16,7 +16,16 @@ define(["require", "exports", "jquery", "firebase", "bootstrap", "bootstrap_vali
                 storageBucket: "elcomiteurbano-dev.appspot.com",
                 messagingSenderId: "1002857289292"
             });
-            firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider()).then(function (result) {
+            firebase.auth().getRedirectResult().then(function (response) {
+                var result = response;
+                if (JSON.parse(window.sessionStorage.getItem('fb_usc')) && JSON.parse(window.sessionStorage.getItem('fb_usc')).credential) {
+                    result = JSON.parse(window.sessionStorage.getItem('fb_usc'));
+                }
+                if (!result.credential) {
+                    firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+                }
+                window.sessionStorage.setItem('fb_usc', JSON.stringify(result));
+                firebase.auth(result);
             }).catch(function (error) {
                 console.log(error);
             });

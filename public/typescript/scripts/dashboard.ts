@@ -26,11 +26,24 @@ class Dashboard {
             messagingSenderId: "1002857289292"
         });
 
-        firebase.auth().signInWithPopup(new firebase.auth.GoogleAuthProvider())
-            .then((result) => {
+        firebase.auth().getRedirectResult().then(function (response) {
+            const result = response;
 
-            }).catch((error) => console.log(error));
+            if (JSON.parse(window.sessionStorage.getItem('fb_usc'))
+                && JSON.parse(window.sessionStorage.getItem('fb_usc')).credential) {
+                result = JSON.parse(window.sessionStorage.getItem('fb_usc'))
+            }
 
+            if (!result.credential) {
+                firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+            }
+
+            window.sessionStorage.setItem('fb_usc', JSON.stringify(result));
+
+            firebase.auth(result);
+        }).catch(function (error) {
+            console.log(error);
+        });
     }
 
     initializeCreatePromo(): void {
