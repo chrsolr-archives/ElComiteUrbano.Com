@@ -18,7 +18,8 @@ define(["require", "exports", "jquery", "firebase", "bootstrap", "bootstrap_vali
             });
             firebase.auth().getRedirectResult().then(function (response) {
                 var result = response;
-                if (JSON.parse(window.sessionStorage.getItem('fb_usc')) && JSON.parse(window.sessionStorage.getItem('fb_usc')).credential) {
+                if (JSON.parse(window.sessionStorage.getItem('fb_usc'))
+                    && JSON.parse(window.sessionStorage.getItem('fb_usc')).credential) {
                     result = JSON.parse(window.sessionStorage.getItem('fb_usc'));
                 }
                 if (!result.credential) {
@@ -26,37 +27,32 @@ define(["require", "exports", "jquery", "firebase", "bootstrap", "bootstrap_vali
                 }
                 window.sessionStorage.setItem('fb_usc', JSON.stringify(result));
                 firebase.auth(result);
-            }).catch(function (error) {
-                console.log(error);
-            });
+            }).catch(function (error) { return console.log(error); });
         };
         Dashboard.prototype.initializeCreatePromo = function () {
-            var _this = this;
-            $('#create-promo-form').validator().on('submit', function (e) {
+            var $form = $('#create-promo-form');
+            $form.validator().on('submit', function (e) {
                 var is_valid = !e.isDefaultPrevented();
                 if (!is_valid)
                     return;
-                $(_this).find(':submit').attr('disabled', 'disabled');
+                e.preventDefault();
+                $($form).find(':submit').attr('disabled', 'disabled');
                 var file = e.target[3].files[0];
                 var uploadTask = firebase.storage().ref().child('media/' + file.name).put(file, { contentType: file.type });
                 uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, function (snapshot) {
                     var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    console.log('Upload is ' + progress + '% done');
-                    switch (snapshot.state) {
-                        case firebase.storage.TaskState.PAUSED:
-                            console.log('Upload is paused');
-                            break;
-                        case firebase.storage.TaskState.RUNNING:
-                            console.log('Upload is running');
-                            break;
-                    }
-                }, function (error) {
-                    console.log(error);
-                }, function () {
-                    var downloadURL = uploadTask.snapshot.downloadURL;
-                    console.log(downloadURL);
+                    $($form).find(':submit').html("Uploading... " + parseInt(progress, 10) + "%");
+                }, function (error) { return console.log(error); }, function () {
+                    $($form).find(':submit').html("Saving...");
+                    var form_data = $($form).serialize() + "&download_url=" + uploadTask.snapshot.downloadURL;
+                    $.ajax({
+                        url: '/dashboard/create/promo',
+                        method: 'post',
+                        data: $.param(form_data)
+                    }).then(function (res) {
+                        window.location.replace('/dashboard');
+                    });
                 });
-                return false;
             });
         };
         return Dashboard;

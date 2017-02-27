@@ -41,61 +41,42 @@ class Dashboard {
             window.sessionStorage.setItem('fb_usc', JSON.stringify(result));
 
             firebase.auth(result);
-        }).catch(function (error) {
-            console.log(error);
-        });
+        }).catch(error => console.log(error));
     }
 
     initializeCreatePromo(): void {
-        $('#create-promo-form').validator().on('submit', (e: JQueryEventObject) => {
+        const $form = $('#create-promo-form');
+
+        $form.validator().on('submit', (e: JQueryEventObject) => {
             const is_valid = !e.isDefaultPrevented();
 
             if (!is_valid) return;
 
-            $(this).find(':submit').attr('disabled', 'disabled');
+            e.preventDefault();
+
+            $($form).find(':submit').attr('disabled', 'disabled');
 
             const file = e.target[3].files[0];
 
             const uploadTask = firebase.storage().ref().child('media/' + file.name).put(file, { contentType: file.type });
 
             uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, (snapshot) => {
-                var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                console.log('Upload is ' + progress + '% done');
-                switch (snapshot.state) {
-                    case firebase.storage.TaskState.PAUSED: // or 'paused'
-                        console.log('Upload is paused');
-                        break;
-                    case firebase.storage.TaskState.RUNNING: // or 'running'
-                        console.log('Upload is running');
-                        break;
-                }
-            }, (error) => {
-                console.log(error);
-            }, () => {
-                // Upload completed successfully, now we can get the download URL
-                var downloadURL = uploadTask.snapshot.downloadURL;
-                console.log(downloadURL);
+                let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                $($form).find(':submit').html(`Uploading... ${parseInt(progress, 10)}%`);
+            }, error => console.log(error), () => {
+                $($form).find(':submit').html(`Saving...`);
 
+                const form_data = `${$($form).serialize()}&download_url=${uploadTask.snapshot.downloadURL}`;
+
+                $.ajax({
+                    url: '/dashboard/create/promo',
+                    method: 'post',
+                    data: $.param(form_data)
+                }).then(res => {
+                    $($form).find(':submit').html(`Done`);
+                    window.location.replace('/dashboard');
+                });
             });
-
-            return false;
-
-            // $.ajax({
-            //     url: '/dashboard/create/promo',
-            //     method: 'POST',
-            //     data: form_data,
-            //     processData: false,
-            //     contentType: false
-            // }).then((res) => {
-            //     alert(res);
-            //     console.log(res);
-            // }).catch((err) => {
-            //     alert(err);
-            //     console.log(err);
-            // })
-
-
-            //$(this).submit();
         });
     }
 }

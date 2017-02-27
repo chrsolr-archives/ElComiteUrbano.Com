@@ -8,6 +8,6 @@ module.exports = (app) => {
     });
 
     app.post('/dashboard/create/promo', common.middlewares.isAuthenticatedAndAdmin, (req, res) => {
-            return res.redirect('partials/dashboard');
+        return res.render('partials/dashboard');
     });
 };
