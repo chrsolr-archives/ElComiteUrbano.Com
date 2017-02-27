@@ -9,13 +9,12 @@ define(["require", "exports", "jquery", "firebase", "bootstrap", "bootstrap_vali
             });
         }
         Dashboard.prototype.initializeFirebase = function (opts) {
-            console.log(opts);
             firebase.initializeApp(opts.FIREBASE);
             firebase.auth().getRedirectResult().then(function (response) {
                 var result = response;
-                if (JSON.parse(window.sessionStorage.getItem('fb_usc'))
-                    && JSON.parse(window.sessionStorage.getItem('fb_usc')).credential) {
-                    result = JSON.parse(window.sessionStorage.getItem('fb_usc'));
+                var session = JSON.parse(window.sessionStorage.getItem('fb_usc'));
+                if (session && session.credential) {
+                    result = session;
                 }
                 if (!result.credential) {
                     firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider());

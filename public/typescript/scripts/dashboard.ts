@@ -18,14 +18,13 @@ class Dashboard {
     }
 
     initializeFirebase(opts): void {
-        console.log(opts);
         firebase.initializeApp(opts.FIREBASE);
         firebase.auth().getRedirectResult().then((response) => {
             const result = response;
+            const session = JSON.parse(window.sessionStorage.getItem('fb_usc'));
 
-            if (JSON.parse(window.sessionStorage.getItem('fb_usc'))
-                && JSON.parse(window.sessionStorage.getItem('fb_usc')).credential) {
-                result = JSON.parse(window.sessionStorage.getItem('fb_usc'))
+            if (session && session.credential) {
+                result = session;
             }
 
             if (!result.credential) {
