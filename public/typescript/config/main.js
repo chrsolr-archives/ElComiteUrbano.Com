@@ -10,6 +10,7 @@ requirejs.config({
         bootstrap_validator: 'libs/bootstrap-validator/dist/validator.min',
         slick: 'libs/slick-carousel/slick/slick.min',
         dotdotdot: 'libs/jQuery.dotdotdot/src/jquery.dotdotdot.min',
+        firebase: 'libs/firebase/firebase'
     },
     shim: {
         Bootstrapper: {
@@ -29,7 +30,8 @@ requirejs.config({
         },
         dotdotdot: {
             deps: ['jquery']
-        }
+        },
+        firebase: { exports: 'firebase' }
     }
 });
 

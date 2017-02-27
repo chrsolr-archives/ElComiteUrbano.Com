@@ -6,7 +6,7 @@ div.modal#create-promo-modal
                     span(aria-hidden="true") &times;
                 h3.modal-title Create Promo
             .modal-body
-                form(id="create-promo-form", name="form", method="POST", action="/dashboard/create/promo", role="form", data-toggle="validator")
+                form(id="create-promo-form", name="form", method="POST", action="/dashboard/create/promo", enctype="multipart/form-data", role="form", data-toggle="validator")
                     .form-group
                         label Title
                         input.form-control.form-control-ecu-accent(name="title", type="text", placeholder="Enter title", data-minlength="1", data-error="Title is required", required)
