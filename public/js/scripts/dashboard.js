@@ -33,23 +33,29 @@ define(["require", "exports", "jquery", "firebase", "bootstrap", "bootstrap_vali
             var $form = $('#create-promo-form');
             $form.validator().on('submit', function (e) {
                 var is_valid = !e.isDefaultPrevented();
-                if (!is_valid)
+                if (!is_valid) {
                     return;
+                }
                 e.preventDefault();
-                $($form).find(':submit').attr('disabled', 'disabled');
                 var file = e.target[3].files[0];
-                var uploadTask = firebase.storage().ref().child('media/' + file.name).put(file, { contentType: file.type });
+                if (!file) {
+                    alert('Something went wrong with select file');
+                    return;
+                }
+                $($form).find(':submit').attr('disabled', 'disabled');
+                var uploadTask = firebase.storage().ref().child("media/" + file.name).put(file, { contentType: file.type });
                 uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, function (snapshot) {
                     var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
                     $($form).find(':submit').html("Uploading... " + parseInt(progress, 10) + "%");
                 }, function (error) { return console.log(error); }, function () {
                     $($form).find(':submit').html("Saving...");
-                    var form_data = $($form).serialize() + "&download_url=" + uploadTask.snapshot.downloadURL;
+                    var form_data = $($form).serialize() + "&downloadUrl=" + uploadTask.snapshot.downloadURL;
                     $.ajax({
                         url: '/dashboard/create/promo',
                         method: 'post',
-                        data: $.param(form_data)
+                        data: form_data
                     }).then(function (res) {
+                        $($form).find(':submit').html("Done");
                         window.location.replace('/dashboard');
                     });
                 });

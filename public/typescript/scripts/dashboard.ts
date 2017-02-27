@@ -50,15 +50,22 @@ class Dashboard {
         $form.validator().on('submit', (e: JQueryEventObject) => {
             const is_valid = !e.isDefaultPrevented();
 
-            if (!is_valid) return;
+            if (!is_valid) { 
+                return; 
+            }
 
             e.preventDefault();
 
-            $($form).find(':submit').attr('disabled', 'disabled');
-
             const file = e.target[3].files[0];
 
-            const uploadTask = firebase.storage().ref().child('media/' + file.name).put(file, { contentType: file.type });
+            if (!file) {
+                alert('Something went wrong with select file');
+                return;
+            }
+
+            $($form).find(':submit').attr('disabled', 'disabled');
+
+            const uploadTask = firebase.storage().ref().child(`media/${file.name}`).put(file, { contentType: file.type });
 
             uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, (snapshot) => {
                 let progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
@@ -66,12 +73,12 @@ class Dashboard {
             }, error => console.log(error), () => {
                 $($form).find(':submit').html(`Saving...`);
 
-                const form_data = `${$($form).serialize()}&download_url=${uploadTask.snapshot.downloadURL}`;
+                const form_data = `${$($form).serialize()}&downloadUrl=${uploadTask.snapshot.downloadURL}`;
 
                 $.ajax({
                     url: '/dashboard/create/promo',
                     method: 'post',
-                    data: $.param(form_data)
+                    data: form_data
                 }).then(res => {
                     $($form).find(':submit').html(`Done`);
                     window.location.replace('/dashboard');

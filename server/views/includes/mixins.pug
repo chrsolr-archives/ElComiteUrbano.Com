@@ -24,5 +24,5 @@ mixin card_wrapper_promo(promo)
         .card-content-wrapper
             span.card-content-subtitle #{promo.artists}
             span.card-content-title
-                a(href=promo.downloadUrl) #{promo.title}
-            a(href=promo.downloadUrl, target="_blank") Download
+                a(href=promo.downloadUrl.replace('media/', 'media%2F') + "&token=" + promo.token, download) #{promo.title}
+            a(href=promo.downloadUrl.replace('media/', 'media%2F') + "&token=" + promo.token, download) Download

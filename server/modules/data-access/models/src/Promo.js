@@ -8,7 +8,9 @@ const PromoModel = (() => {
         createdAt: { type: Date, default: Date.now, require: true },
         downloadUrl: { type: String, require: true },
         imageUrl: { type: String, require: true },
-        title: { type: String, require: true }
+        title: { type: String, require: true },
+        isActive: { type: Boolean, default: true },
+        token: String
     };
 
     const PromoSchema = new mongoose.Schema(schema);

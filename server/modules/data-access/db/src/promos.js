@@ -25,6 +25,19 @@ class PromoDB {
             });
         });
     }
+
+    createPromo(promo) {
+        return new Promise((resolve, reject) => {
+            const model = new PromoModel(promo);
+            model.save((err, doc) => {
+                if (err) {
+                    return reject(err);
+                }
+
+                return resolve(doc);
+            });
+        });
+    }
 }
 
 module.exports = new PromoDB();
