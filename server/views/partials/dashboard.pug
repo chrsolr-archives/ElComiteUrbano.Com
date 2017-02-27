@@ -17,5 +17,5 @@ block content
     include ../includes/create-promo.pug
     script.
         requirejs(['js/scripts/dashboard'], function(Dashboard){
-            new Dashboard();
+            new Dashboard({ FIREBASE : !{JSON.stringify(FIREBASE)} });
         });

@@ -1,21 +1,16 @@
 define(["require", "exports", "jquery", "firebase", "bootstrap", "bootstrap_validator"], function (require, exports, $, firebase) {
     "use strict";
     var Dashboard = (function () {
-        function Dashboard() {
+        function Dashboard(opts) {
             var _this = this;
             $(document).ready(function () {
-                _this.initializeFirebase();
+                _this.initializeFirebase(opts);
                 _this.initializeCreatePromo();
             });
         }
-        Dashboard.prototype.initializeFirebase = function () {
-            firebase.initializeApp({
-                apiKey: "AIzaSyDBNvhShiLf_shh7aWm9IqLtof-Muwr_4s",
-                authDomain: "elcomiteurbano-dev.firebaseapp.com",
-                databaseURL: "https://elcomiteurbano-dev.firebaseio.com",
-                storageBucket: "elcomiteurbano-dev.appspot.com",
-                messagingSenderId: "1002857289292"
-            });
+        Dashboard.prototype.initializeFirebase = function (opts) {
+            console.log(opts);
+            firebase.initializeApp(opts.FIREBASE);
             firebase.auth().getRedirectResult().then(function (response) {
                 var result = response;
                 if (JSON.parse(window.sessionStorage.getItem('fb_usc'))
@@ -26,7 +21,6 @@ define(["require", "exports", "jquery", "firebase", "bootstrap", "bootstrap_vali
                     firebase.auth().signInWithRedirect(new firebase.auth.GoogleAuthProvider());
                 }
                 window.sessionStorage.setItem('fb_usc', JSON.stringify(result));
-                firebase.auth(result);
             }).catch(function (error) { return console.log(error); });
         };
         Dashboard.prototype.initializeCreatePromo = function () {

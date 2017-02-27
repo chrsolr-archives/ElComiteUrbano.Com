@@ -8,25 +8,19 @@ import * as firebase from 'firebase';
 
 
 class Dashboard {
-    constructor() {
+    constructor(opts) {
         const _this = this;
 
         $(document).ready(() => {
-            _this.initializeFirebase();
+            _this.initializeFirebase(opts);
             _this.initializeCreatePromo();
         });
     }
 
-    initializeFirebase(): void {
-        firebase.initializeApp({
-            apiKey: "AIzaSyDBNvhShiLf_shh7aWm9IqLtof-Muwr_4s",
-            authDomain: "elcomiteurbano-dev.firebaseapp.com",
-            databaseURL: "https://elcomiteurbano-dev.firebaseio.com",
-            storageBucket: "elcomiteurbano-dev.appspot.com",
-            messagingSenderId: "1002857289292"
-        });
-
-        firebase.auth().getRedirectResult().then(function (response) {
+    initializeFirebase(opts): void {
+        console.log(opts);
+        firebase.initializeApp(opts.FIREBASE);
+        firebase.auth().getRedirectResult().then((response) => {
             const result = response;
 
             if (JSON.parse(window.sessionStorage.getItem('fb_usc'))
@@ -39,8 +33,6 @@ class Dashboard {
             }
 
             window.sessionStorage.setItem('fb_usc', JSON.stringify(result));
-
-            firebase.auth(result);
         }).catch(error => console.log(error));
     }
 
@@ -50,8 +42,8 @@ class Dashboard {
         $form.validator().on('submit', (e: JQueryEventObject) => {
             const is_valid = !e.isDefaultPrevented();
 
-            if (!is_valid) { 
-                return; 
+            if (!is_valid) {
+                return;
             }
 
             e.preventDefault();

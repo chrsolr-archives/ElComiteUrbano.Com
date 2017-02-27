@@ -2,10 +2,13 @@
 
 const common = require('../modules/common');
 const db = require('../modules/data-access/db');
+const config = require('../modules/config').config;
 
 module.exports = (app) => {
     app.get('/dashboard', common.middlewares.isAuthenticatedAndAdmin, (req, res) => {
-        return res.render('partials/dashboard');
+        return res.render('partials/dashboard', {
+            FIREBASE: config.api_keys.FIREBASE
+        });
     });
 
     app.post('/dashboard/create/promo', common.middlewares.isAuthenticatedAndAdmin, (req, res) => {

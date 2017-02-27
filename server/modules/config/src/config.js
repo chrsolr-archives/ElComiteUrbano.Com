@@ -26,11 +26,11 @@ module.exports = (() => {
             CALLBACK_URL: process.env.GOOGLE_CALLBACK_URL || '/auth/google/callback'
         },
         FIREBASE: process.env.FIREBASE || {
-            apiKey: 'AIzaSyC4qvhj4NTgpgQd_e6WaMfRwotUplU5w3M',
-            authDomain: 'elcomiteurbano-storage-dev.firebaseapp.com',
-            databaseURL: 'https://elcomiteurbano-storage-dev.firebaseio.com',
-            storageBucket: 'elcomiteurbano-storage-dev.appspot.com',
-            messagingSenderId: '1055826620828'
+            apiKey: 'AIzaSyDBNvhShiLf_shh7aWm9IqLtof-Muwr_4s',
+            authDomain: 'elcomiteurbano-dev.firebaseapp.com',
+            databaseURL: 'https://elcomiteurbano-dev.firebaseio.com',
+            storageBucket: 'elcomiteurbano-dev.appspot.com',
+            messagingSenderId: '1002857289292'
         }
     };
 
