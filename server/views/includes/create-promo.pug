@@ -17,8 +17,11 @@ div.modal#create-promo-modal
                         label Image Url
                         input.form-control.form-control-ecu-accent(name="imageUrl", type="text", placeholder="Enter image url", data-minlength="1", data-error="Image URL is required", required)
                     .form-group
-                        label MP3
+                        label Browse PC for MP3
                         input.form-control.form-control-ecu-accent(name="audio", type="file", placeholder="Browse computer")
+                    .form-group
+                        label or Enter url link
+                        input.form-control.form-control-ecu-accent(name="downloadLink", type="text", placeholder="Enter url link")
                     .modal-footer
                         button.btn.btn-ecu-accent(type="submit") Save
                         button.btn.btn-ecu-accent(type="button", data-dismiss="modal") Cancel

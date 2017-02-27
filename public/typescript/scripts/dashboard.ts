@@ -50,8 +50,11 @@ class Dashboard {
             const file = e.target[3].files[0];
 
             if (!file) {
-                alert('Something went wrong with select file');
-                return;
+                const form_data = `${$($form).serialize()}`;
+
+                ajax(form_data);
+
+                return false;
             }
 
             $($form).find(':submit').attr('disabled', 'disabled');
@@ -66,15 +69,19 @@ class Dashboard {
 
                 const form_data = `${$($form).serialize()}&downloadUrl=${uploadTask.snapshot.downloadURL}`;
 
+                ajax(form_data);
+            });
+
+            function ajax(data) {
                 $.ajax({
                     url: '/dashboard/create/promo',
                     method: 'post',
-                    data: form_data
+                    data: data
                 }).then(res => {
                     $($form).find(':submit').html(`Done`);
                     window.location.replace('/dashboard');
                 });
-            });
+            }
         });
     }
 }

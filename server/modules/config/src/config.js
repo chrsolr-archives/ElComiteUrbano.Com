@@ -25,13 +25,13 @@ module.exports = (() => {
             CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET || '1BlANA8IeDGUNbf1yccrZsiD',
             CALLBACK_URL: process.env.GOOGLE_CALLBACK_URL || '/auth/google/callback'
         },
-        FIREBASE: JSON.parse(process.env.FIREBASE) || {
+        FIREBASE: process.env.FIREBASE || JSON.stringify({
             apiKey: 'AIzaSyDBNvhShiLf_shh7aWm9IqLtof-Muwr_4s',
             authDomain: 'elcomiteurbano-dev.firebaseapp.com',
             databaseURL: 'https://elcomiteurbano-dev.firebaseio.com',
             storageBucket: 'elcomiteurbano-dev.appspot.com',
             messagingSenderId: '1002857289292'
-        }
+        })
     };
 
     const paths = {

@@ -32,8 +32,9 @@ define(["require", "exports", "jquery", "firebase", "bootstrap", "bootstrap_vali
                 e.preventDefault();
                 var file = e.target[3].files[0];
                 if (!file) {
-                    alert('Something went wrong with select file');
-                    return;
+                    var form_data = "" + $($form).serialize();
+                    ajax(form_data);
+                    return false;
                 }
                 $($form).find(':submit').attr('disabled', 'disabled');
                 var uploadTask = firebase.storage().ref().child("media/" + file.name).put(file, { contentType: file.type });
@@ -43,15 +44,18 @@ define(["require", "exports", "jquery", "firebase", "bootstrap", "bootstrap_vali
                 }, function (error) { return console.log(error); }, function () {
                     $($form).find(':submit').html("Saving...");
                     var form_data = $($form).serialize() + "&downloadUrl=" + uploadTask.snapshot.downloadURL;
+                    ajax(form_data);
+                });
+                function ajax(data) {
                     $.ajax({
                         url: '/dashboard/create/promo',
                         method: 'post',
-                        data: form_data
+                        data: data
                     }).then(function (res) {
                         $($form).find(':submit').html("Done");
                         window.location.replace('/dashboard');
                     });
-                });
+                }
             });
         };
         return Dashboard;
