@@ -2,6 +2,7 @@
 /// <amd-dependency path="bootstrap" />
 /// <amd-dependency path="slick" />
 /// <amd-dependency path="MagnificPopup" />
+/// <amd-dependency path="$transit" />
 
 import * as $ from 'jquery';
 
@@ -54,10 +55,14 @@ class HomeScript {
 
     initLiveStreamPopout(): void {
         const $element = $('#live-stream');
+        const $parent = $element.parent();
         const $nav_height = $('.navbar-wrapper').outerHeight();
         const isScrolled = false;
+        const isPopped = false;
         const delta = 5;
         const speed = 250;
+
+        $parent.height($parent.outerHeight());
 
         $(window).scroll(() => {
             isScrolled = true;
@@ -71,19 +76,17 @@ class HomeScript {
         }, speed);
 
         function onHasScrolled() {
-            const top = $(window).scrollTop();
-            const position = $element.position();
+            const top = $(window).scrollTop() + $nav_height;
+            const position_to_popout = $element.position().top;
+            //const position_to_popout = $element.position().top + $element.outerHeight();
 
-            if (Math.abs(top) <= delta)
-                return;
-
-            if (top >= (position.top + $nav_height + $element.outerHeight()))
+            if (!isPopped && (top > position_to_popout)) {
                 $element.addClass('popout');
+            } else if (isPopped && (top < position_to_popout)) {
+                $element.removeClass('popout');
+            }
 
-            console.log((position.top));
-            console.log(($nav_height));
-            console.log(($element.outerHeight()));
-            console.log((position.top + $nav_height + $element.outerHeight()));            
+            isPopped = $element.hasClass('popout');
         }
     }
 }

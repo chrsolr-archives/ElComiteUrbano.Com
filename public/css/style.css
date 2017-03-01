@@ -457,4 +457,4 @@ label {
     left: 20px;
     width: 28vw;
     height: 16vw;
-    transition: all 250ms ease-in-out; }
+    transition: width 250ms ease-in-out, height 250ms ease-in-out; }

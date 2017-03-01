@@ -44,10 +44,13 @@ define(["require", "exports", "jquery", "bootstrap", "slick", "MagnificPopup"], 
         };
         HomeScript.prototype.initLiveStreamPopout = function () {
             var $element = $('#live-stream');
+            var $parent = $element.parent();
             var $nav_height = $('.navbar-wrapper').outerHeight();
             var isScrolled = false;
+            var isPopped = false;
             var delta = 5;
             var speed = 250;
+            $parent.height($parent.outerHeight());
             $(window).scroll(function () {
                 isScrolled = true;
             });
@@ -58,16 +61,15 @@ define(["require", "exports", "jquery", "bootstrap", "slick", "MagnificPopup"], 
                 }
             }, speed);
             function onHasScrolled() {
-                var top = $(window).scrollTop();
-                var position = $element.position();
-                if (Math.abs(top) <= delta)
-                    return;
-                if (top >= (position.top + $nav_height + $element.outerHeight()))
+                var top = $(window).scrollTop() + $nav_height;
+                var position_to_popout = $element.position().top;
+                if (!isPopped && (top > position_to_popout)) {
                     $element.addClass('popout');
-                console.log((position.top));
-                console.log(($nav_height));
-                console.log(($element.outerHeight()));
-                console.log((position.top + $nav_height + $element.outerHeight()));
+                }
+                else if (isPopped && (top < position_to_popout)) {
+                    $element.removeClass('popout');
+                }
+                isPopped = $element.hasClass('popout');
             }
         };
         return HomeScript;
