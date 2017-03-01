@@ -4,6 +4,7 @@ define(["require", "exports", "jquery", "bootstrap", "slick", "MagnificPopup"], 
         function HomeScript() {
             this.setCarousel();
             this.initMagnificPopup();
+            this.initLiveStreamPopout();
         }
         HomeScript.prototype.initMagnificPopup = function () {
             $('.mfp-video-popup').magnificPopup({
@@ -40,6 +41,34 @@ define(["require", "exports", "jquery", "bootstrap", "slick", "MagnificPopup"], 
                     ]
                 });
             });
+        };
+        HomeScript.prototype.initLiveStreamPopout = function () {
+            var $element = $('#live-stream');
+            var $nav_height = $('.navbar-wrapper').outerHeight();
+            var isScrolled = false;
+            var delta = 5;
+            var speed = 250;
+            $(window).scroll(function () {
+                isScrolled = true;
+            });
+            setInterval(function () {
+                if (isScrolled) {
+                    onHasScrolled();
+                    isScrolled = false;
+                }
+            }, speed);
+            function onHasScrolled() {
+                var top = $(window).scrollTop();
+                var position = $element.position();
+                if (Math.abs(top) <= delta)
+                    return;
+                if (top >= (position.top + $nav_height + $element.outerHeight()))
+                    $element.addClass('popout');
+                console.log((position.top));
+                console.log(($nav_height));
+                console.log(($element.outerHeight()));
+                console.log((position.top + $nav_height + $element.outerHeight()));
+            }
         };
         return HomeScript;
     }());

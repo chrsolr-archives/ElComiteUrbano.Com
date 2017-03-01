@@ -10,6 +10,7 @@ class HomeScript {
     constructor() {
         this.setCarousel();
         this.initMagnificPopup();
+        this.initLiveStreamPopout();
     }
 
     initMagnificPopup(): void {
@@ -49,6 +50,41 @@ class HomeScript {
                 ]
             });
         });
+    }
+
+    initLiveStreamPopout(): void {
+        const $element = $('#live-stream');
+        const $nav_height = $('.navbar-wrapper').outerHeight();
+        const isScrolled = false;
+        const delta = 5;
+        const speed = 250;
+
+        $(window).scroll(() => {
+            isScrolled = true;
+        });
+
+        setInterval(() => {
+            if (isScrolled) {
+                onHasScrolled();
+                isScrolled = false;
+            }
+        }, speed);
+
+        function onHasScrolled() {
+            const top = $(window).scrollTop();
+            const position = $element.position();
+
+            if (Math.abs(top) <= delta)
+                return;
+
+            if (top >= (position.top + $nav_height + $element.outerHeight()))
+                $element.addClass('popout');
+
+            console.log((position.top));
+            console.log(($nav_height));
+            console.log(($element.outerHeight()));
+            console.log((position.top + $nav_height + $element.outerHeight()));            
+        }
     }
 }
 

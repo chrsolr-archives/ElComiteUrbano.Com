@@ -26,6 +26,13 @@ block content
                     li
                         a(target="_blank", class="fa fa-3x fa-twitter twitter-color", href="https://www.twitter.com/elcomiteurbano")
 
+        if (!(new Date().getUTCDay() === 1 && new Date().getUTCHours() >= 23) || !(new Date().getUTCDay() === 2 && new Date().getUTCHours() <= 2))
+            section.section.bg-dark
+                .container
+                    span.title.text-right.no-side-margin Live Stream
+                    .embed-responsive.embed-responsive-16by9#live-stream
+                        iframe.embed-responsive-item(src='http://www.ustream.tv/embed/10266764?v=3&amp;wmode=direct', frameborder="0", style="border: 0px none transparent;")
+
         section.section.bg-light
             .container
                 span.title.text-right YouTube
@@ -37,7 +44,7 @@ block content
         if promos.length > 0
             section.section.bg-dark
                 .container
-                    span.title.text-right Promos
+                    span.title.text-right.no-side-margin Promos
                     .slider-wrapper
                         each promo in promos
                             +card_wrapper_promo(promo)

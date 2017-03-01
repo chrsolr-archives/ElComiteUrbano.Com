@@ -55,6 +55,10 @@ label {
 .no-right-padding {
   padding-right: 0; }
 
+.no-side-margin {
+  margin-left: 0 !important;
+  margin-right: 0 !important; }
+
 .margin-bottom-4 {
   margin-bottom: 20px; }
 
@@ -372,7 +376,7 @@ label {
     right: 0;
     left: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3); }
+    background-color: rgba(0, 0, 0, 0.1); }
   .banner-image .banner-content {
     position: absolute;
     top: 30%;
@@ -442,3 +446,15 @@ label {
       .banner-social li a {
         font-size: 1.25rem !important;
         line-height: calc(100px / 2) !important; } }
+
+#live-stream.popout {
+  position: fixed;
+  z-index: 3; }
+  #live-stream.popout iframe {
+    position: fixed;
+    top: auto;
+    bottom: 20px;
+    left: 20px;
+    width: 28vw;
+    height: 16vw;
+    transition: all 250ms ease-in-out; }

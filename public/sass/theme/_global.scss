@@ -57,6 +57,11 @@ label {
   padding-right: 0;
 }
 
+.no-side-margin {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
 .margin-bottom-4 {
   margin-bottom: spacing(4);
 }
