@@ -104,16 +104,29 @@
     }
 }
 
-#live-stream.popout {
+#live-stream {
     position: fixed;
     z-index: 3;
-    iframe {
-        position: fixed;
-        top: auto;
-        bottom: spacing(4);
-        left: spacing(4);
-        width: 28vw;
-        height: 16vw;
-        transition: width 250ms ease-in-out, height 250ms ease-in-out;
+    bottom: 0;
+    left: -25vw;
+    height: 14vw;
+    width: 25vw;
+    transition: all .4s ease;
+    border: 1px dotted $color-bg-accent;
+    .content {
+        position: relative;
+        .live-stream-close-bar {
+            display: block;
+            background-color: $color-bg-secondary;
+            color: $color-font-accent;
+            text-align: right;
+            padding: spacing(1);
+            border-bottom: 1px dotted $color-bg-accent;
+        }
     }
+}
+
+#live-stream.popout {
+    left: 0;
+    transition: all .4s ease;
 }

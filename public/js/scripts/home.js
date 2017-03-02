@@ -1,4 +1,4 @@
-define(["require", "exports", "jquery", "bootstrap", "slick", "MagnificPopup"], function (require, exports, $) {
+define(["require", "exports", "jquery", "bootstrap", "slick", "MagnificPopup", "$transit"], function (require, exports, $) {
     "use strict";
     var HomeScript = (function () {
         function HomeScript() {
@@ -44,13 +44,13 @@ define(["require", "exports", "jquery", "bootstrap", "slick", "MagnificPopup"], 
         };
         HomeScript.prototype.initLiveStreamPopout = function () {
             var $element = $('#live-stream');
-            var $parent = $element.parent();
+            var $element_container = $('#live-stream-container');
             var $nav_height = $('.navbar-wrapper').outerHeight();
+            var isDisabled = false;
             var isScrolled = false;
             var isPopped = false;
             var delta = 5;
             var speed = 250;
-            $parent.height($parent.outerHeight());
             $(window).scroll(function () {
                 isScrolled = true;
             });
@@ -62,8 +62,8 @@ define(["require", "exports", "jquery", "bootstrap", "slick", "MagnificPopup"], 
             }, speed);
             function onHasScrolled() {
                 var top = $(window).scrollTop() + $nav_height;
-                var position_to_popout = $element.position().top;
-                if (!isPopped && (top > position_to_popout)) {
+                var position_to_popout = $element_container.position().top + $element_container.outerHeight();
+                if (!isPopped && !isDisabled && (top > position_to_popout)) {
                     $element.addClass('popout');
                 }
                 else if (isPopped && (top < position_to_popout)) {
@@ -71,6 +71,10 @@ define(["require", "exports", "jquery", "bootstrap", "slick", "MagnificPopup"], 
                 }
                 isPopped = $element.hasClass('popout');
             }
+            $element.find('i').click(function () {
+                $element.removeClass('popout');
+                isDisabled = true;
+            });
         };
         return HomeScript;
     }());

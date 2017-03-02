@@ -447,14 +447,25 @@ label {
         font-size: 1.25rem !important;
         line-height: calc(100px / 2) !important; } }
 
-#live-stream.popout {
+#live-stream {
   position: fixed;
-  z-index: 3; }
-  #live-stream.popout iframe {
-    position: fixed;
-    top: auto;
-    bottom: 20px;
-    left: 20px;
-    width: 28vw;
-    height: 16vw;
-    transition: width 250ms ease-in-out, height 250ms ease-in-out; }
+  z-index: 3;
+  bottom: 0;
+  left: -25vw;
+  height: 14vw;
+  width: 25vw;
+  transition: all .4s ease;
+  border: 1px dotted #F96816; }
+  #live-stream .content {
+    position: relative; }
+    #live-stream .content .live-stream-close-bar {
+      display: block;
+      background-color: #222222;
+      color: #F96816;
+      text-align: right;
+      padding: 5px;
+      border-bottom: 1px dotted #F96816; }
+
+#live-stream.popout {
+  left: 0;
+  transition: all .4s ease; }

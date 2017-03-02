@@ -55,14 +55,13 @@ class HomeScript {
 
     initLiveStreamPopout(): void {
         const $element = $('#live-stream');
-        const $parent = $element.parent();
+        const $element_container = $('#live-stream-container');
         const $nav_height = $('.navbar-wrapper').outerHeight();
+        const isDisabled = false;
         const isScrolled = false;
         const isPopped = false;
         const delta = 5;
         const speed = 250;
-
-        $parent.height($parent.outerHeight());
 
         $(window).scroll(() => {
             isScrolled = true;
@@ -77,10 +76,9 @@ class HomeScript {
 
         function onHasScrolled() {
             const top = $(window).scrollTop() + $nav_height;
-            const position_to_popout = $element.position().top;
-            //const position_to_popout = $element.position().top + $element.outerHeight();
+            const position_to_popout = $element_container.position().top + $element_container.outerHeight();
 
-            if (!isPopped && (top > position_to_popout)) {
+            if (!isPopped && !isDisabled && (top > position_to_popout)) {
                 $element.addClass('popout');
             } else if (isPopped && (top < position_to_popout)) {
                 $element.removeClass('popout');
@@ -88,6 +86,11 @@ class HomeScript {
 
             isPopped = $element.hasClass('popout');
         }
+
+        $element.find('i').click(() => {
+            $element.removeClass('popout');
+            isDisabled = true;
+        });
     }
 }
 
