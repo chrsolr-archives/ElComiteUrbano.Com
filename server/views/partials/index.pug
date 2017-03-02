@@ -26,7 +26,7 @@ block content
                     li
                         a(target="_blank", class="fa fa-3x fa-twitter twitter-color", href="https://www.twitter.com/elcomiteurbano")
 
-        if (!(new Date().getUTCDay() === 1 && new Date().getUTCHours() >= 23) || !(new Date().getUTCDay() === 2 && new Date().getUTCHours() <= 2))
+        if ((new Date().getUTCDay() === 1 && new Date().getUTCHours() >= 23) || (new Date().getUTCDay() === 2 && new Date().getUTCHours() <= 2))
             section.section.bg-dark#live-stream-container
                 .container
                     span.title.text-right.no-side-margin Live Stream

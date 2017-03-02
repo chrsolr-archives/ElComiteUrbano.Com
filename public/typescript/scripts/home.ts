@@ -2,7 +2,6 @@
 /// <amd-dependency path="bootstrap" />
 /// <amd-dependency path="slick" />
 /// <amd-dependency path="MagnificPopup" />
-/// <amd-dependency path="$transit" />
 
 import * as $ from 'jquery';
 
@@ -11,7 +10,10 @@ class HomeScript {
     constructor() {
         this.setCarousel();
         this.initMagnificPopup();
-        this.initLiveStreamPopout();
+
+        if ((new Date().getUTCDay() === 1 && new Date().getUTCHours() >= 23) || (new Date().getUTCDay() === 2 && new Date().getUTCHours() <= 2)) {
+            this.initLiveStreamPopout();
+        }
     }
 
     initMagnificPopup(): void {
@@ -57,11 +59,9 @@ class HomeScript {
         const $element = $('#live-stream');
         const $element_container = $('#live-stream-container');
         const $nav_height = $('.navbar-wrapper').outerHeight();
-        const isDisabled = false;
         const isScrolled = false;
+        const isDisabled = false;
         const isPopped = false;
-        const delta = 5;
-        const speed = 250;
 
         $(window).scroll(() => {
             isScrolled = true;
@@ -72,7 +72,7 @@ class HomeScript {
                 onHasScrolled();
                 isScrolled = false;
             }
-        }, speed);
+        }, 250);
 
         function onHasScrolled() {
             const top = $(window).scrollTop() + $nav_height;

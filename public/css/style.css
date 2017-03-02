@@ -451,9 +451,9 @@ label {
   position: fixed;
   z-index: 3;
   bottom: 0;
-  left: -25vw;
-  height: 14vw;
-  width: 25vw;
+  left: -100%;
+  height: 180px;
+  width: 320px;
   transition: all .4s ease;
   border: 1px dotted #F96816; }
   #live-stream .content {
@@ -465,6 +465,9 @@ label {
       text-align: right;
       padding: 5px;
       border-bottom: 1px dotted #F96816; }
+  @media only screen and (min-width: 544px) and (max-width: 767px), only screen and (max-width: 543px) {
+    #live-stream {
+      display: none; } }
 
 #live-stream.popout {
   left: 0;

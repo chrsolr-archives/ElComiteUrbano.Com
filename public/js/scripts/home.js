@@ -1,10 +1,12 @@
-define(["require", "exports", "jquery", "bootstrap", "slick", "MagnificPopup", "$transit"], function (require, exports, $) {
+define(["require", "exports", "jquery", "bootstrap", "slick", "MagnificPopup"], function (require, exports, $) {
     "use strict";
     var HomeScript = (function () {
         function HomeScript() {
             this.setCarousel();
             this.initMagnificPopup();
-            this.initLiveStreamPopout();
+            if ((new Date().getUTCDay() === 1 && new Date().getUTCHours() >= 23) || (new Date().getUTCDay() === 2 && new Date().getUTCHours() <= 2)) {
+                this.initLiveStreamPopout();
+            }
         }
         HomeScript.prototype.initMagnificPopup = function () {
             $('.mfp-video-popup').magnificPopup({
@@ -46,11 +48,9 @@ define(["require", "exports", "jquery", "bootstrap", "slick", "MagnificPopup", "
             var $element = $('#live-stream');
             var $element_container = $('#live-stream-container');
             var $nav_height = $('.navbar-wrapper').outerHeight();
-            var isDisabled = false;
             var isScrolled = false;
+            var isDisabled = false;
             var isPopped = false;
-            var delta = 5;
-            var speed = 250;
             $(window).scroll(function () {
                 isScrolled = true;
             });
@@ -59,7 +59,7 @@ define(["require", "exports", "jquery", "bootstrap", "slick", "MagnificPopup", "
                     onHasScrolled();
                     isScrolled = false;
                 }
-            }, speed);
+            }, 250);
             function onHasScrolled() {
                 var top = $(window).scrollTop() + $nav_height;
                 var position_to_popout = $element_container.position().top + $element_container.outerHeight();
