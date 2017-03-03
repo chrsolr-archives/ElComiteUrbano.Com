@@ -9,7 +9,6 @@ class HomeScript {
 
     constructor() {
         this.setCarousel();
-        this.setCarouselHeader()
         this.initMagnificPopup();
 
         if (!(new Date().getUTCDay() === 1 && new Date().getUTCHours() >= 23) || !(new Date().getUTCDay() === 2 && new Date().getUTCHours() <= 2)) {
@@ -30,7 +29,7 @@ class HomeScript {
 
     setCarousel(): void {
         $(document).ready(() => {
-            const SLIDE_SHOW_TIME: int = 3000;
+            const SLIDE_SHOW_TIME: int = 3500;
 
             $('.slider-wrapper-music').slick({
                 dots: true,
@@ -53,12 +52,6 @@ class HomeScript {
                     }
                 ]
             });
-        });
-    }
-
-    setCarouselHeader(): void {
-        $(document).ready(() => {
-            const SLIDE_SHOW_TIME: int = 4000;
 
             $('.slider-wrapper-header').slick({
                 dots: false,

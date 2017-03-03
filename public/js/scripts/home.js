@@ -3,7 +3,6 @@ define(["require", "exports", "jquery", "bootstrap", "slick", "MagnificPopup"], 
     var HomeScript = (function () {
         function HomeScript() {
             this.setCarousel();
-            this.setCarouselHeader();
             this.initMagnificPopup();
             if (!(new Date().getUTCDay() === 1 && new Date().getUTCHours() >= 23) || !(new Date().getUTCDay() === 2 && new Date().getUTCHours() <= 2)) {
                 this.initLiveStreamPopout();
@@ -21,7 +20,7 @@ define(["require", "exports", "jquery", "bootstrap", "slick", "MagnificPopup"], 
         };
         HomeScript.prototype.setCarousel = function () {
             $(document).ready(function () {
-                var SLIDE_SHOW_TIME = 3000;
+                var SLIDE_SHOW_TIME = 3500;
                 $('.slider-wrapper-music').slick({
                     dots: true,
                     infinite: true,
@@ -43,11 +42,6 @@ define(["require", "exports", "jquery", "bootstrap", "slick", "MagnificPopup"], 
                         }
                     ]
                 });
-            });
-        };
-        HomeScript.prototype.setCarouselHeader = function () {
-            $(document).ready(function () {
-                var SLIDE_SHOW_TIME = 4000;
                 $('.slider-wrapper-header').slick({
                     dots: false,
                     infinite: true,
