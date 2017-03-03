@@ -374,7 +374,8 @@ label {
 
 .banner-image {
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  max-height: 600px; }
   .banner-image img {
     width: 100%; }
   .banner-image .banner-overlay {
