@@ -23,6 +23,13 @@ a {
     color: #F96816;
     text-decoration: none; }
 
+button.close {
+  color: #F96816;
+  opacity: 1;
+  text-shadow: none; }
+  button.close:hover, button.close:active, button.close:focus {
+    color: #a53e04; }
+
 p {
   margin-bottom: 1rem; }
 
