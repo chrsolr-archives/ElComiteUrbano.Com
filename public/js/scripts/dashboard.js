@@ -3,10 +3,8 @@ define(["require", "exports", "jquery", "firebase", "bootstrap", "bootstrap_vali
     var Dashboard = (function () {
         function Dashboard(opts) {
             var _this = this;
-            $(document).ready(function () {
-                _this.initializeFirebase(opts);
-                _this.initializeCreatePromo();
-            });
+            _this.initializeFirebase(opts);
+            _this.initializeCreatePromo();
         }
         Dashboard.prototype.initializeFirebase = function (opts) {
             firebase.initializeApp(opts.FIREBASE);

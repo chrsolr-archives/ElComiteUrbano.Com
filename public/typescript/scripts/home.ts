@@ -28,44 +28,42 @@ class HomeScript {
     }
 
     setCarousel(): void {
-        $(document).ready(() => {
-            const SLIDE_SHOW_TIME: int = 3500;
+        const SLIDE_SHOW_TIME: int = 3500;
 
-            $('.slider-wrapper-music').slick({
-                dots: true,
-                infinite: true,
-                speed: 700,
-                autoplay: true,
-                autoplaySpeed: SLIDE_SHOW_TIME,
-                mobileFirst: false,
-                arrows: false,
-                fade: false,
-                slidesToShow: 3,
-                slidesToScroll: 1,
-                responsive: [
-                    {
-                        breakpoint: 768,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 1
-                        }
+        $('.slider-wrapper-music').slick({
+            dots: true,
+            infinite: true,
+            speed: 700,
+            autoplay: true,
+            autoplaySpeed: SLIDE_SHOW_TIME,
+            mobileFirst: false,
+            arrows: false,
+            fade: false,
+            slidesToShow: 3,
+            slidesToScroll: 1,
+            responsive: [
+                {
+                    breakpoint: 768,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
                     }
-                ]
-            });
+                }
+            ]
+        });
 
-            $('.slider-wrapper-header').slick({
-                dots: false,
-                infinite: true,
-                speed: 700,
-                autoplay: true,
-                autoplaySpeed: SLIDE_SHOW_TIME,
-                mobileFirst: false,
-                arrows: false,
-                fade: true,
-                slidesToShow: 1,
-                slidesToScroll: 1,
-                adaptiveHeight: true
-            });
+        $('.slider-wrapper-header').slick({
+            dots: false,
+            infinite: true,
+            speed: 700,
+            autoplay: true,
+            autoplaySpeed: SLIDE_SHOW_TIME,
+            mobileFirst: false,
+            arrows: false,
+            fade: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            adaptiveHeight: true
         });
     }
 

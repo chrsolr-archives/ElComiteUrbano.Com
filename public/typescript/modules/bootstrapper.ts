@@ -9,11 +9,9 @@ class Bootstrapper {
     constructor() { }
 
     initialize(): void {
-        $(() => {
-            new Navbar();
-            this.setContactUsForm();
-            this.initTruncate();
-        });
+        new Navbar();
+        this.setContactUsForm();
+        this.initTruncate();
     }
 
     setContactUsForm(): void {

@@ -39,8 +39,10 @@ requirejs.config({
     }
 });
 
-requirejs(['Bootstrapper'], function (Bootstrapper) {
+requirejs(['Bootstrapper', 'jquery'], function (Bootstrapper, $) {
     'use strict';
 
-    new Bootstrapper().initialize();
+    $(document).ready(function() {
+        new Bootstrapper().initialize();
+    });
 });

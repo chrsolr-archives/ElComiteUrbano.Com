@@ -11,10 +11,8 @@ class Dashboard {
     constructor(opts) {
         const _this = this;
 
-        $(document).ready(() => {
-            _this.initializeFirebase(opts);
-            _this.initializeCreatePromo();
-        });
+        _this.initializeFirebase(opts);
+        _this.initializeCreatePromo();
     }
 
     initializeFirebase(opts): void {
