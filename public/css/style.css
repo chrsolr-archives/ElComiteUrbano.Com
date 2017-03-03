@@ -457,7 +457,7 @@ label {
 #live-stream {
   position: fixed;
   z-index: 3;
-  bottom: 0;
+  bottom: 33px;
   left: -100%;
   height: 180px;
   width: 320px;
