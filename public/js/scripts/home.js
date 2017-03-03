@@ -47,7 +47,7 @@ define(["require", "exports", "jquery", "bootstrap", "slick", "MagnificPopup"], 
         };
         HomeScript.prototype.setCarouselHeader = function () {
             $(document).ready(function () {
-                var SLIDE_SHOW_TIME = 3000;
+                var SLIDE_SHOW_TIME = 4000;
                 $('.slider-wrapper-header').slick({
                     dots: false,
                     infinite: true,

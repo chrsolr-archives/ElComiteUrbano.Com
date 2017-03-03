@@ -58,7 +58,7 @@ class HomeScript {
 
     setCarouselHeader(): void {
         $(document).ready(() => {
-            const SLIDE_SHOW_TIME: int = 3000;
+            const SLIDE_SHOW_TIME: int = 4000;
 
             $('.slider-wrapper-header').slick({
                 dots: false,
