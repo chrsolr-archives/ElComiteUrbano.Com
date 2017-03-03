@@ -470,9 +470,10 @@ label {
       display: block;
       background-color: #222222;
       color: #F96816;
-      text-align: right;
       padding: 5px;
       border-bottom: 1px dotted #F96816; }
+      #live-stream .content .live-stream-close-bar span i {
+        float: right; }
   @media only screen and (min-width: 544px) and (max-width: 767px), only screen and (max-width: 543px) {
     #live-stream {
       display: none; } }

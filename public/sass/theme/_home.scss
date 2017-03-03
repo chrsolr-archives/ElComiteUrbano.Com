@@ -120,9 +120,14 @@
             display: block;
             background-color: $color-bg-secondary;
             color: $color-font-accent;
-            text-align: right;
             padding: spacing(1);
             border-bottom: 1px dotted $color-bg-accent;
+
+            span {
+                i {
+                    float: right;
+                }
+            }
         }
     }
 
