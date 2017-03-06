@@ -49,27 +49,27 @@ block content
                         iframe.embed-responsive-item(src='http://www.ustream.tv/embed/10266764?v=3&amp;wmode=direct', frameborder="0", style="border: 0px none transparent;")
 
         section.section.bg-light
-            .container
+            .container-fluid
                 span.title.text-right YouTube
                 .row
                     each video in youtube.videos
-                        .col-sm-6.col-md-6.col-lg-4.margin-bottom-4
+                        .col-lg-3.col-md-4.col-sm-6.margin-bottom-4
                             +card_wrapper_video(video)
 
         if promos.length > 0
             section.section.bg-dark
-                .container
+                .container-fluid
                     span.title.text-right.no-side-margin Promos
                     .slider-wrapper-music
                         each promo in promos
                             +card_wrapper_promo(promo)
 
         section.section.bg-light
-            .container
+            .container-fluid
                 span.title.text-right Soundcloud
                 .row
                     each song in songs
-                        .col-lg-3.col-md-4.col-sm-6.col-xs-12.margin-bottom-4
+                        .col-lg-3.col-md-3.col-sm-4.margin-bottom-4
                             +card_wrapper_song(song)
 
     script.
