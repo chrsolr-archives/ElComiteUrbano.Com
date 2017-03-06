@@ -11,7 +11,7 @@ class HomeScript {
         this.setCarousel();
         this.initMagnificPopup();
 
-        if (!(new Date().getUTCDay() === 1 && new Date().getUTCHours() >= 23) || !(new Date().getUTCDay() === 2 && new Date().getUTCHours() <= 2)) {
+        if ((new Date().getUTCDay() === 1 && new Date().getUTCHours() >= 23) || (new Date().getUTCDay() === 2 && new Date().getUTCHours() <= 2)) {
             this.initLiveStreamPopout();
         }
     }
