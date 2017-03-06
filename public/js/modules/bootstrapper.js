@@ -23,7 +23,7 @@ define(["require", "exports", "jquery", "js/modules/navbar", "bootstrap_validato
                 ellipsis: '…',
                 watch: true,
                 wrap: 'word',
-                height: parseInt($('.truncate').css('line-height'), 10) * 2,
+                height: parseInt($('.truncate').css('line-height'), 10) * 1,
                 lastCharacter: {
                     remove: [' ', ',', ';', '.', '!', '?'],
                     noEllipsis: []

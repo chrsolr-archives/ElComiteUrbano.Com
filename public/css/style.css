@@ -1,4 +1,3 @@
-@charset "UTF-8";
 html {
   font-size: 16px; }
   html body {
@@ -73,7 +72,7 @@ label {
   padding: 20px 0;
   overflow: hidden; }
   .section .title {
-    font-size: 3.2rem;
+    font-size: 3rem;
     font-family: "Ubuntu", sans-serif;
     font-weight: 200;
     display: block;
@@ -92,6 +91,9 @@ label {
 
 .bg-light {
   background-color: #222222; }
+
+.bg-light-gray {
+  background-color: #333333; }
 
 .modal-dialog .modal-content {
   background-color: #222222;
@@ -139,28 +141,27 @@ label {
   .card-wrapper .img-bg {
     width: 100%; }
   .card-wrapper .card-content-wrapper {
-    background-color: rgba(0, 0, 0, 0.8);
-    position: absolute;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 2;
-    text-align: right;
+    background-color: #333333;
     padding: 10px; }
     .card-wrapper .card-content-wrapper .card-content-view-count,
     .card-wrapper .card-content-wrapper .card-content-subtitle {
-      color: #a1a1a1; }
+      display: block;
+      color: #a1a1a1;
+      font-size: 0.8rem; }
     .card-wrapper .card-content-wrapper .card-content-title {
       display: block;
-      border-bottom: 1px dotted #F96816;
-      padding-bottom: 5px;
-      margin-bottom: 5px;
-      font-size: 1.2rem;
+      font-size: 1rem;
       color: #fafafa; }
       .card-wrapper .card-content-wrapper .card-content-title a {
         color: #fafafa; }
         .card-wrapper .card-content-wrapper .card-content-title a:hover {
           text-decoration: none; }
+    .card-wrapper .card-content-wrapper .divider {
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: #F96816;
+      margin: 5px 0; }
     @media only screen and (min-width: 414px) and (max-width: 544px) {
       .card-wrapper .card-content-wrapper .card-content-title {
         font-size: 1rem; } }
@@ -173,37 +174,7 @@ label {
         .card-wrapper .card-content-wrapper a {
           font-size: 0.8rem; } }
 
-.card-content-wrapper {
-  background-color: black;
-  text-align: right;
-  padding: 10px; }
-  .card-content-wrapper .card-content-view-count,
-  .card-content-wrapper .card-content-subtitle {
-    color: #a1a1a1; }
-  .card-content-wrapper .card-content-title {
-    display: block;
-    border-bottom: 1px dotted #F96816;
-    padding-bottom: 5px;
-    margin-bottom: 5px;
-    font-size: 1.2rem;
-    color: #fafafa; }
-    .card-content-wrapper .card-content-title a {
-      color: #fafafa; }
-      .card-content-wrapper .card-content-title a:hover {
-        text-decoration: none; }
-  @media only screen and (min-width: 414px) and (max-width: 544px) {
-    .card-content-wrapper .card-content-title {
-      font-size: 1rem; } }
-  @media only screen and (min-width: 0px) and (max-width: 413px) {
-    .card-content-wrapper {
-      padding: 5px; }
-      .card-content-wrapper .card-content-title,
-      .card-content-wrapper .card-content-view-count,
-      .card-content-wrapper .card-content-subtitle,
-      .card-content-wrapper a {
-        font-size: 0.8rem; } }
-
-‰ .card-wrapper.height-300 {
+.card-wrapper.height-300 {
   height: 300px; }
 
 .card-wrapper.height-500 {
