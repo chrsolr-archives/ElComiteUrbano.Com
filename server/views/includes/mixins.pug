@@ -5,8 +5,7 @@ mixin card_wrapper_video(video)
             span.card-content-view-count
                 i.fa.fa-eye
                 |  #{video.view_count}
-            span.card-content-title.truncate
-                a.mfp-video-popup.mfp-iframe(href=video.videoUrl) #{video.title}
+            span.card-content-title.truncate #{video.title}
             span.divider
             a.mfp-video-popup.mfp-iframe(href=video.videoUrl) View
 
@@ -15,8 +14,7 @@ mixin card_wrapper_song(song)
         img.img-responsive.img-bg(src=song.imageUrl, alt=song.title)
         .card-content-wrapper
             span.card-content-subtitle.truncate #{song.artists}
-            span.card-content-title.truncate #{song.title}
-                a.mfp-video-popup.mfp-iframe(href=song.trackUrl) #{song.title}
+            span.card-content-title.truncate #{song.title} #{song.title}
             span.divider
             a.mfp-video-popup.mfp-iframe(href=song.trackUrl) Listen
 
@@ -25,7 +23,6 @@ mixin card_wrapper_promo(promo)
         img.img-responsive.img-bg(src=promo.imageUrl, alt=promo.artists)
         .card-content-wrapper
             span.card-content-subtitle.truncate #{promo.artists}
-            span.card-content-title.truncate
-                a(href=promo.downloadUrl.replace('media/', 'media%2F') + "&token=" + promo.token, download) #{promo.title}
+            span.card-content-title.truncate #{promo.title}
             span.divider
             a(href=promo.downloadUrl.replace('media/', 'media%2F') + "&token=" + promo.token, download) Download
