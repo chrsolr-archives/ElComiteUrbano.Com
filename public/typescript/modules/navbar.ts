@@ -10,8 +10,9 @@ class NavBar {
         const _this = this;
         const $toggle_button = $('.navbar-menu-icon');
 
-        _this.$sidebar = $('.navbar-sidebar-wrapper');
         _this.$body = $('body');
+        _this.$sidebar = $('.navbar-sidebar-wrapper');
+        _this.$main_container = $('.main-container');
 
         $toggle_button.on('click', (e) => {
             _this.toggle();
@@ -25,6 +26,7 @@ class NavBar {
         if (window_width < 1200) {
             this.$sidebar.toggleClass(class_name);
             this.$body.toggleClass('no-scroll');
+            this.$main_container.parent().addClass('no-padding');
         }
     }
 
@@ -36,8 +38,13 @@ class NavBar {
 
         if (window_width >= 1200 && !this.$sidebar.hasClass(class_name)) {
             this.$sidebar.addClass(class_name);
-        } else if (window_width < 1200 && this.$sidebar.hasClass(class_name)) {
-            this.$sidebar.removeClass(class_name);
+            this.$main_container.parent().removeClass('no-padding');
+        } else if (window_width < 1200) {
+            this.$main_container.parent().addClass('no-padding');
+
+            if (this.$sidebar.hasClass(class_name)) {
+                this.$sidebar.removeClass(class_name);
+            }
         }
     }
 }

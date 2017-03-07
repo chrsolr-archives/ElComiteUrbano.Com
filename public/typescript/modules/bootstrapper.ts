@@ -10,7 +10,7 @@ class Bootstrapper {
 
     initialize(): void {
         const navbar = new Navbar();
-        navbar.onWindowResize()
+        navbar.onWindowResize();
         this.setContactUsForm();
         this.initTruncate();
 
