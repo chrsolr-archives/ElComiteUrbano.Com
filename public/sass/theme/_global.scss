@@ -85,7 +85,7 @@ label {
     font-family: $ubuntu;
     font-weight: $font-weight-thin;
     display: block;
-    border-bottom: 1px dotted $color-font-accent;
+    border-bottom: 2px solid $color-bg-primary;
     user-select: none;
     margin: spacing(4) spacing(3);
   }

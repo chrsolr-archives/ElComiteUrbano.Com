@@ -76,7 +76,7 @@ label {
     font-family: "Ubuntu", sans-serif;
     font-weight: 200;
     display: block;
-    border-bottom: 1px dotted #F96816;
+    border-bottom: 2px solid #181818;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -204,7 +204,7 @@ label {
   position: fixed;
   top: 0;
   left: 0;
-  border-bottom: 1px dashed #F96816;
+  border-bottom: 2px solid #181818;
   background-color: #222222;
   color: #fafafa;
   min-height: 100px;
@@ -306,7 +306,7 @@ label {
     font-size: 1.5rem; } }
 
 .footer-wrapper {
-  border-top: 1px dashed #F96816; }
+  border-top: 2px solid #181818; }
   .footer-wrapper .footer-brand a {
     color: #fafafa;
     text-decoration: none;
