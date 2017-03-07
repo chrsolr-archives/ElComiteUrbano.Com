@@ -79,8 +79,8 @@
         li {
             display: table-cell;
             border-right: 1px dashed $color-font-accent;
-            &:first-child {
-                border-left: 1px dashed $color-font-accent;
+            &:last-child {
+                border-right: none;
             }
             a {
                 color: $color-font-light;

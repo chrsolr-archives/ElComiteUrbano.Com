@@ -410,8 +410,8 @@ label {
     .banner-social ul.social-media-share-home li {
       display: table-cell;
       border-right: 1px dashed #F96816; }
-      .banner-social ul.social-media-share-home li:first-child {
-        border-left: 1px dashed #F96816; }
+      .banner-social ul.social-media-share-home li:last-child {
+        border-right: none; }
       .banner-social ul.social-media-share-home li a {
         color: #fafafa;
         font-size: 2rem;
