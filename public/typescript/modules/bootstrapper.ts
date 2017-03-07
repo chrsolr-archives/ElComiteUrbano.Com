@@ -9,9 +9,14 @@ class Bootstrapper {
     constructor() { }
 
     initialize(): void {
-        new Navbar();
+        const navbar = new Navbar();
+        navbar.onWindowResize()
         this.setContactUsForm();
         this.initTruncate();
+
+        $(window).resize(() => {
+            navbar.onWindowResize();
+        });
     }
 
     setContactUsForm(): void {

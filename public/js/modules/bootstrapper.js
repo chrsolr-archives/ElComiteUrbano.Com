@@ -4,9 +4,13 @@ define(["require", "exports", "jquery", "js/modules/navbar", "bootstrap_validato
         function Bootstrapper() {
         }
         Bootstrapper.prototype.initialize = function () {
-            new Navbar();
+            var navbar = new Navbar();
+            navbar.onWindowResize();
             this.setContactUsForm();
             this.initTruncate();
+            $(window).resize(function () {
+                navbar.onWindowResize();
+            });
         };
         Bootstrapper.prototype.setContactUsForm = function () {
             var _this = this;

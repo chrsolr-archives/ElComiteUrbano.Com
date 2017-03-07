@@ -5,8 +5,6 @@ block content
 
     .home-wrapper
         .banner-image
-            //img(class="img-responsive", src="assets/images/banners/banner_004.jpg", alt="El Comite Urbano Banner")
-
             .slider-wrapper-header
                 div: img.img-responsive(src="assets/images/banners/banner_004.jpg")
                 //- div: img.img-responsive(src="https://i1.imgiz.com/rshots/9602/maluma-un-polvo-ft-bad-bunny-arcngel-engo-flow-de-la-ghetto_9602520-32860_1920x1080.jpg")
@@ -15,12 +13,9 @@ block content
                 //- div: img.img-responsive(src="https://i.ytimg.com/vi/v2qbS8-t-C0/maxresdefault.jpg")
 
             .banner-overlay
-            //- .banner-content
-            //-     img(class="img-responsive", src="assets/images/logos/ecu_logo_2.png")
-            //-     span.banner-subtitle.animated.fadeInUp Lunes de 8-10pm - EST
 
         .banner-social
-            .container.no-padding
+            .no-padding
                 ul.social-media-share-home
                     li
                         a(target="_blank", class="fa fa-3x fa-facebook-official facebook-color", href="https://www.facebook.com/elcomiteurbanoradio")
@@ -34,7 +29,7 @@ block content
                         a(target="_blank", class="fa fa-3x fa-twitter twitter-color", href="https://www.twitter.com/elcomiteurbano")
 
         if ((new Date().getUTCDay() === 1 && new Date().getUTCHours() >= 23) || (new Date().getUTCDay() === 2 && new Date().getUTCHours() <= 2))
-            section.section.bg-dark#live-stream-container
+            section.section.bg-light#live-stream-container
                 .container
                     span.title.text-right.no-side-margin Live Stream
                     .embed-responsive.embed-responsive-16by9
@@ -53,11 +48,11 @@ block content
                 span.title.text-right YouTube
                 .row
                     each video in youtube.videos
-                        .col-lg-3.col-md-4.col-sm-6.margin-bottom-4
+                        .col-lg-4.col-md-4.col-sm-6.margin-bottom-4
                             +card_wrapper_video(video)
 
         if promos.length > 0
-            section.section.bg-dark
+            section.section.bg-light
                 .container-fluid
                     span.title.text-right.no-side-margin Promos
                     .slider-wrapper-music
@@ -69,7 +64,7 @@ block content
                 span.title.text-right Soundcloud
                 .row
                     each song in songs
-                        .col-lg-3.col-md-3.col-sm-4.margin-bottom-4
+                        .col-lg-4.col-md-3.col-sm-4.margin-bottom-4
                             +card_wrapper_song(song)
 
     script.
