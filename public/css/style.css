@@ -397,7 +397,7 @@ label {
         font-size: 1rem !important; } }
 
 .banner-social {
-  background-color: black;
+  background-color: #333333;
   color: #fafafa;
   max-height: 100px;
   overflow: hidden; }
@@ -409,7 +409,7 @@ label {
     table-layout: fixed; }
     .banner-social ul.social-media-share-home li {
       display: table-cell;
-      border-right: 1px dashed #F96816; }
+      border-right: 2px solid #181818; }
       .banner-social ul.social-media-share-home li:last-child {
         border-right: none; }
       .banner-social ul.social-media-share-home li a {
