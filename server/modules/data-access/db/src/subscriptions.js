@@ -1,6 +1,7 @@
 'use strict';
 
 const SubscriptionModel = require('../../models').Subscription;
+const uuidV4 = require('uuid/v4');
 
 class SubscriptionDB {
     add(email) {
@@ -20,7 +21,8 @@ class SubscriptionDB {
 
                 const schema = {
                     email: email,
-                    email_canonical: email
+                    email_canonical: email,
+                    uuid: uuidV4()
                 };
 
                 const model = new SubscriptionModel(schema);

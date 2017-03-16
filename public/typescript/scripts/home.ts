@@ -4,16 +4,14 @@
 /// <amd-dependency path="MagnificPopup" />
 
 import * as $ from 'jquery';
+import * as Ustream from 'ustream';
 
 class HomeScript {
 
     constructor() {
         this.setCarousel();
         this.initMagnificPopup();
-
-        if ((new Date().getUTCDay() === 1 && new Date().getUTCHours() >= 23) || (new Date().getUTCDay() === 2 && new Date().getUTCHours() <= 2)) {
-            this.initLiveStreamPopout();
-        }
+        //this.initLiveStreamPopout();
     }
 
     initMagnificPopup(): void {
@@ -67,43 +65,56 @@ class HomeScript {
         });
     }
 
-    initLiveStreamPopout(): void {
-        const $element = $('#live-stream');
-        const $element_container = $('#live-stream-container');
-        const $nav_height = $('.navbar-wrapper').outerHeight();
-        const isScrolled = false;
-        const isDisabled = false;
-        const isPopped = false;
+    // initLiveStreamPopout(): void {
+    //     if (!(new Date().getUTCDay() === 1 && new Date().getUTCHours() >= 23) || !(new Date().getUTCDay() === 2 && new Date().getUTCHours() <= 2)) {
+    //         live();
+    //     }
 
-        $(window).scroll(() => {
-            isScrolled = true;
-        });
+    //     function live() {
+    //         const ustream_full = Ustream('ustream-full');
+    //         const ustream_mini = Ustream('ustream-mini');
+    //         const $element = $('#live-stream');
+    //         const $element_container = $('#live-stream-container');
+    //         const $nav_height = $('.navbar-wrapper').outerHeight();
+    //         const isScrolled = false;
+    //         const isDisabled = false;
+    //         const isPopped = false;
 
-        setInterval(() => {
-            if (isScrolled) {
-                onHasScrolled();
-                isScrolled = false;
-            }
-        }, 250);
+    //         $(window).scroll(() => {
+    //             isScrolled = true;
+    //         });
 
-        function onHasScrolled() {
-            const top = $(window).scrollTop() + $nav_height;
-            const position_to_popout = $element_container.position().top + $element_container.outerHeight();
+    //         setInterval(() => {
+    //             if (isScrolled) {
+    //                 onHasScrolled();
+    //                 isScrolled = false;
+    //             }
+    //         }, 250);
 
-            if (!isPopped && !isDisabled && (top > position_to_popout)) {
-                $element.addClass('popout');
-            } else if (isPopped && (top < position_to_popout)) {
-                $element.removeClass('popout');
-            }
+    //         function onHasScrolled() {
+    //             const top = $(window).scrollTop() + $nav_height;
+    //             const position_to_popout = $element_container.position().top + $element_container.outerHeight();
 
-            isPopped = $element.hasClass('popout');
-        }
+    //             if (!isPopped && !isDisabled && (top > position_to_popout)) {
+    //                 $element.addClass('popout');
+    //                 ustream_full.callMethod('volume', 0);
+    //                 ustream_mini.callMethod('volume', 50);
+    //             } else if (isPopped && (top < position_to_popout)) {
+    //                 $element.removeClass('popout');
+    //                 ustream_full.callMethod('volume', 50);
+    //                 ustream_mini.callMethod('volume', 0);
+    //             }
 
-        $element.find('i').click(() => {
-            $element.removeClass('popout');
-            isDisabled = true;
-        });
-    }
+    //             isPopped = $element.hasClass('popout');
+    //         }
+
+    //         $element.find('i').click(() => {
+    //             $element.removeClass('popout');
+    //             isDisabled = true;
+    //             ustream_mini.callMethod('stop');
+    //         });
+    //     }
+    // }
 }
 
 export = HomeScript;

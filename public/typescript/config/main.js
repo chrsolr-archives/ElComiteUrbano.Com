@@ -11,7 +11,8 @@ requirejs.config({
         slick: 'libs/slick-carousel/slick/slick.min',
         dotdotdot: 'libs/jQuery.dotdotdot/src/jquery.dotdotdot.min',
         firebase: 'libs/firebase/firebase',
-        $transit: 'libs/jquery.transit/jquery.transit'
+        $transit: 'libs/jquery.transit/jquery.transit',
+        ustream: 'libs/ustream-embedapi/src/ustream-embedapi'
     },
     shim: {
         Bootstrapper: {
@@ -35,6 +36,7 @@ requirejs.config({
         $transit: {
             deps: ['jquery']
         },
+        ustream: { exports: 'UstreamEmbed' },
         firebase: { exports: 'firebase' }
     }
 });

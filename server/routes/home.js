@@ -76,7 +76,7 @@ module.exports = (app) => {
             return res.redirect('/error', { message: 'No Email Provided'});
         }
 
-        db.subscriptions.add(email).then(res => res.redirect('/')).catch(err => res.redirect('/error', { message: err }));
+        db.subscriptions.add(email).then(() => res.redirect('/')).catch(err => res.render('partials/error', {message: err}));
     });
 
     app.get('/about', (req, res) => res.render('partials/about'));

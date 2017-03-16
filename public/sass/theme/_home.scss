@@ -108,12 +108,12 @@
 #live-stream {
     position: fixed;
     z-index: 3;
-    bottom: 33px;
+    bottom: 30px;
     left: -100%;
     height: 180px;
     width: 320px;
     transition: all .4s ease;
-    border: 1px dotted $color-bg-accent;
+    
     .content {
         position: relative;
         .live-stream-close-bar {
@@ -121,8 +121,6 @@
             background-color: $color-bg-secondary;
             color: $color-font-accent;
             padding: spacing(1);
-            border-bottom: 1px dotted $color-bg-accent;
-
             span {
                 i {
                     float: right;

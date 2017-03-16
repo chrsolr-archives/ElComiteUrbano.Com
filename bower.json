@@ -23,6 +23,7 @@
     "slick-carousel": "^1.6.0",
     "jQuery.dotdotdot": "^1.8.3",
     "firebase": "^3.6.10",
-    "jquery.transit": "^0.9.12"
+    "jquery.transit": "^0.9.12",
+    "ustream-embedapi": "^0.0.1"
   }
 }

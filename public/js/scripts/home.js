@@ -4,9 +4,6 @@ define(["require", "exports", "jquery", "bootstrap", "slick", "MagnificPopup"], 
         function HomeScript() {
             this.setCarousel();
             this.initMagnificPopup();
-            if ((new Date().getUTCDay() === 1 && new Date().getUTCHours() >= 23) || (new Date().getUTCDay() === 2 && new Date().getUTCHours() <= 2)) {
-                this.initLiveStreamPopout();
-            }
         }
         HomeScript.prototype.initMagnificPopup = function () {
             $('.mfp-video-popup').magnificPopup({
@@ -53,38 +50,6 @@ define(["require", "exports", "jquery", "bootstrap", "slick", "MagnificPopup"], 
                 slidesToShow: 1,
                 slidesToScroll: 1,
                 adaptiveHeight: true
-            });
-        };
-        HomeScript.prototype.initLiveStreamPopout = function () {
-            var $element = $('#live-stream');
-            var $element_container = $('#live-stream-container');
-            var $nav_height = $('.navbar-wrapper').outerHeight();
-            var isScrolled = false;
-            var isDisabled = false;
-            var isPopped = false;
-            $(window).scroll(function () {
-                isScrolled = true;
-            });
-            setInterval(function () {
-                if (isScrolled) {
-                    onHasScrolled();
-                    isScrolled = false;
-                }
-            }, 250);
-            function onHasScrolled() {
-                var top = $(window).scrollTop() + $nav_height;
-                var position_to_popout = $element_container.position().top + $element_container.outerHeight();
-                if (!isPopped && !isDisabled && (top > position_to_popout)) {
-                    $element.addClass('popout');
-                }
-                else if (isPopped && (top < position_to_popout)) {
-                    $element.removeClass('popout');
-                }
-                isPopped = $element.hasClass('popout');
-            }
-            $element.find('i').click(function () {
-                $element.removeClass('popout');
-                isDisabled = true;
             });
         };
         return HomeScript;
