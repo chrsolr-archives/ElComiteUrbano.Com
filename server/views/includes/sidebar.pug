@@ -2,6 +2,7 @@ aside.navbar-sidebar-wrapper
     a(href="/"): i.pe-7s-home.pe-lg.pe-va: span HOME
     a(href="/about"): i.pe-7s-info.pe-lg.pe-va: span ABOUT
     a(href="#", data-toggle="modal", data-target="#contact-modal"): i.pe-7s-mail.pe-lg.pe-va: span CONTACT
+    a(href="#", data-toggle="modal", data-target="#subscribe-modal"): i.pe-7s-ribbon.pe-lg.pe-va: span SUBSCRIBE
     if user && user.isAnAdmin
         a(href="/dashboard"): i.pe-7s-settings.pe-lg.pe-va: span ADMIN
         a(href="#", onclick="window.sessionStorage.clear(); window.location.replace('/logout');"): i.pe-7s-delete-user.pe-lg.pe-va: span LOGOUT

@@ -1,0 +1,14 @@
+div.modal.fade#subscribe-modal
+    .modal-dialog(role="document")
+        .modal-content
+            .modal-header
+                button(type="button", class="close", data-dismiss="modal", aria-label="Close")
+                    span(aria-hidden="true") &times;
+                h3.modal-title Subscribe
+            .modal-body
+                form(name="form", method="POST", action="/subscribe", role="form", data-toggle="validator")
+                    .form-group
+                        input.form-control.form-control-ecu-accent(name="email", type="email", placeholder="Enter email", data-minlength="8", data-error="Email is required", required)
+                    .modal-footer
+                        button.btn.btn-ecu-accent(type="submit") Subscribe
+                        button.btn.btn-ecu-accent(type="button", data-dismiss="modal") Cancel
