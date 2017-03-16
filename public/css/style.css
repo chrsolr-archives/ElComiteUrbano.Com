@@ -174,10 +174,10 @@ label {
         .card-wrapper .card-content-wrapper a {
           font-size: 0.8rem; } }
 
-.card-wrapper.height-300 {
-  height: 300px; }
+.height-250 {
+  height: 250px; }
 
-.card-wrapper.height-500 {
+.height-500 {
   height: 500px; }
 
 .slick-prev {
