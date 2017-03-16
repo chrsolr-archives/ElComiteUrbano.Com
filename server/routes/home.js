@@ -69,6 +69,16 @@ module.exports = (app) => {
         });
     });
 
+    app.post('/subscribe', (req, res) => {
+        const email = req.body.email;
+
+        if (!email) {
+            return res.redirect('/error', { message: 'No Email Provided'});
+        }
+
+        db.subscriptions.add(email).then(res => res.redirect('/')).catch(err => res.redirect('/error', { message: err }));
+    });
+
     app.get('/about', (req, res) => res.render('partials/about'));
     app.get('/termsofuse', (req, res) => res.render('partials/tos'));
     app.get('/policies', (req, res) => res.render('partials/policies'));
