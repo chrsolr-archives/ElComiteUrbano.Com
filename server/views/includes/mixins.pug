@@ -20,9 +20,9 @@ mixin card_wrapper_song(song)
 
 mixin card_wrapper_song_mini(song)
     .media
-        .media-left.media-middle
+        .media-left
             img.media-object(src=song.imageUrl, alt=song.title, width="100px", height="100px")
-        .media-body
+        .media-body.media-middle
             .truncate.small #{song.artists}
             .truncate #{song.title} #{song.title}
             .divider
