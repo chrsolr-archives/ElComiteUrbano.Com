@@ -3,11 +3,11 @@ define(["require", "exports", "jquery"], function (require, exports, $) {
     var NavBar = (function () {
         function NavBar() {
             var _this = this;
-            var $toggle_button = $('.navbar-menu-icon');
+            _this.toggle_button = $('.navbar-menu-icon');
             _this.$body = $('body');
             _this.$sidebar = $('.navbar-sidebar-wrapper');
             _this.$main_container = $('.main-container');
-            $toggle_button.on('click', function (e) {
+            _this.toggle_button.on('click', function (e) {
                 _this.toggle();
             });
         }
@@ -27,9 +27,11 @@ define(["require", "exports", "jquery"], function (require, exports, $) {
             if (window_width >= 1200 && !this.$sidebar.hasClass(class_name)) {
                 this.$sidebar.addClass(class_name);
                 this.$main_container.parent().removeClass('no-padding');
+                this.toggle_button.hide();
             }
             else if (window_width < 1200) {
                 this.$main_container.parent().addClass('no-padding');
+                this.toggle_button.show();
                 if (this.$sidebar.hasClass(class_name)) {
                     this.$sidebar.removeClass(class_name);
                 }
