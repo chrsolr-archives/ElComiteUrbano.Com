@@ -64,8 +64,8 @@ block content
                 span.title.text-right Soundcloud
                 .row
                     each song in songs
-                        .col-lg-4.col-md-3.col-sm-4.margin-bottom-4
-                            +card_wrapper_song(song)
+                        .col-lg-6.col-md-4.col-sm-6.margin-bottom-4
+                            +card_wrapper_song_mini(song)
 
     script.
         requirejs(['js/scripts/home'], function(HomeScript) {

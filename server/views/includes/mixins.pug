@@ -18,6 +18,16 @@ mixin card_wrapper_song(song)
             span.divider
             a.mfp-video-popup.mfp-iframe(href=song.trackUrl) Listen
 
+mixin card_wrapper_song_mini(song)
+    .media
+        .media-left.media-middle
+            img.media-object(src=song.imageUrl, alt=song.title, width="100px", height="100px")
+        .media-body
+            .truncate.small #{song.artists}
+            .truncate #{song.title} #{song.title}
+            .divider
+            a.mfp-video-popup.mfp-iframe(href=song.trackUrl) Listen
+
 mixin card_wrapper_promo(promo)
     .card-wrapper
         img.img-responsive.img-bg(src=promo.imageUrl, alt=promo.artists)
